@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khant Kyaw Lin - Full-Stack Developer</title>
+
+    <!-- External CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #0077b6;
+            --secondary-color: #00b4d8;
+            --bg-color-light: #f8faff;
+            --bg-color-dark: #0d1117;
+            --text-color-light: #1a1f2b;
+            --text-color-dark: #e9eef8;
+            --muted-dark: #9aa4b2;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #161b22;
+            --card-border-light: #dce3ea;
+            --card-border-dark: #2b313a;
+            --shadow-light: 0 6px 18px rgba(15, 23, 42, 0.06);
+            --shadow-dark: 0 6px 18px rgba(0, 0, 0, 0.5);
+            --scroll-thumb-color: var(--primary-color);
+            --scroll-track-color: #e9ecef;
+            --transition-fast: 200ms;
+            --transition-medium: 320ms;
+            --navbar-height: 72px;
+        }
+
+        /* --- Dark Theme --- */
+        body.dark-theme {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        body.dark-theme .navbar,
+        body.dark-theme .offcanvas,
+        body.dark-theme .footer {
+            background-color: #12161a !important;
+            border-color: var(--card-border-dark) !important;
+            color: var(--text-color-dark);
+        }
+
+        body.dark-theme .navbar-brand span {
+            color: var(--text-color-dark);
+        }
+
+        body.dark-theme .card,
+        body.dark-theme .modal-content,
+        body.dark-theme .section-bg,
+        body.dark-theme .contact-form {
+            background-color: var(--card-bg-dark);
+            color: var(--text-color-dark);
+            border-color: var(--card-border-dark);
+        }
+
+        body.dark-theme .modal-header,
+        body.dark-theme .modal-footer,
+        body.dark-theme .offcanvas-header {
+            border-color: var(--card-border-dark);
+        }
+
+        body.dark-theme .text-muted {
+            color: var(--muted-dark) !important;
+        }
+
+        body.dark-theme .fa-github {
+            color: var(--text-color-dark) !important;
+        }
+
+        body.dark-theme .nav-link {
+            color: var(--text-color-dark) !important;
+        }
+
+        body.dark-theme .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        body.dark-theme .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        body.dark-theme .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-toggler {
+            border: none !important;
+        }
+
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        body.dark-theme .btn-close {
+            filter: invert(1);
+        }
+
+        /* --- General & Typography --- */
+        html {
+            scroll-padding-top: var(--navbar-height);
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color var(--transition-medium) ease, color var(--transition-medium) ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), #7ab1ff);
+            border-radius: 2px;
+        }
+
+        .section-bg {
+            background-color: var(--bg-color-light);
+        }
+
+        /* --- Navbar & Theme Toggle --- */
+        .navbar {
+            box-shadow: var(--shadow-light);
+            transition: background-color var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+            backdrop-filter: blur(6px);
+            height: var(--navbar-height);
+        }
+
+        .nav-link.active {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-3px);
+
+        }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .theme-toggle input[type="checkbox"] {
+            appearance: none;
+            width: 46px;
+            height: 26px;
+            background: #e9edf2;
+            border-radius: 999px;
+            position: relative;
+            outline: none;
+            border: 1px solid rgba(12, 13, 14, .06);
+            transition: background var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .theme-toggle input[type="checkbox"]::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(16, 24, 40, .12);
+            transition: transform var(--transition-fast) ease;
+        }
+
+        .theme-toggle input[type="checkbox"]:checked {
+            background: #1f2a33;
+        }
+
+        .theme-toggle input[type="checkbox"]:checked::after {
+            transform: translateX(20px);
+            background: linear-gradient(90deg, #ffd166, #ff6b6b);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+
+        .social_link {
+
+            transition: transform 0.3s ease;
+        }
+
+        .social_link:hover {
+            transform: translateY(-3px);
+        }
+
+        .img-profile {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: var(--shadow-light);
+            transition: filter var(--transition-medium), transform var(--transition-medium);
+        }
+
+        body.dark-theme .img-profile {
+            filter: brightness(.95) saturate(.95);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .social-icons a {
+            transition: transform .18s ease, color .18s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-4px);
+        }
+
+        /* --- Skills Section --- */
+        .skills-slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        .skills-track {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            animation: slideSkills 40s linear infinite;
+            will-change: transform;
+        }
+
+        /* Pause animation on hover */
+        .skills-slider-container:hover .skills-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes slideSkills {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Original skill item styles with adjustments */
+        .skill-item {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: var(--card-bg-light);
+            box-shadow: var(--shadow-light);
+            transition: all 0.18s ease;
+            cursor: default;
+            min-width: 120px;
+            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body.dark-theme .skill-item {
+            background-color: var(--card-bg-dark);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(12, 13, 14, 0.08);
+        }
+
+        body.dark-theme .skill-item:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Color coding for icons */
+        .fa-html5 {
+            color: #e34c26;
+        }
+
+        .fa-css3-alt {
+            color: #264de4;
+        }
+
+        .fa-js-square {
+            color: #f0db4f;
+        }
+
+        .fa-code {
+            color: #0769ad;
+        }
+
+        .fa-bootstrap {
+            color: #563d7c;
+        }
+
+        .fa-php {
+            color: #777bb3;
+        }
+
+        .fa-laravel {
+            color: #ff2d20;
+        }
+
+        .fa-git-alt {
+            color: #f34f29;
+        }
+
+        .fa-database {
+            color: #00758f;
+        }
+
+        .fa-microsoft {
+            color: #5e5e5e;
+        }
+
+        .fa-android {
+            color: #3ddc84;
+        }
+
+        .fa-code-branch {
+            color: #2496ed;
+        }
+
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .skills-track {
+                animation: none !important;
+            }
+        }
+
+        /* --- Projects Section --- */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--card-border-light);
+            border-radius: 15px;
+            overflow: hidden;
+            /* background-color: var(--card-bg-light); */
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 18px 40px rgba(12, 23, 52, 0.08);
+        }
+
+        body.dark-theme .project-card:hover {
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card-img {
+            height: 220px;
+            object-fit: fill;
+            transition: transform 0.4s ease;
+            width: 100%;
+        }
+
+        .project-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color-light);
+        }
+
+        body.dark-theme .project-card-title {
+            color: var(--text-color-dark);
+        }
+
+        .project-card-text {
+            color: var(--text-color-light);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        body.dark-theme .project-card-text {
+            color: var(--text-color-dark);
+        }
+
+        .project-card-footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .project-badge {
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Fix for project card text in dark mode */
+        body.dark-theme .project-card-body {
+            color: var(--text-color-dark);
+
+        }
+
+        /* --- Certificates Section --- */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-tab {
+            padding: 0.5rem 1rem;
+            border-radius: 50rem;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background-color: transparent;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.14s, background 0.18s, color 0.18s;
+        }
+
+        .category-tab:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .category-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+        }
+
+        .certificate-swiper-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1rem 0;
+            overflow: hidden;
+        }
+
+        .certificate-card {
+            max-width: 360px;
+            margin: 0 auto;
+            border: 1px solid var(--card-border-light);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark-theme .certificate-card:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .certificate-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .certificate-progress-container {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 1.5rem auto 0;
+            max-width: 400px;
+        }
+
+        body.dark-theme .certificate-progress-container {
+            background: #30363d;
+        }
+
+        .certificate-progress-bar {
+            background: var(--primary-color);
+            height: 100%;
+            width: 0;
+            transition: width 0.4s ease;
+            border-radius: 4px;
+        }
+
+        .certificate-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .certificate-nav-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+        }
+
+        .certificate-nav-btn:hover {
+            background-color: #0a58ca;
+            transform: scale(1.1);
+        }
+
+        .certificate-nav-btn.swiper-button-disabled {
+            opacity: 0.45;
+            pointer-events: none;
+            background-color: #6c757d;
+        }
+
+        .certificate-status {
+            font-weight: 500;
+            color: var(--secondary-color);
+            min-width: 100px;
+            text-align: center;
+        }
+
+        body.dark-theme .certificate-status {
+            color: var(--muted-dark);
+        }
+
+        /* --- Experience Timeline --- */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            list-style: none;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -31px;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--bg-color-light);
+        }
+
+        body.dark-theme .timeline-item::before {
+            border-color: var(--bg-color-dark);
+        }
+
+        /* --- Contact & Footer --- */
+        body.dark-theme .contact-form .form-control {
+            background-color: #0d1117;
+            border-color: var(--card-border-dark);
+            color: var(--text-color-dark);
+        }
+
+        body.dark-theme .contact-form .form-control:focus {
+            background-color: #0d1117;
+            border-color: var(--primary-color);
+            color: var(--text-color-dark);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .footer {
+            border-top: 1px solid var(--card-border-light);
+        }
+
+
+
+        /* Modal height adjustments */
+        .modal-dialog {
+            max-height: 100vh;
+            margin: 0.5rem auto;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .modal-content {
+            max-height: 95vh;
+            overflow-y: auto;
+        }
+
+        /* Adjust modal header and footer to prevent content cutoff */
+        .modal-header,
+        .modal-footer {
+            flex-shrink: 0;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+        }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 575px) {
+            .img-profile {
+                width: 180px;
+                height: 180px;
+            }
+
+            .certificate-card img {
+                height: 180px;
+            }
+
+            /* Adjust scroll padding for mobile */
+            html {
+                scroll-padding-top: 60px;
+            }
+
+            /* Adjust navbar height for mobile */
+            .navbar {
+                height: 60px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .projects-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#main-navigation" data-bs-offset="100">
+
+    <!-- ===== Navigation Bar ===== -->
+    <nav id="navbar-main" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#hero">
+                <img src="resource/image/profile.jpg" alt="Khant Kyaw Lin" width="40" height="40"
+                    class="me-2 rounded-circle border border-primary" />
+                <span class="fw-bold">Khant Kyaw Lin</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Main Navigation Links -->
+                <ul id="main-navigation" class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+
+            <div class="d-none d-lg-flex align-items-center">
+                <a href="#" class="btn btn-outline-primary me-3" id="download-cv-desktop"><i
+                        class="fas fa-download me-2"></i>Download CV</a>
+                <label class="theme-toggle" title="Toggle light / dark theme">
+                    <input id="theme-switch-input-desktop" type="checkbox" aria-label="Toggle theme">
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Offcanvas Navigation ===== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Navigation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Mobile Navigation Links -->
+            <ul id="mobile-navigation" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="#" class="btn btn-primary w-100" id="download-cv-mobile"><i
+                            class="fas fa-download me-2"></i>Download CV</a>
+                </li>
+            </ul>
+            <div class="d-lg-none mt-3">
+                <label class="theme-toggle" title="Toggle light / dark theme">
+                    <input id="theme-switch-input-mobile" type="checkbox" aria-label="Toggle theme">
+                    <span class="toggle-label ms-2">Toggle Theme</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="d-flex align-items-center justify-content-center text-center"
+            aria-labelledby="hero-title">
+            <div class="container" data-aos="fade-up">
+                <h1 id="hero-title" class="display-4 fw-bolder">Khant Kyaw Lin</h1>
+                <p class="lead fs-4">I'm a <span id="typed-text" class="text-primary fw-bold"></span></p>
+                <div class="social-icons mt-4">
+                    <a href="https://www.linkedin.com/in/khant-kyaw-lin-646457247/" target="_blank"
+                        rel="noopener noreferrer" class="me-3 text-primary text-decoration-none"
+                        aria-label="LinkedIn Profile">
+                        <i class=" social_link fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/khantkyawlin" target="_blank" rel="noopener noreferrer"
+                        class="text-dark" aria-label="GitHub Profile">
+                        <i class=" social_link fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+                <div class="mt-5">
+                    <a href="#contact" class="btn btn-outline-primary btn-lg" role="button">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-5 section-bg" aria-labelledby="about-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="about-title" class="section-title text-center">About Me</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <img loading="lazy" src="resource/image/profile.jpg" class="img-profile"
+                            alt="Khant Kyaw Lin's profile picture" />
+                    </div>
+                    <div class="col-lg-8">
+                        <p class="lead">Hello! I'm Khant Kyaw Lin, an adaptive and passionate <strong>Full-Stack
+                                Developer</strong> with a
+                            unique journey bridging healthcare, education, and technology. I thrive on creating
+                            efficient, scalable, and
+                            user-focused web applications that deliver real-world impact.</p>
+
+                        <p>My path began in healthcare—earning 4 distinctions in Myanmar’s matriculation exam, studying
+                            at the University of
+                            Medicine 2, and later leading operations at Vital Care Pharmacy. Alongside this, I spent
+                            nearly a decade as a
+                            freelance study guide, mentoring high school students to academic success.</p>
+
+                        <p>In 2023, I transitioned into technology, completing a <strong>Level 4 Diploma in
+                                Computing</strong> with
+                            Distinction and currently pursuing Level 5. I have hands-on experience from a three-month
+                            internship at Soft
+                            Guide Software House, as well as skills in <strong>PHP, Laravel, MySQL, HTML/CSS,
+                                JavaScript</strong>, and
+                            <strong>full-stack development</strong>. I’m now expanding into <strong>Python</strong> and
+                            <strong>artificial
+                                intelligence</strong> to build intelligent, scalable solutions.
+                        </p>
+
+                        <p>With a blend of leadership, problem-solving, and technical expertise, I am eager to
+                            contribute to innovative
+                            teams and projects, bringing both adaptability and a relentless drive to learn.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-5" aria-labelledby="skills-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="skills-title" class="section-title text-center">Core Technologies</h2>
+
+                <!-- Skills Slider Container -->
+                <div class="skills-slider-container">
+                    <div class="skills-track">
+                        <!-- Existing Skills (Duplicated for seamless animation) -->
+                        <div class="skill-item" title="HTML5"><i class="fab fa-html5 skill-icon"></i>
+                            <p>HTML5</p>
+                        </div>
+                        <div class="skill-item" title="CSS3"><i class="fab fa-css3-alt skill-icon"></i>
+                            <p>CSS3</p>
+                        </div>
+                        <div class="skill-item" title="JavaScript (ES6+)"><i class="fab fa-js-square skill-icon"></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="skill-item" title="jQuery"><i class="fas fa-code skill-icon"></i>
+                            <p>jQuery</p>
+                        </div>
+                        <div class="skill-item" title="Bootstrap"><i class="fab fa-bootstrap skill-icon"></i>
+                            <p>Bootstrap</p>
+                        </div>
+                        <div class="skill-item" title="PHP"><i class="fab fa-php skill-icon"></i>
+                            <p>PHP</p>
+                        </div>
+                        <div class="skill-item" title="Laravel"><i class="fab fa-laravel skill-icon"></i>
+                            <p>Laravel</p>
+                        </div>
+                        <div class="skill-item" title="Git"><i class="fab fa-git-alt skill-icon"></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="skill-item" title="SQL"><i class="fas fa-database skill-icon"></i>
+                            <p>SQL</p>
+                        </div>
+                        <div class="skill-item" title="C#"><i class="fab fa-microsoft skill-icon"></i>
+                            <p>C#</p>
+                        </div>
+                        <div class="skill-item" title="Kotlin"><i class="fab fa-android skill-icon"></i>
+                            <p>Kotlin</p>
+                        </div>
+                        <div class="skill-item" title="RESTful APIs"><i class="fas fa-code-branch skill-icon"></i>
+                            <p>REST APIs</p>
+                        </div>
+
+                        <!-- Duplicated Skills for seamless animation -->
+                        <div class="skill-item" title="HTML5"><i class="fab fa-html5 skill-icon"></i>
+                            <p>HTML5</p>
+                        </div>
+                        <div class="skill-item" title="CSS3"><i class="fab fa-css3-alt skill-icon"></i>
+                            <p>CSS3</p>
+                        </div>
+                        <div class="skill-item" title="JavaScript (ES6+)"><i class="fab fa-js-square skill-icon"></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="skill-item" title="jQuery"><i class="fas fa-code skill-icon"></i>
+                            <p>jQuery</p>
+                        </div>
+                        <div class="skill-item" title="Bootstrap"><i class="fab fa-bootstrap skill-icon"></i>
+                            <p>Bootstrap</p>
+                        </div>
+                        <div class="skill-item" title="PHP"><i class="fab fa-php skill-icon"></i>
+                            <p>PHP</p>
+                        </div>
+                        <div class="skill-item" title="Laravel"><i class="fab fa-laravel skill-icon"></i>
+                            <p>Laravel</p>
+                        </div>
+                        <div class="skill-item" title="Git"><i class="fab fa-git-alt skill-icon"></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="skill-item" title="SQL"><i class="fas fa-database skill-icon"></i>
+                            <p>SQL</p>
+                        </div>
+                        <div class="skill-item" title="C#"><i class="fab fa-microsoft skill-icon"></i>
+                            <p>C#</p>
+                        </div>
+                        <div class="skill-item" title="Kotlin"><i class="fab fa-android skill-icon"></i>
+                            <p>Kotlin</p>
+                        </div>
+                        <div class="skill-item" title="RESTful APIs"><i class="fas fa-code-branch skill-icon"></i>
+                            <p>REST APIs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-5 section-bg" aria-labelledby="projects-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="projects-title" class="section-title text-center">My Projects</h2>
+                <div class="projects-container" id="projects-container">
+                    <!-- Projects will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-5" aria-labelledby="certificates-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="certificates-title" class="section-title text-center">Certificates & Awards</h2>
+                <div class="category-tabs">
+                    <div class="category-tab active" data-category="all">All</div>
+                    <div class="category-tab" data-category="web">Web Development</div>
+                    <div class="category-tab" data-category="ai">AI & ML</div>
+                    <div class="category-tab" data-category="data">Data Science</div>
+                    <div class="category-tab" data-category="professional">Professional Development</div>
+                    <div class="category-tab" data-category="computer">Computer Science</div>
+                </div>
+                <div class="certificate-swiper-container">
+                    <!-- Swiper wrapper is populated by JavaScript -->
+                </div>
+                <div class="certificate-progress-container">
+                    <div class="certificate-progress-bar" id="certificate-progress-bar"></div>
+                </div>
+                <div class="certificate-controls">
+                    <button id="certificate-prev-btn" class="certificate-nav-btn" aria-label="Previous Certificate"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <div id="certificate-status" class="certificate-status"></div>
+                    <button id="certificate-next-btn" class="certificate-nav-btn" aria-label="Next Certificate"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-5 section-bg" aria-labelledby="experience-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="experience-title" class="section-title text-center">Professional Experience</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <ul class="timeline">
+                            <li class="timeline-item">
+                                <h5>Full-Stack Developer <span class="text-muted fw-normal">| Freelance</span></h5>
+                                <small class="text-muted">Jan 2024 – Present</small>
+                                <p class="mt-2">Designing, developing, and maintaining web applications for various
+                                    clients
+                                    using <strong>PHP, Laravel, MySQL, HTML/CSS, JavaScript</strong>, and modern
+                                    full-stack
+                                    practices. Currently expanding expertise into <strong>Python</strong> and
+                                    <strong>AI-powered
+                                        solutions</strong> to deliver intelligent, scalable systems.
+                                </p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Intern – Software Development <span class="text-muted fw-normal">| Soft Guide
+                                        Software
+                                        House</span></h5>
+                                <small class="text-muted">May 2025 – Jul 2025</small>
+                                <p class="mt-2">Worked on real-world software projects in a collaborative development
+                                    environment. Gained practical experience in full-stack workflows, code versioning,
+                                    and
+                                    building dynamic, responsive web solutions.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Pharmacy Operations Lead <span class="text-muted fw-normal">| Vital Care
+                                        Pharmacy</span>
+                                </h5>
+                                <small class="text-muted">2022 – 2025</small>
+                                <p class="mt-2">Managed day-to-day pharmacy operations, customer care, inventory
+                                    systems, and
+                                    business workflows, ensuring high-quality healthcare delivery and operational
+                                    efficiency.
+                                </p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Freelance Study Guide <span class="text-muted fw-normal">| Self-employed</span></h5>
+                                <small class="text-muted">2014 – 2024</small>
+                                <p class="mt-2">Provided personalized academic coaching to high school students for
+                                    nearly a
+                                    decade, focusing on improving subject comprehension, exam performance, and study
+                                    habits.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-5" aria-labelledby="contact-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="contact-title" class="section-title text-center">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-form p-4 p-md-5">
+                            <form action="#" method="POST">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Your Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5"
+                                        required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-outline-primary w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2025 Khant Kyaw Lin. All Rights Reserved.</p>
+            <div class="social-icons mt-2">
+                <a href="https://linkedin.com/in/khantkyawlin" target="_blank" rel="noopener noreferrer"
+                    class="me-3 text-primary" aria-label="LinkedIn"><i
+                        class=" social_link fab fa-linkedin fa-lg"></i></a>
+                <a href="https://github.com/khantkyawlin" target="_blank" rel="noopener noreferrer" class="text-dark"
+                    aria-label="GitHub"><i class=" social_link fab fa-github fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Modals ===== -->
+    <!-- Single, Dynamic Certificate Modal -->
+    <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel">Certificate Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img loading="lazy" src="" class="img-fluid rounded" id="certificateModalImage"
+                        alt="Certificate Image">
+                    <div class="mt-3">
+                        <p id="certificateModalIssuer" class="text-muted small mb-1"></p>
+                        <p id="certificateModalDescription"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="certificateModalPdfLink" target="_blank" class="btn btn-primary">View Credential</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalTitle">Project Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="swiper project-modal-swiper">
+                        <div class="swiper-wrapper" id="projectSwiperWrapper">
+                            <!-- Images will be inserted here -->
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="mt-4">
+                        <p id="projectModalDescription"></p>
+                        <div class="mt-3">
+                            <h6>Technologies Used:</h6>
+                            <div class="d-flex flex-wrap gap-2" id="projectTechnologies"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="projectCodeLink" class="btn btn-outline-secondary" target="_blank">View Code</a>
+                    <a href="#" id="projectDemoLink" class="btn btn-primary" target="_blank">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Scripts ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Projects data array
+            const projectsData = [
+                {
+                    id: "project1",
+                    title: "Pharmacy Management System",
+                    description: "A comprehensive full-stack application developed to manage pharmacy inventory, sales, and reporting. The system features real-time inventory tracking, sales analytics, and automated reporting. Built with modern web technologies to ensure scalability and security.",
+                    technologies: ["React", "Node.js", "MongoDB", "Express"],
+                    images: [
+                        "https://images.unsplash.com/photo-1588702525321-48762f02f306?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/1542831371-29b0f74f94c5?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&h=500&q=80"
+                    ],
+                    codeLink: "https://github.com/khantkyawlin/pharmacy-system",
+                    demoLink: "https://pharmacy-demo.example.com"
+                },
+                {
+                    id: "project7",
+                    title: "Food Fusion Website",
+                    description: "'Food Lover' FoodFusion Website is an online platform developed to promote home cooking and connect food enthusiasts through an accessible and user-friendly website. It includes a variety of features such as recipe collections, a community cookbook, and helpful cooking resources. The website is built using PHP, MySQL, and JavaScript, ensuring strong security, mobile compatibility, and ease of use. Registered users can log in and share their culinary experiences, contributing to an engaging and supportive cooking community.",
+                    technologies: ["HTML", "CSS", "JavaScript", "PHP"],
+                    images: [
+                        "resource/projects/food_fusion_home.jpg",
+                        "resource/projects/food_fusion_recipe.jpg",
+                        "resource/projects/food_fusion_community.jpg",
+                        "resource/projects/food_fusion_culinary.jpg",
+                        "resource/projects/food_fusion_about.jpg",
+                        "resource/projects/food_fusion_user.jpg",
+                        "resource/projects/food_fusion_admin.jpg",
+                        "resource/projects/food_fusion_delete_user.jpg",
+                        "resource/projects/food_fusion_delete_admin.jpg"
+
+                    ],
+                    codeLink: "https://github.com/khantkyawlin/food-fusion",
+                    demoLink: "https://food-fusion.example.com"
+                },
+                {
+                    id: "project2",
+                    title: "E-learning Platform",
+                    description: "An online learning platform with comprehensive course management, user authentication, and progress tracking. Features include video content delivery, quizzes, certificates, and instructor dashboards. Designed to be accessible on all devices.",
+                    technologies: ["React", "Redux", "Node.js", "PostgreSQL", "Express"],
+                    images: [
+                        "https://images.unsplash.com/photo-1542831371-29b0f74f94c5?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&h=500&q=80"
+                    ],
+                    codeLink: "https://github.com/khantkyawlin/e-learning",
+                    demoLink: "https://elearning-demo.example.com"
+                },
+                {
+                    id: "project3",
+                    title: "Developer Portfolio",
+                    description: "A responsive personal portfolio website showcasing projects, skills, and professional experience. Built with Bootstrap and modern JavaScript, featuring smooth animations, dark mode, and responsive design principles. Optimized for performance and accessibility.",
+                    technologies: ["JavaScript", "Bootstrap", "HTML5", "CSS3"],
+                    images: [
+                        "https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&h=500&q=80"
+                    ],
+                    codeLink: "https://github.com/khantkyawlin/portfolio",
+                    demoLink: "https://khantkyawlin.com"
+                },
+                {
+                    id: "project4",
+                    title: "Task Management App",
+                    description: "A productivity application for managing daily tasks with drag-and-drop functionality, due date tracking, and team collaboration features. Includes real-time updates, notifications, and performance analytics.",
+                    technologies: ["Vue.js", "Firebase", "Tailwind CSS", "Node.js"],
+                    images: [
+                        "https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1591696205602-2f950c417dad?auto=format&fit=crop&w=800&h=500&q=80"
+                    ],
+                    codeLink: "https://github.com/khantkyawlin/task-manager",
+                    demoLink: "https://taskmanager-demo.example.com"
+                },
+                {
+                    id: "project5",
+                    title: "Restaurant Booking System",
+                    description: "A reservation management system for restaurants with table management, customer profiles, and automated reminders. Features include real-time availability, waitlist management, and reporting tools for business insights.",
+                    technologies: ["Laravel", "Vue.js", "MySQL", "Bootstrap"],
+                    images: [
+                        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&h=500&q=80"
+                    ],
+                    codeLink: "https://github.com/khantkyawlin/restaurant-booking",
+                    demoLink: "https://restaurant-booking.example.com"
+                },
+                {
+                    id: "project6",
+                    title: "Fitness Tracker App",
+                    description: "A mobile-first fitness application for tracking workouts, nutrition, and progress. Includes exercise libraries, workout plans, calorie tracking, and progress visualization. Syncs with wearable devices for comprehensive health monitoring.",
+                    technologies: ["React Native", "Node.js", "MongoDB", "Express"],
+                    images: [
+                        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&h=500&q=80",
+                        "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&h=500&q=80"
+                    ],
+                    codeLink: "https://github.com/khantkyawlin/fitness-tracker",
+                    demoLink: "https://fitness-demo.example.com"
+                }
+            ];
+
+            // Function to render projects
+            function renderProjects() {
+                const container = document.getElementById('projects-container');
+                container.innerHTML = '';
+
+                projectsData.forEach(project => {
+                    // Find first valid image or use placeholder
+                    const firstValidImage = project.images.find(img => img && img.trim() !== '') ||
+                        'https://via.placeholder.com/800x500?text=No+Preview';
+
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.setAttribute('data-project-id', project.id);
+
+                    projectCard.innerHTML = `
+            <img loading="lazy" src="${firstValidImage}" class="project-card-img" alt="${project.title}">
+            <div class="project-card-body">
+                <h5 class="project-card-title">${project.title}</h5>
+                <p class="project-card-text">${project.description}</p>
+                <div class="project-card-footer">
+                    ${project.technologies.map(tech =>
+                        `<span class="project-badge bg-primary">${tech}</span>`
+                    ).join('')}
+                </div>
+            </div>
+        `;
+
+                    projectCard.addEventListener('click', () => openProjectModal(project));
+                    container.appendChild(projectCard);
+                });
+            }
+
+            // Function to open project modal
+            function openProjectModal(project) {
+                // Set modal content
+                document.getElementById('projectModalTitle').textContent = project.title;
+                document.getElementById('projectModalDescription').textContent = project.description;
+                document.getElementById('projectCodeLink').href = project.codeLink;
+                document.getElementById('projectDemoLink').href = project.demoLink;
+
+                // Clear and populate technologies
+                const techContainer = document.getElementById('projectTechnologies');
+                techContainer.innerHTML = '';
+                project.technologies.forEach(tech => {
+                    const badge = document.createElement('span');
+                    badge.className = 'project-badge bg-primary';
+                    badge.textContent = tech;
+                    techContainer.appendChild(badge);
+                });
+
+                // Clear and populate images - filter out empty images
+                const swiperWrapper = document.getElementById('projectSwiperWrapper');
+                swiperWrapper.innerHTML = '';
+
+                // Filter out empty images and create slides
+                const validImages = project.images.filter(img => img && img.trim() !== '');
+
+                if (validImages.length > 0) {
+                    validImages.forEach(img => {
+                        const slide = document.createElement('div');
+                        slide.className = 'swiper-slide';
+                        slide.innerHTML = `<img src="${img}" class="img-fluid" alt="${project.title}">`;
+                        swiperWrapper.appendChild(slide);
+                    });
+                } else {
+                    // Fallback when no images available
+                    swiperWrapper.innerHTML = `
+            <div class="swiper-slide">
+                <div class="d-flex align-items-center justify-content-center bg-light" style="height: 300px;">
+                    <p class="text-muted">No preview available</p>
+                </div>
+            </div>
+        `;
+                }
+
+                // Initialize or reinitialize Swiper
+                if (window.projectSwiper) {
+                    window.projectSwiper.destroy();
+                }
+
+                window.projectSwiper = new Swiper('.project-modal-swiper', {
+                    loop: validImages.length > 1, // Only loop if there are multiple images
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+
+                // Show the modal
+                const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+                projectModal.show();
+            }
+
+            // Call function to render projects
+            renderProjects();
+
+            // --- Initialize AOS (Animate on Scroll) ---
+            AOS.init({
+                duration: 800,
+                once: true,
+                easing: 'ease-in-out'
+            });
+            // --- Typed.js Effect for Hero Section ---
+            const typedTextElement = document.getElementById('typed-text');
+            if (typedTextElement) {
+                new Typed(typedTextElement, {
+                    strings: [
+                        'Full-Stack Developer.',
+                        'Multidisciplinary Problem Solver.',
+                        'Impact-Driven Synthesizer.',
+                        'PHP &amp; Laravel Enthusiast.',
+                        'AI &amp; Python Learner.'
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+            }
+
+            // --- Theme Toggle Functionality ---
+            const desktopToggle = document.getElementById("theme-switch-input-desktop");
+            const mobileToggle = document.getElementById("theme-switch-input-mobile");
+            const savedTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+            const applyTheme = (theme) => {
+                if (theme === "dark") {
+                    document.body.classList.add("dark-theme");
+                    desktopToggle.checked = true;
+                    mobileToggle.checked = true;
+                } else {
+                    document.body.classList.remove("dark-theme");
+                    desktopToggle.checked = false;
+                    mobileToggle.checked = false;
+                }
+            };
+
+            applyTheme(savedTheme);
+
+            const toggleTheme = () => {
+                const newTheme = document.body.classList.contains("dark-theme") ? "light" : "dark";
+                localStorage.setItem("theme", newTheme);
+                applyTheme(newTheme);
+            };
+
+            desktopToggle.addEventListener("change", toggleTheme);
+            mobileToggle.addEventListener("change", toggleTheme);
+
+            // --- Active Nav Link on Scroll & Offcanvas Handling ---
+            const offcanvasElement = document.getElementById('offcanvasNavbar');
+            if (offcanvasElement) {
+                const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+                const navLinks = offcanvasElement.querySelectorAll('.nav-link');
+
+                // Close offcanvas and scroll to section when a nav link is clicked
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+
+                        // Close the offcanvas
+                        offcanvas.hide();
+
+                        // After the offcanvas is hidden, scroll to the target
+                        const handleHidden = () => {
+                            offcanvasElement.removeEventListener('hidden.bs.offcanvas', handleHidden);
+                            if (targetElement) {
+                                const navbar = document.querySelector('#navbar-main');
+                                const navbarHeight = navbar.offsetHeight;
+                                const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                                window.scrollTo({
+                                    top: targetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        };
+
+                        offcanvasElement.addEventListener('hidden.bs.offcanvas', handleHidden);
+                    });
+                });
+            }
+
+            // --- FIXED: Navigation Active State Management ---
+            // Get all section elements and nav links
+            const sections = document.querySelectorAll('section');
+            const mainNavLinks = document.querySelectorAll('#main-navigation .nav-link');
+            const mobileNavLinks = document.querySelectorAll('#mobile-navigation .nav-link');
+            const allNavLinks = [...mainNavLinks, ...mobileNavLinks];
+
+            // Function to update active nav link
+            function updateActiveNav() {
+                const scrollPosition = window.scrollY + 100;
+
+                // Find the section that's currently in view
+                let currentSectionId = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSectionId = section.id;
+                    }
+                });
+
+                // Update active class for all nav links
+                allNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Initialize active state on page load
+            updateActiveNav();
+
+            // Update active state on scroll
+            window.addEventListener('scroll', updateActiveNav);
+
+            // Update active state when clicking links (for immediate feedback)
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    // Remove active class from all links
+                    allNavLinks.forEach(l => l.classList.remove('active'));
+
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                });
+            });
+
+            // --- CERTIFICATES SECTION SCRIPT ---
+
+            // Data for all certificates
+            const allCertificatesData = [
+                {
+                    "category": "web",
+                    "title": "HTML Essentials",
+                    "issuer": "Cisco Networking Academy | Issued: Aug 04, 2025",
+                    "description": "Khant Kyaw Lin can create structured HTML documents, format text and multimedia, and build accessible web pages using semantic HTML and web accessibility principles. The graduate can also use hyperlinks for navigation, develop web forms with basic input fields, and understand HTML's relationship with CSS and JavaScript. The course was provided in collaboration with JS Institute.",
+                    "imgSrc": "resource/image/html_essentials.jpg",
+                    "pdfLink": "https://www.credly.com/badges/c71feb54-0dde-4c5b-8236-67868c9d4f16/public_url"
+                },
+                {
+                    "category": "web",
+                    "title": "CSS Essentials",
+                    "issuer": "Cisco Networking Academy | Issued: Aug 11, 2025",
+                    "description": "Khant Kyaw Lin is proficient in applying CSS syntax to style web pages and using the CSS box model for layout and design. The graduate can also implement responsive web design, enhance user experience with CSS transitions and animations, and optimize CSS performance. This course, provided in collaboration with JS Institute, also covered ensuring web content accessibility and applying CSS frameworks like Bootstrap.",
+                    "imgSrc": "resource/image/css_essentials.jpg",
+                    "pdfLink": "https://www.credly.com/badges/8436bac8-31e0-4047-8378-67255ca3f793/public_url"
+                },
+                {
+                    "category": "web",
+                    "title": "Professional Web Design Course",
+                    "issuer": "Code Lab | Issued: Jul 27, 2025",
+                    "description": "Khant Kyaw Lin successfully completed the 'Professional Web Design Course' which covered topics such as Web Standard, HTML, Mobile Web, CSS, Color Theory, Design Pattern, and Responsive Web Page.",
+                    "imgSrc": "resource/image/web_desigh(code-lab).jpg",
+                    "pdfLink": "resource/certificates/code_lab_web_design.pdf"
+                },
+                {
+                    "category": "web",
+                    "title": "PHP Internship Course",
+                    "issuer": "SOFT GUIDE COMPUTER TRAINING CENTRE | Issued: Jul 26, 2025",
+                    "description": "Khant Kyaw Lin satisfactorily completed a PHP Internship Course. The course covered HTML5, CSS3, JavaScript, JQuery, Bootstrap5, MySQL, Pure PHP, Laravel, RESTful API, Git and GitHub, and an E-learning Project with Pure PHP Pharmacy Management System.",
+                    "imgSrc": "resource/image/internship_certificate(Soft-Guide).jpg",
+                    "pdfLink": "resource/certificates/soft_guide_intern.pdf"
+                },
+                {
+                    "category": "ai",
+                    "title": "AI Fundamentals",
+                    "issuer": "IBM SkillsBuild | Issued: Aug 07, 2025",
+                    "description": "Khant Kyaw Lin has satisfied the requirements for the 'Artificial Intelligence Fundamentals' course from IBM SkillsBuild. The student is able to understand fundamental AI concepts, recognize ethical implications, and set up a machine learning project in IBM Watson Studio. The course was provided by Cisco Networking Academy in collaboration with IBM.",
+                    "imgSrc": "resource/image/ai_fundamentals_with_ibm.jpg",
+                    "pdfLink": "https://www.credly.com/badges/be64d6cb-3e2a-40fe-8095-80eb346febc5/public_url"
+                },
+                {
+                    "category": "ai",
+                    "title": "AI Fundamentals",
+                    "issuer": "IBM SkillsBuild | Issued: Aug 07, 2025",
+                    "description": "Khant Kyaw Lin has satisfied the requirements for the 'Artificial Intelligence Fundamentals' course from IBM SkillsBuild. The student is able to understand fundamental AI concepts, recognize ethical implications, and set up a machine learning project in IBM Watson Studio. The course was provided by Cisco Networking Academy in collaboration with IBM.",
+                    "imgSrc": "resource/image/ai_fundamentalS(IBM).jpg",
+                    "pdfLink": "https://www.credly.com/badges/89e8f3f9-6adb-492d-9873-55ad8eb981c7/public_url"
+                },
+                {
+                    "category": "ai",
+                    "title": "Introduction to Modern AI",
+                    "issuer": "Cisco Networking Academy | Issued: Jul 31, 2025",
+                    "description": "Khant Kyaw Lin has completed the 'Introduction to Modern AI' course. The student can explain basic concepts in AI and Machine Learning, use machine translation, and explain the fundamentals of large language models (LLMs). The student can also demonstrate use cases for LLM-enabled chatbots, facilitate collaboration between chatbots, and use LLMs with tools like web search.",
+                    "imgSrc": "resource/image/introduction_to_modern_ai.png",
+                    "pdfLink": "https://www.credly.com/badges/a7d9c179-cb73-46d4-800c-16801b89100e/public_url"
+                },
+                {
+                    "category": "computer",
+                    "title": "Computer Hardware Basics",
+                    "issuer": "Cisco Networking Academy | Issued: Aug 03, 2025",
+                    "description": "Khant Kyaw Lin has successfully completed the Computer Hardware Basics course. The student is proficient in installing components to build, repair, or upgrade personal computers[cite: 8]. [cite_start]They can also describe common device hardware, preventive maintenance, and explain the features of laptops and mobile devices[cite: 9, 10, 11]. [cite_start]The course also covered general and fire safety standards[cite: 12].",
+                    "imgSrc": "resource/image/computer_hardware_basic.jpg",
+                    "pdfLink": "https://www.credly.com/badges/93093b5a-9d36-4a71-be1a-e87e2ebc5b01/public_url"
+                },
+
+
+                {
+                    "category": "computer",
+                    "title": "Operating Systems Basics",
+                    "issuer": "Cisco Networking Academy | Issued: Aug 13, 2025",
+                    "description": "Khant Kyaw Lin has successfully completed the Operating Systems Basics course. The student is proficient in explaining the architecture of Windows, using Windows administrative tools, and using the Linux shell to manipulate text files. The student can also implement basic Linux security and explain how to configure network connectivity on mobile devices.",
+                    "imgSrc": "resource/image/operating_system_basic.jpg",
+                    "pdfLink": "https://www.credly.com/badges/80e4b8f5-9f43-4381-9d51-7f97c06a57c9/public_url"
+                },
+                {
+                    "category": "computer",
+                    "title": "NCC Education Level 4 Diploma in Computing",
+                    "issuer": "NCC Education | Issued: Jan 17, 2025",
+                    "description": "Khant Kyaw Lin has successfully achieved a Distinction mark of 79% in the NCC Education Level 4 Diploma in Computing. The qualification was awarded by NCC Education and delivered by KMD College, Myanmar.",
+                    "imgSrc": "resource/image/NCC_L4_Diploma.jpg",
+                    "pdfLink": "resource/certificates/ncc_L4_diploma.pdf"
+                },
+
+                {
+                    "category": "professional",
+                    "title": "IT Customer Support Basics",
+                    "issuer": "Cisco Networking Academy | Issued: Jul 25, 2025",
+                    "description": "Khant Kyaw Lin has completed the IT Customer Support Basics course. The student can learn the basic functions of a help desk and practice creating records that summarize customer issues. They also understand how to troubleshoot issues, support user devices remotely, and assist with common issues in apps like email and collaboration tools.",
+                    "imgSrc": "resource/image/it_customer_support_basic.jpg",
+                    "pdfLink": "https://www.credly.com/badges/fb256c76-88c9-46e7-a439-cc1df4671b3e/public_url"
+                },
+                {
+                    "category": "professional",
+                    "title": "Creating Compelling Reports",
+                    "issuer": "Cisco Networking Academy | Issued: Jul 26, 2025",
+                    "description": "Khant Kyaw Lin has successfully completed the Creating Compelling Reports course. The student is proficient in explaining the business value of compelling reports and implementing appropriate design choices for purpose and audience. They can also apply contextual understanding to report design, select authoring decisions, and determine appropriate responses for individual reporting scenarios.",
+                    "imgSrc": "resource/image/creating_compelling_report.jpg",
+                    "pdfLink": "https://www.credly.com/badges/382e24dd-a1d8-46ff-a11c-86ec05e221a2/public_url"
+                }
+            ];
+
+            // DOM Elements for Certificate Section
+            const swiperContainer = document.querySelector('.certificate-swiper-container');
+            const prevBtn = document.getElementById('certificate-prev-btn');
+            const nextBtn = document.getElementById('certificate-next-btn');
+            const statusEl = document.getElementById('certificate-status');
+            const progressBar = document.getElementById('certificate-progress-bar');
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const certificateModalInstance = new bootstrap.Modal(document.getElementById('certificateModal'));
+
+            let certificateSwiper = null;
+
+            // Function to Initialize or Re-initialize Swiper
+            const initSwiper = (slidesData) => {
+                if (certificateSwiper) {
+                    certificateSwiper.destroy(true, true);
+                }
+                swiperContainer.innerHTML = '<div class="swiper-wrapper"></div>';
+                const swiperWrapper = swiperContainer.querySelector('.swiper-wrapper');
+
+                if (slidesData.length === 0) {
+                    swiperWrapper.innerHTML = '<p class="text-center p-3">No certificates found in this category.</p>';
+                    if (statusEl) statusEl.textContent = '';
+                    if (prevBtn) prevBtn.style.display = 'none';
+                    if (nextBtn) nextBtn.style.display = 'none';
+                    if (progressBar) progressBar.style.width = '0%';
+                    return;
+                }
+
+                if (prevBtn) prevBtn.style.display = 'flex';
+                if (nextBtn) nextBtn.style.display = 'flex';
+
+                slidesData.forEach(cert => {
+                    const slideHTML = `
+                        <div class="swiper-slide">
+                            <div class="card certificate-card" 
+                                 data-title="${cert.title}" 
+                                 data-img-src="${cert.imgSrc}" 
+                                 data-issuer="${cert.issuer}" 
+                                 data-description="${cert.description}"
+                                 data-pdf-link="${cert.pdfLink}">
+                                <img loading="lazy" src="${cert.imgSrc}" class="card-img-top" alt="${cert.title}">
+                                <div class="card-body">
+                                    <h6 class="card-title">${cert.title}</h6>
+                                    <p class="text-muted small">${cert.issuer}</p>
+                                </div>
+                            </div>
+                        </div>`;
+                    swiperWrapper.insertAdjacentHTML('beforeend', slideHTML);
+                });
+
+                certificateSwiper = new Swiper(swiperContainer, {
+                    effect: 'slide',
+                    loop: false,
+                    allowTouchMove: false, // Disables mouse/touch dragging
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    keyboard: { enabled: true },
+                    navigation: {
+                        nextEl: nextBtn,
+                        prevEl: prevBtn,
+                    },
+                    on: {
+                        init: updateSwiperUI,
+                        slideChange: updateSwiperUI,
+                    },
+                });
+
+                addModalListeners();
+            };
+
+            // Function to Update Swiper UI (Status, Progress Bar)
+            const updateSwiperUI = (swiper) => {
+                if (!swiper || swiper.slides.length === 0) return;
+                const totalSlides = swiper.slides.length;
+                const activeIndex = swiper.realIndex;
+                if (statusEl) statusEl.textContent = `Certificate ${activeIndex + 1} of ${totalSlides}`;
+                if (progressBar) progressBar.style.width = `${((activeIndex + 1) / totalSlides) * 100}%`;
+            };
+
+            // Function to Handle Category Filtering
+            const filterCertificates = (e) => {
+                const category = e.target.dataset.category;
+                categoryTabs.forEach(tab => tab.classList.remove('active'));
+                e.target.classList.add('active');
+                const filteredData = category === 'all' ? allCertificatesData : allCertificatesData.filter(cert => cert.category === category);
+                initSwiper(filteredData);
+            };
+
+            // Function to Open and Populate the Dynamic Modal
+            const openCertificateModal = (e) => {
+                const card = e.currentTarget;
+                document.getElementById('certificateModalLabel').textContent = card.dataset.title;
+                document.getElementById('certificateModalImage').src = card.dataset.imgSrc;
+                document.getElementById('certificateModalImage').alt = card.dataset.title;
+                document.getElementById('certificateModalIssuer').textContent = card.dataset.issuer;
+                document.getElementById('certificateModalDescription').textContent = card.dataset.description;
+                document.getElementById('certificateModalPdfLink').href = card.dataset.pdfLink;
+                certificateModalInstance.show();
+            };
+
+            // Function to add click listeners to the current set of certificate cards
+            const addModalListeners = () => {
+                document.querySelectorAll('.certificate-card').forEach(card => {
+                    card.addEventListener('click', openCertificateModal);
+                });
+            };
+
+            // Initial Setup for Certificate Section
+            categoryTabs.forEach(tab => tab.addEventListener('click', filterCertificates));
+            initSwiper(allCertificatesData); // Initial load with all certificates
+
+            // Smooth scrolling for desktop navigation
+            document.querySelectorAll('#navbarNav .nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const navbar = document.querySelector('#navbar-main');
+                        const navbarHeight = navbar.offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // CV Download Functionality
+            function downloadCV() {
+                // Create a dummy PDF (in a real scenario, you would link to an actual file)
+                const pdfContent = "%PDF-1.4\n..."; // Simplified PDF content
+                const blob = new Blob([pdfContent], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Khant_Kyaw_Lin_CV.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                // Show download confirmation
+                const toast = document.createElement('div');
+                toast.className = 'toast position-fixed bottom-0 end-0 m-3 bg-success text-white';
+                toast.style.zIndex = '1060';
+                toast.innerHTML = `
+                    <div class="toast-body d-flex align-items-center">
+                        <i class="fas fa-check-circle me-2"></i>
+                        CV downloaded successfully!
+                    </div>
+                `;
+                document.body.appendChild(toast);
+
+                // Show toast
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 100);
+
+                // Hide toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+
+            // Attach download functionality to buttons
+            document.getElementById('download-cv-desktop').addEventListener('click', function (e) {
+                e.preventDefault();
+                downloadCV();
+            });
+
+            document.getElementById('download-cv-mobile').addEventListener('click', function (e) {
+                e.preventDefault();
+                downloadCV();
+            });
+        });
+    </script>
+</body>
+
+</html>
