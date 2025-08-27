@@ -1901,25 +1901,23 @@
                 downloadCV();
             });
 
-            document.getElementById("contactForm").addEventListener("submit", function (e) {
+           document.getElementById("contactForm").addEventListener("submit", function (e) {
                 e.preventDefault(); // stop normal form submit
 
-                // Send form with AJAX to FormSubmit
                 const form = e.target;
                 fetch(form.action, {
                     method: "POST",
                     body: new FormData(form)
                 }).then(response => {
-                    if (response.ok) {
+                    // ✅ FormSubmit usually returns a redirect (status 200–399)
+                    if (response.status >= 200 && response.status < 400) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Message Sent!',
                             text: 'Your message is successfully sent to Khant Kyaw Lin.',
                             confirmButtonColor: '#0d6efd'
                         }).then(() => {
-                            // reset form
                             form.reset();
-                            // redirect back to #contact section
                             window.location.hash = "#contact";
                         });
                     } else {
@@ -1937,6 +1935,7 @@
                     });
                 });
             });
+
         });
     </script>
 </body>
