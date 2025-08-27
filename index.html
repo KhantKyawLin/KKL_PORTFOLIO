@@ -767,8 +767,9 @@
 
 
             <div class="d-none d-lg-flex align-items-center">
-                <a href="#" class="btn btn-outline-primary me-3" id="download-cv-desktop"><i
-                        class="fas fa-download me-2"></i>Download CV</a>
+                <a href="#" class="btn btn-outline-primary me-3" id="download-cv-desktop">
+                    <i class="fas fa-download me-2"></i>Download CV
+                </a>
                 <label class="theme-toggle" title="Toggle light / dark theme">
                     <input id="theme-switch-input-desktop" type="checkbox" aria-label="Toggle theme">
                 </label>
@@ -1849,57 +1850,43 @@
                 });
             });
 
-            // CV Download Functionality
             function downloadCV() {
-                // Create a dummy PDF (in a real scenario, you would link to an actual file)
-                const pdfContent = "%PDF-1.4\n..."; // Simplified PDF content
-                const blob = new Blob([pdfContent], { type: 'application/pdf' });
-                const url = URL.createObjectURL(blob);
+                // Link to actual CV file in your project
+                const fileUrl = 'resource/certificates/Khant_Kyaw_Lin-CV.pdf';
+                const fileName = 'Khant_Kyaw_Lin-CV.pdf';
 
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'Khant_Kyaw_Lin_CV.pdf';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
+                const link = document.createElement('a');
+                link.href = fileUrl;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
 
-                // Show download confirmation
+                // ✅ Show toast
                 const toast = document.createElement('div');
                 toast.className = 'toast position-fixed bottom-0 end-0 m-3 bg-success text-white';
                 toast.style.zIndex = '1060';
                 toast.innerHTML = `
-                    <div class="toast-body d-flex align-items-center">
-                        <i class="fas fa-check-circle me-2"></i>
-                        CV downloaded successfully!
-                    </div>
-                `;
+        <div class="toast-body d-flex align-items-center">
+            <i class="fas fa-check-circle me-2"></i>
+            CV downloaded successfully!
+        </div>
+    `;
                 document.body.appendChild(toast);
 
-                // Show toast
-                setTimeout(() => {
-                    toast.classList.add('show');
-                }, 100);
-
-                // Hide toast after 3 seconds
+                setTimeout(() => toast.classList.add('show'), 100);
                 setTimeout(() => {
                     toast.classList.remove('show');
-                    setTimeout(() => {
-                        document.body.removeChild(toast);
-                    }, 300);
+                    setTimeout(() => document.body.removeChild(toast), 300);
                 }, 3000);
             }
 
-            // Attach download functionality to buttons
+            // Attach to button
             document.getElementById('download-cv-desktop').addEventListener('click', function (e) {
                 e.preventDefault();
                 downloadCV();
             });
 
-            document.getElementById('download-cv-mobile').addEventListener('click', function (e) {
-                e.preventDefault();
-                downloadCV();
-            });
         });
     </script>
 </body>
