@@ -1062,7 +1062,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="contact-form p-4 p-md-5">
-                            <form action="#" method="POST">
+                            <form action="https://formsubmit.co/khantkyawlinn.kkl@gmail.com" method="POST">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Your Name</label>
                                     <input type="text" class="form-control" id="name" name="name" required>
@@ -1078,6 +1081,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary w-100">Send Message</button>
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -1152,7 +1156,8 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#" id="projectCodeLink" class="btn btn-outline-secondary" target="_blank">View Code</a>
-                    <a href="#" id="projectDemoLink" class="btn btn-primary" target="_blank">Live Demo</a>
+                    <!-- <a href="#" id="projectDemoLink" class="btn btn-primary" target="_blank">Live Demo</a> -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -1397,7 +1402,7 @@
                 document.getElementById('projectModalTitle').textContent = project.title;
                 document.getElementById('projectModalDescription').textContent = project.description;
                 document.getElementById('projectCodeLink').href = project.codeLink;
-                document.getElementById('projectDemoLink').href = project.demoLink;
+                // document.getElementById('projectDemoLink').href = project.demoLink;
 
                 // Clear and populate technologies
                 const techContainer = document.getElementById('projectTechnologies');
