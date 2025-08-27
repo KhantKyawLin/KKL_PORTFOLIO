@@ -1062,8 +1062,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="contact-form p-4 p-md-5">
-                            <form id="contactForm" action="https://formsubmit.co/ajax/khantkyawlinn.kkl@gmail.com"
-                                method="POST">
+                            <form id="contactForm" method="POST">
                                 <input type="hidden" name="_captcha" value="false">
                                 <input type="hidden" name="_next" value="https://yourdomain.com/#contact">
 
@@ -1082,7 +1081,6 @@
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary w-100">Send Message</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -1905,15 +1903,28 @@
                 e.preventDefault();
 
                 const form = e.target;
-                fetch(form.action, {
+                const formData = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    message: form.message.value,
+                    _captcha: "false",
+                    _next: "https://yourdomain.com/#contact"
+                };
+
+                fetch("https://formsubmit.co/ajax/khantkyawlinn.kkl@gmail.com", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        name: form.name.value,
-                        email: form.email.value,
-                        message: form.message.value
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
                     })
-                }).then(response => response.json())
                     .then(data => {
                         if (data.success === "true") {
                             Swal.fire({
@@ -1932,7 +1943,9 @@
                                 text: 'Something went wrong. Please try again later.'
                             });
                         }
-                    }).catch(error => {
+                    })
+                    .catch(error => {
+                        console.error('Fetch error:', error);
                         Swal.fire({
                             icon: 'error',
                             title: 'Error',
