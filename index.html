@@ -1062,9 +1062,11 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="contact-form p-4 p-md-5">
-                            <form action="https://formsubmit.co/khantkyawlinn.kkl@gmail.com" method="POST">
+                            <form id="contactForm" action="https://formsubmit.co/khantkyawlinn.kkl@gmail.com"
+                                method="POST">
+                                <!-- FormSubmit settings -->
                                 <input type="hidden" name="_captcha" value="false">
-                                <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+                                <input type="hidden" name="_next" value="https://yourdomain.com/#contact">
 
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Your Name</label>
@@ -1081,12 +1083,12 @@
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary w-100">Send Message</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- ===== Footer ===== -->
@@ -1163,6 +1165,7 @@
         </div>
     </div>
 
+
     <!-- ===== Scripts ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -1170,7 +1173,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Custom JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1892,11 +1895,48 @@
                 e.preventDefault();
                 downloadCV();
             });
+
             document.getElementById('download-cv-mobile').addEventListener('click', function (e) {
                 e.preventDefault();
                 downloadCV();
             });
 
+            document.getElementById("contactForm").addEventListener("submit", function (e) {
+                e.preventDefault(); // stop normal form submit
+
+                // Send form with AJAX to FormSubmit
+                const form = e.target;
+                fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form)
+                }).then(response => {
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Message Sent!',
+                            text: 'Your message is successfully sent to Khant Kyaw Lin.',
+                            confirmButtonColor: '#0d6efd'
+                        }).then(() => {
+                            // reset form
+                            form.reset();
+                            // redirect back to #contact section
+                            window.location.hash = "#contact";
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong. Please try again later.'
+                        });
+                    }
+                }).catch(error => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Could not send message.'
+                    });
+                });
+            });
         });
     </script>
 </body>
