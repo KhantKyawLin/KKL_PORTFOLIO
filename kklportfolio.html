@@ -660,7 +660,17 @@
             border-top: 1px solid var(--card-border-light);
         }
 
+        /* See More Link Styles */
+        .see-more-link {
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: 500;
+            margin-left: 4px;
+        }
 
+        .see-more-link:hover {
+            text-decoration: underline;
+        }
 
         /* Modal height adjustments */
         .modal-dialog {
@@ -778,7 +788,7 @@
                 <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href-#projects">Projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
                 <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -1291,26 +1301,26 @@
                     demoLink: "https://fitness-demo.example.com"
                 }, {
                     id: "project6",
-                    title: "Fitness Tracker App (Kotilin)",
+                    title: "Fitness Tracker App (Kotlin)",
                     description: "This project involves the development of a comprehensive Android fitness application utilizing a modern technology stack for a robust and scalable solution. The frontend is built with Kotlin, while a PHP backend and MySQL database form the core of the system. This architecture ensures efficient and secure management of all user data. The app is designed to help users effectively track and log a wide range of activities, including running, cycling, and weightlifting, by recording key metrics like distance, speed, and reps.",
-                    technologies: ["PHP", "MySQL", "Kotilin"],
+                    technologies: ["PHP", "MySQL", "Kotlin"],
                     images: [
-                        "resource/projects/kotilin_fitness_1.png",
-                        "resource/projects/kotilin_fitness_2.png",
-                        "resource/projects/kotilin_fitness_3.png",
-                        "resource/projects/kotilin_fitness_4.png",
-                        "resource/projects/kotilin_fitness_5.png",
-                        "resource/projects/kotilin_fitness_6.png",
-                        "resource/projects/kotilin_fitness_7.png",
-                        "resource/projects/kotilin_fitness_8.png",
-                        "resource/projects/kotilin_fitness_9.png"
+                        "resource/projects/kotlin_fitness_1.png",
+                        "resource/projects/kotlin_fitness_2.png",
+                        "resource/projects/kotlin_fitness_3.png",
+                        "resource/projects/kotlin_fitness_4.png",
+                        "resource/projects/kotlin_fitness_5.png",
+                        "resource/projects/kotlin_fitness_6.png",
+                        "resource/projects/kotlin_fitness_7.png",
+                        "resource/projects/kotlin_fitness_8.png",
+                        "resource/projects/kotlin_fitness_9.png"
                     ],
-                    codeLink: "https://github.com/KhantKyawLin/Kotilin_Fitness_App",
+                    codeLink: "https://github.com/KhantKyawLin/Kotlin_Fitness_App",
                     demoLink: "https://fitness-demo.example.com"
                 }
             ];
 
-            // Function to render projects
+            // Function to render projects with "See More" functionality
             function renderProjects() {
                 const container = document.getElementById('projects-container');
                 container.innerHTML = '';
@@ -1324,20 +1334,57 @@
                     projectCard.className = 'project-card';
                     projectCard.setAttribute('data-project-id', project.id);
 
-                    projectCard.innerHTML = `
-            <img loading="lazy" src="${firstValidImage}" class="project-card-img" alt="${project.title}">
-            <div class="project-card-body">
-                <h5 class="project-card-title">${project.title}</h5>
-                <p class="project-card-text">${project.description}</p>
-                <div class="project-card-footer">
-                    ${project.technologies.map(tech =>
-                        `<span class="project-badge bg-primary">${tech}</span>`
-                    ).join('')}
-                </div>
-            </div>
-        `;
+                    // Create truncated description
+                    const maxLength = 150;
+                    const truncatedDescription = project.description.length > maxLength ?
+                        project.description.substring(0, maxLength) + '...' :
+                        project.description;
 
-                    projectCard.addEventListener('click', () => openProjectModal(project));
+                    projectCard.innerHTML = `
+                        <img loading="lazy" src="${firstValidImage}" class="project-card-img" alt="${project.title}">
+                        <div class="project-card-body">
+                            <h5 class="project-card-title">${project.title}</h5>
+                            <p class="project-card-text">
+                                <span class="description-text">${truncatedDescription}</span>
+                                ${project.description.length > maxLength ?
+                            '<span class="see-more-link">See More</span>' :
+                            ''}
+                            </p>
+                            <div class="project-card-footer">
+                                ${project.technologies.map(tech =>
+                                `<span class="project-badge bg-primary">${tech}</span>`
+                            ).join('')}
+                            </div>
+                        </div>
+                    `;
+
+                    // Add event listener for opening the modal
+                    projectCard.addEventListener('click', (e) => {
+                        // Check if the click was on the "See More" link
+                        if (e.target.classList.contains('see-more-link')) {
+                            return; // Do nothing, the link will handle it
+                        }
+                        openProjectModal(project);
+                    });
+
+                    // If the project description is long, add the toggle functionality to the "See More" link
+                    if (project.description.length > maxLength) {
+                        const seeMoreLink = projectCard.querySelector('.see-more-link');
+                        const descriptionText = projectCard.querySelector('.description-text');
+
+                        seeMoreLink.addEventListener('click', function (e) {
+                            e.stopPropagation(); // Prevent the card click event from firing
+
+                            if (this.textContent === 'See More') {
+                                descriptionText.textContent = project.description;
+                                this.textContent = 'See Less';
+                            } else {
+                                descriptionText.textContent = truncatedDescription;
+                                this.textContent = 'See More';
+                            }
+                        });
+                    }
+
                     container.appendChild(projectCard);
                 });
             }
@@ -1377,12 +1424,12 @@
                 } else {
                     // Fallback when no images available
                     swiperWrapper.innerHTML = `
-            <div class="swiper-slide">
-                <div class="d-flex align-items-center justify-content-center bg-light" style="height: 300px;">
-                    <p class="text-muted">No preview available</p>
-                </div>
-            </div>
-        `;
+                        <div class="swiper-slide">
+                            <div class="d-flex align-items-center justify-content-center bg-light" style="height: 300px;">
+                                <p class="text-muted">No preview available</p>
+                            </div>
+                        </div>
+                    `;
                 }
 
                 // Initialize or reinitialize Swiper
