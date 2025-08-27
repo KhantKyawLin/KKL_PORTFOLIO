@@ -794,7 +794,7 @@
                 <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item d-lg-none mt-3">
-                    <a href="#" class="btn btn-outline-primary me-3" id="download-cv-desktop">
+                    <a href="#" class="btn btn-outline-primary me-3" id="download-cv-mobile">
                         <i class="fas fa-download me-2"></i>Download CV
                     </a>
                 </li>
@@ -1852,7 +1852,7 @@
             });
 
             function downloadCV() {
-                // Link to actual CV file in your project
+                // ✅ Use a clean filename without spaces
                 const fileUrl = 'resource/certificates/Khant_Kyaw_Lin-CV.pdf';
                 const fileName = 'Khant_Kyaw_Lin-CV.pdf';
 
@@ -1882,8 +1882,12 @@
                 }, 3000);
             }
 
-            // Attach to button
+            // ✅ Attach to BOTH desktop & mobile
             document.getElementById('download-cv-desktop').addEventListener('click', function (e) {
+                e.preventDefault();
+                downloadCV();
+            });
+            document.getElementById('download-cv-mobile').addEventListener('click', function (e) {
                 e.preventDefault();
                 downloadCV();
             });
