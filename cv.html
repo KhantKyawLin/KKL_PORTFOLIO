@@ -17,50 +17,56 @@
 
         .cv-wrapper {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 40px auto;
             background: #fff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            padding: 40px 30px;
         }
 
         .cv-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: space-around;
         }
 
         .cv-header img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #0077b6;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
         .cv-header h1 {
             font-weight: 700;
+            font-size: 2rem;
             margin: 0;
         }
 
         .cv-header h3 {
             font-weight: 400;
+            font-size: 1.25rem;
             color: #6c757d;
-            margin-top: 5px;
+            margin-top: 0;
         }
 
         .cv-body {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 30px;
+            gap: 20px;
+        }
+
+        .section {
+            margin-bottom: 15px;
         }
 
         .section-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #0077b6;
             border-bottom: 2px solid #e9ecef;
             padding-bottom: 5px;
@@ -69,14 +75,14 @@
         .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
         }
 
         .info-item .info-icon {
             margin-right: 8px;
             color: #0077b6;
-            width: 18px;
+            width: 16px;
             text-align: center;
         }
 
@@ -85,6 +91,7 @@
             color: #212529;
             text-decoration: none;
             word-break: break-all;
+            font-size: 0.8rem;
         }
 
         .info-list,
@@ -96,46 +103,72 @@
             margin: 0;
         }
 
-        .info-list li,
-        .skills-list li,
-        .lang-list li {
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .info-list i {
-            width: 18px;
-            margin-right: 8px;
-            color: #0077b6;
-        }
-
         .timeline li {
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
 
         .timeline h6 {
             margin: 0;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
         .timeline small {
             color: #6c757d;
+            font-size: 0.75rem;
         }
 
         .timeline p {
-            margin: 3px 0 0;
-            font-size: 0.9rem;
+            margin: 1px 0 0;
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .cert-list {
+            column-count: 2;
+            column-gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .cert-list li p {
+            margin-bottom: 2px;
+            font-size: 0.75rem;
         }
 
         @media print {
+            @page {
+                size: A4;
+                margin: 1.5cm 0.5cm;
+            }
+
             body {
                 background: #fff;
+                padding: 0;
+                margin: 0;
+                display: block;
             }
 
             .cv-wrapper {
                 box-shadow: none;
-                margin: 0;
-                padding: 20px;
+                margin: 0 auto;
+                padding: 10px 15px;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .section-title {
+                margin-bottom: 6px;
+                font-size: 0.95rem;
+            }
+
+            .section {
+                margin-bottom: 8px;
+            }
+
+            .timeline li {
+                margin-bottom: 6px;
             }
         }
     </style>
@@ -158,10 +191,11 @@
             <div>
                 <div class="section">
                     <h4 class="section-title">Personal Profile</h4>
-                    <p style="font-size:0.9rem;">
-                        A dedicated Full-Stack Developer with expertise in the PHP, Laravel, MySQL and
-                        modern frontend
-                        technologies. I am focused on solving problems and building user-focused software solutions.
+                    <p style="font-size:0.85rem; line-height: 1.5;">
+                        A pragmatic <strong>Full-Stack Developer</strong> dedicated to building simple, useful, and
+                        secure digital tools that solve real-world problems. With experience in <strong>Flutter,
+                            Laravel, and data tracking</strong>, I focus on turning complex workflows into clean,
+                        user-friendly platforms that make someone's life easier.
                     </p>
                 </div>
 
@@ -197,21 +231,23 @@
                 <div class="section" style="margin-top: 10px;">
                     <h4 class="section-title">Skills & Expertise</h4>
                     <ul class="skills-list">
-                        <li><b>Frontend:</b> HTML, CSS, JavaScript, Bootstrap</li>
-                        <li><b>Backend:</b> PHP, Laravel</li>
-                        <li><b>Database:</b> MySQL</li>
-                        <li><b>Mobile/Desktop:</b> Kotlin, C#</li>
-                        <!-- <li>Tools: Git,Visual Studio, Python, AI Concepts</li>  -->
+                        <li><b>Frontend:</b> <br>HTML, CSS, JavaScript, Bootstrap, Vue</li>
+                        <li><b>Backend:</b> <br>PHP, Laravel</li>
+                        <li><b>Database:</b> <br>MySQL, Firebase</li>
+                        <li><b>Mobile/Desktop & OS:</b> <br>Kotlin, C#, Flutter, Linux</li>
+                        <li><b>Tools:</b> <br>Git, Postman, Docker</li>
                     </ul>
                 </div>
 
-                <div class="section">
+                <!-- <div class="section">
                     <h4 class="section-title">Languages</h4>
                     <ul class="lang-list">
                         <li>English (Fluent), Burmese (Native)</li>
 
                     </ul>
-                </div>
+                </div> -->
+
+
             </div>
 
             <!-- Right Column -->
@@ -219,6 +255,11 @@
                 <div class="section">
                     <h4 class="section-title">Work Experience</h4>
                     <ul class="timeline">
+                        <li>
+                            <h6>Full-Stack Developer | Central_Nex Software House</h6>
+                            <small>Dec 2025 – Present</small>
+                            <p>Developing and implementing web and mobile applications using Flutter and Laravel.</p>
+                        </li>
                         <li>
                             <h6>Full-Stack Developer | Freelance</h6>
                             <small>Jan 2024 – Present</small>
@@ -228,14 +269,22 @@
                         <li>
                             <h6>Software Development Intern | Soft Guide</h6>
                             <small>May 2025 – Jul 2025</small>
-                            <p>Worked on enterprise projects, assisted in debugging, and collaborated in Agile sprints.
-                            </p>
+                            <p>Worked on projects like an E-learning platform and a Pharmacy Management System.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4 class="section-title">Key Projects</h4>
+                    <ul class="timeline">
+                        <li>
+                            <h6>Pharmacy Management System (PHP & Laravel)</h6>
+                            <p>Automated inventory, sales tracking, and reporting for pharmaceutical operations.</p>
                         </li>
                         <li>
-                            <h6>Pharmacy Operations Lead | Vital Care</h6>
-                            <small>2022 – 2025</small>
-                            <p>Managed operations and identified opportunities for digital solutions to improve
-                                efficiency.</p>
+                            <h6>Learning Management System (Flutter & Firebase)</h6>
+                            <p>Implemented Firebase Analytics for user engagement tracking in a live mobile application.
+                            </p>
                         </li>
                     </ul>
                 </div>
@@ -244,25 +293,36 @@
                     <h4 class="section-title">Education</h4>
                     <ul class="timeline">
                         <li>
-                            <h6>Level 5 Diploma in Computing | NCC Education</h6>
-                            <small>2024 – Present</small>
+                            <h6>Advanced Diploma in Computing | NCC Education</h6>
+                            <small>2024 – 2025</small>
                         </li>
                         <li>
-                            <h6>Level 4 Diploma in Computing | NCC Education</h6>
+                            <h6>Diploma in Computing | NCC Education</h6>
                             <small>2023 – 2024</small>
-                            <p><em>Achieved Distinction (79%)</em></p>
                         </li>
                     </ul>
                 </div>
 
                 <div class="section">
                     <h4 class="section-title">Certifications</h4>
-                    <ul class="timeline">
+                    <ul class="cert-list">
                         <li>
                             <p>HTML, CSS & JavaScript Essentials – Cisco</p>
                         </li>
                         <li>
-                            <p>Professional Web Design Course – Code Lab</p>
+                            <p>Vue & Firebase Combo</p>
+                        </li>
+                        <li>
+                            <p>Git & GitHub Intermediate</p>
+                        </li>
+                        <li>
+                            <p>Introduction to Linux (LFS101)</p>
+                        </li>
+                        <li>
+                            <p>Network Technician Career Path</p>
+                        </li>
+                        <li>
+                            <p>Web Design Course – Code Lab</p>
                         </li>
                         <li>
                             <p>PHP Internship Course – Soft Guide</p>
