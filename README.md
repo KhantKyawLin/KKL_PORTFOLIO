@@ -25,6 +25,13 @@ Check out the live version here: **[kkl-portfolio.vercel.app](https://kkl-portfo
 - `cv.html`: The digital CV page, optimized for A4 printing.
 - `resource/`: Contains all assets such as images and branding elements.
 
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=KhantKyawLin&show_icons=true&theme=github_dark&hide_border=true" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=KhantKyawLin&theme=github-dark-blue&hide_border=true" width="48%" />
+</p>
+
 ---
 
 ## 👨‍💻 About Me
