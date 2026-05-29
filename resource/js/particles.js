@@ -150,6 +150,11 @@
     // Function to calculate target values based on Theme
     function updateThemeTargets(theme) {
         state.theme = theme;
+        
+        // Dynamically toggle blending mode to make particles pop in light mode
+        material.blending = theme === 'dark' ? THREE.AdditiveBlending : THREE.NormalBlending;
+        material.needsUpdate = true;
+        
         // Update weather targets because it might depend on the theme
         updateWeatherTargets(state.weather);
     }
@@ -162,8 +167,8 @@
             state.weatherSpeedX = 0.15;  // fast wind drift to the right
             state.weatherSway = 0.02;    // wavy motion
             state.particleSize = 0.15;
-            state.particleOpacity = 0.55;
-            state.particleColor.setHex(state.theme === 'dark' ? 0x00d8f6 : 0x0077b6);
+            state.particleOpacity = state.theme === 'dark' ? 0.55 : 0.75;
+            state.particleColor.setHex(state.theme === 'dark' ? 0x00d8f6 : 0x005b96); // darker cyan/blue in light mode
             
             material.map = circleTexture;
             material.needsUpdate = true;
@@ -172,8 +177,8 @@
             state.weatherSpeedX = 0.002; // minimal drift
             state.weatherSway = 0.025;   // flutter sway
             state.particleSize = 0.26;   // fluffy snow
-            state.particleOpacity = 0.85;
-            state.particleColor.setHex(0xffffff); // white snow
+            state.particleOpacity = state.theme === 'dark' ? 0.85 : 0.9;
+            state.particleColor.setHex(state.theme === 'dark' ? 0xffffff : 0x64748b); // cool slate gray snow in light mode
             
             material.map = snowTexture;
             material.needsUpdate = true;
@@ -182,8 +187,8 @@
             state.weatherSpeedX = -0.03;  // slanted rain falling leftwards
             state.weatherSway = 0.0;     // no sway, straight slanted down
             state.particleSize = 0.32;   // elongated rain streaks
-            state.particleOpacity = 0.5;
-            state.particleColor.setHex(state.theme === 'dark' ? 0x8ab4f8 : 0x4a90e2); // cool rain ice-blue
+            state.particleOpacity = state.theme === 'dark' ? 0.5 : 0.75;
+            state.particleColor.setHex(state.theme === 'dark' ? 0x8ab4f8 : 0x0f4c81); // rich navy-blue rain in light mode
             
             material.map = rainTexture;
             material.needsUpdate = true;
