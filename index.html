@@ -22,6 +22,9 @@
 
 <body data-bs-spy="scroll" data-bs-target="#main-navigation" data-bs-offset="100">
 
+    <!-- Three.js Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
     <!-- ===== Navigation Bar ===== -->
     <nav id="navbar-main" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
@@ -525,6 +528,9 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- Three.js Library & Particle Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="resource/js/particles.js"></script>
     <!-- Data Source -->
     <script src="resource/js/portfolio-data.js"></script>
     <!-- Custom JavaScript -->
@@ -702,10 +708,12 @@
             const applyTheme = (theme) => {
                 if (theme === "dark") {
                     document.body.classList.add("dark-theme");
+                    document.documentElement.classList.add("dark-theme");
                     desktopToggle.checked = true;
                     mobileToggle.checked = true;
                 } else {
                     document.body.classList.remove("dark-theme");
+                    document.documentElement.classList.remove("dark-theme");
                     desktopToggle.checked = false;
                     mobileToggle.checked = false;
                 }
