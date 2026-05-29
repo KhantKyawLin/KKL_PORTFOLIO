@@ -735,3 +735,40 @@ body.dark-theme .contact-form .form-control:focus {
     z-index: -1;
     pointer-events: none;
 }
+
+/* --- Weather Selector --- */
+.weather-selector-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.weather-select {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    color: var(--text-color-light);
+    border-radius: 8px;
+    padding: 0.25rem 2rem 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-fast) ease;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.weather-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 119, 182, 0.15);
+    outline: none;
+}
+
+body.dark-theme .weather-select {
+    background-color: #1a202c;
+    border-color: var(--card-border-dark);
+    color: var(--text-color-dark);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .weather-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 180, 216, 0.15);
+}
