@@ -164,7 +164,7 @@
         state.weather = weather;
         if (weather === 'windy') {
             state.weatherSpeedY = 0.002; // very slow drift down
-            state.weatherSpeedX = 0.15;  // fast wind drift to the right
+            state.weatherSpeedX = 0.07;  // comfortable wind drift to the right
             state.weatherSway = 0.02;    // wavy motion
             state.particleSize = 0.15;
             state.particleOpacity = state.theme === 'dark' ? 0.55 : 0.75;
@@ -177,8 +177,8 @@
             state.weatherSpeedX = 0.002; // minimal drift
             state.weatherSway = 0.025;   // flutter sway
             state.particleSize = 0.26;   // fluffy snow
-            state.particleOpacity = state.theme === 'dark' ? 0.85 : 0.9;
-            state.particleColor.setHex(state.theme === 'dark' ? 0xffffff : 0x64748b); // cool slate gray snow in light mode
+            state.particleOpacity = state.theme === 'dark' ? 0.85 : 0.95; // highly visible white snow
+            state.particleColor.setHex(0xffffff); // white snow in both light and dark modes
             
             material.map = snowTexture;
             material.needsUpdate = true;

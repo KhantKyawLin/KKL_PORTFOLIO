@@ -769,6 +769,10 @@
                 if (desktopWeatherSelect) desktopWeatherSelect.value = weatherMode;
                 if (mobileWeatherSelect) mobileWeatherSelect.value = weatherMode;
 
+                // Toggle weather classes on root element for adaptive light-theme backgrounds
+                document.documentElement.classList.remove("weather-windy", "weather-snowy", "weather-rainy");
+                document.documentElement.classList.add(`weather-${activeWeather}`);
+
                 // Dispatch weather update event for particles canvas
                 window.dispatchEvent(new CustomEvent('weatherChanged', { detail: activeWeather }));
             };

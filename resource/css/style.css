@@ -773,3 +773,16 @@ body.dark-theme .weather-select:focus {
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 0.2rem rgba(0, 180, 216, 0.15);
 }
+
+/* --- Weather Adaptive Backgrounds (Light Theme only) --- */
+html.weather-snowy:not(.dark-theme) {
+    background-color: #cbdcf0 !important; /* Soft winter sky gray-blue */
+}
+
+html.weather-rainy:not(.dark-theme) {
+    background-color: #dbe2e9 !important; /* Overcast rainy slate-gray */
+}
+
+html.weather-windy:not(.dark-theme) {
+    background-color: #ecf3f9 !important; /* Breezy fresh light cyan-blue */
+}
