@@ -18,15 +18,16 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // 4. Lights Setup (Sunlight & Moonlight targets)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    // 4. Lights Setup (Keep simple ambient/directional light for 3D compatibility)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xfff5d6, 1.0);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight.position.set(5, 5, 4);
     scene.add(directionalLight);
 
-    // 5. Generate Soft Circle Texture Programmatically
+    // 5. Generate Textures Programmatically
+    // Soft Circle Texture (Windy)
     function createCircleTexture() {
         const c = document.createElement('canvas');
         c.width = 32;
@@ -42,7 +43,24 @@
     }
     const circleTexture = createCircleTexture();
 
-    // Generate Rain Streak Texture Programmatically (square to preserve aspect ratio in point billboards)
+    // Fluffy Snowflake Texture (Snowy)
+    function createSnowTexture() {
+        const c = document.createElement('canvas');
+        c.width = 32;
+        c.height = 32;
+        const ctx = c.getContext('2d');
+        const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        grad.addColorStop(0.3, 'rgba(255, 255, 255, 0.85)');
+        grad.addColorStop(0.7, 'rgba(255, 255, 255, 0.2)');
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 32, 32);
+        return new THREE.CanvasTexture(c);
+    }
+    const snowTexture = createSnowTexture();
+
+    // Rain Streak Texture (Rainy)
     function createRainTexture() {
         const c = document.createElement('canvas');
         c.width = 64;
@@ -50,31 +68,15 @@
         const ctx = c.getContext('2d');
         const grad = ctx.createLinearGradient(32, 0, 32, 64);
         grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-        grad.addColorStop(0.2, 'rgba(255, 255, 255, 0.1)');
-        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0.8)');
-        grad.addColorStop(0.8, 'rgba(255, 255, 255, 0.1)');
+        grad.addColorStop(0.1, 'rgba(255, 255, 255, 0.1)');
+        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0.9)');
+        grad.addColorStop(0.9, 'rgba(255, 255, 255, 0.1)');
         grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
         ctx.fillStyle = grad;
-        ctx.fillRect(30, 0, 4, 64);
+        ctx.fillRect(31, 0, 2, 64);
         return new THREE.CanvasTexture(c);
     }
     const rainTexture = createRainTexture();
-
-    // Generate Glowing Celestial Body Texture (Sun/Moon)
-    function createGlowTexture(colorStr1, colorStr2) {
-        const c = document.createElement('canvas');
-        c.width = 128;
-        c.height = 128;
-        const ctx = c.getContext('2d');
-        const grad = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-        grad.addColorStop(0, colorStr1);
-        grad.addColorStop(0.3, colorStr1);
-        grad.addColorStop(0.6, colorStr2);
-        grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, 128, 128);
-        return new THREE.CanvasTexture(c);
-    }
 
     // Determine initial state
     const isDarkInitial = document.body.classList.contains('dark-theme') || document.documentElement.classList.contains('dark-theme');
@@ -90,33 +92,8 @@
     };
     const initialWeather = getInitialWeather();
 
-    // 6. Create Sun & Moon
-    const sunTexture = createGlowTexture('rgba(255, 223, 103, 1)', 'rgba(255, 150, 50, 0.3)');
-    const sunMaterial = new THREE.SpriteMaterial({
-        map: sunTexture,
-        transparent: true,
-        opacity: initialTheme === 'light' ? 0.9 : 0.0,
-        blending: THREE.AdditiveBlending
-    });
-    const sunSprite = new THREE.Sprite(sunMaterial);
-    sunSprite.scale.set(4.5, 4.5, 1);
-    sunSprite.position.set(initialTheme === 'light' ? 5 : 8, initialTheme === 'light' ? 3.5 : -4, -15);
-    scene.add(sunSprite);
-
-    const moonTexture = createGlowTexture('rgba(224, 242, 254, 1)', 'rgba(100, 150, 243, 0.25)');
-    const moonMaterial = new THREE.SpriteMaterial({
-        map: moonTexture,
-        transparent: true,
-        opacity: initialTheme === 'dark' ? 0.95 : 0.0,
-        blending: THREE.AdditiveBlending
-    });
-    const moonSprite = new THREE.Sprite(moonMaterial);
-    moonSprite.scale.set(3.5, 3.5, 1);
-    moonSprite.position.set(initialTheme === 'dark' ? -5 : -8, initialTheme === 'dark' ? 3.5 : -4, -15);
-    scene.add(moonSprite);
-
-    // 7. Create Particles
-    const particleCount = 750; // Balanced for good looks and performance
+    // 6. Create Particles
+    const particleCount = 750; // Balanced for performance and appearance
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const speeds = new Float32Array(particleCount);
@@ -153,21 +130,6 @@
         theme: initialTheme,
         weather: initialWeather,
         
-        // Theme Targets
-        sunOpacity: initialTheme === 'light' ? 0.9 : 0.0,
-        sunX: initialTheme === 'light' ? 5 : 8,
-        sunY: initialTheme === 'light' ? 3.5 : -4,
-        
-        moonOpacity: initialTheme === 'dark' ? 0.95 : 0.0,
-        moonX: initialTheme === 'dark' ? -5 : -8,
-        moonY: initialTheme === 'dark' ? 3.5 : -4,
-        
-        ambientIntensity: initialTheme === 'light' ? 0.7 : 0.4,
-        dirIntensity: initialTheme === 'light' ? 1.0 : 0.3,
-        dirColor: new THREE.Color(initialTheme === 'light' ? 0xfff5d6 : 0xb0d0ff),
-        dirX: initialTheme === 'light' ? 5 : -5,
-        dirY: 5,
-        
         // Weather Targets
         weatherSpeedY: 0.01,
         weatherSpeedX: 0.03,
@@ -178,19 +140,6 @@
     };
 
     // Current interpolation values
-    let currentSunOpacity = state.sunOpacity;
-    let currentSunX = state.sunX;
-    let currentSunY = state.sunY;
-    
-    let currentMoonOpacity = state.moonOpacity;
-    let currentMoonX = state.moonX;
-    let currentMoonY = state.moonY;
-
-    let currentAmbientIntensity = state.ambientIntensity;
-    let currentDirIntensity = state.dirIntensity;
-    let currentDirColor = state.dirColor.clone();
-    let currentDirX = state.dirX;
-
     let currentWeatherSpeedY = state.weatherSpeedY;
     let currentWeatherSpeedX = state.weatherSpeedX;
     let currentWeatherSway = state.weatherSway;
@@ -201,34 +150,7 @@
     // Function to calculate target values based on Theme
     function updateThemeTargets(theme) {
         state.theme = theme;
-        if (theme === 'light') {
-            state.sunOpacity = 0.9;
-            state.sunX = 5;
-            state.sunY = 3.5;
-            
-            state.moonOpacity = 0.0;
-            state.moonX = -8;
-            state.moonY = -4;
-            
-            state.ambientIntensity = 0.7;
-            state.dirIntensity = 1.0;
-            state.dirColor.setHex(0xfff5d6);
-            state.dirX = 5;
-        } else {
-            state.sunOpacity = 0.0;
-            state.sunX = 8;
-            state.sunY = -4;
-            
-            state.moonOpacity = 0.95;
-            state.moonX = -5;
-            state.moonY = 3.5;
-            
-            state.ambientIntensity = 0.4;
-            state.dirIntensity = 0.3;
-            state.dirColor.setHex(0xb0d0ff);
-            state.dirX = -5;
-        }
-        // Force update weather targets because it might depend on the theme
+        // Update weather targets because it might depend on the theme
         updateWeatherTargets(state.weather);
     }
 
@@ -236,32 +158,32 @@
     function updateWeatherTargets(weather) {
         state.weather = weather;
         if (weather === 'windy') {
-            state.weatherSpeedY = 0.005; // very slow drift down
-            state.weatherSpeedX = 0.04;  // nice wind drift to the right
-            state.weatherSway = 0.015;   // wavy motion
-            state.particleSize = 0.18;
-            state.particleOpacity = 0.6;
-            state.particleColor.setHex(state.theme === 'dark' ? 0x00b4d8 : 0x0077b6);
+            state.weatherSpeedY = 0.002; // very slow drift down
+            state.weatherSpeedX = 0.15;  // fast wind drift to the right
+            state.weatherSway = 0.02;    // wavy motion
+            state.particleSize = 0.15;
+            state.particleOpacity = 0.55;
+            state.particleColor.setHex(state.theme === 'dark' ? 0x00d8f6 : 0x0077b6);
             
             material.map = circleTexture;
             material.needsUpdate = true;
         } else if (weather === 'snowy') {
-            state.weatherSpeedY = 0.018; // slow falling
-            state.weatherSpeedX = 0.003; // minimal drift
+            state.weatherSpeedY = 0.008; // slow peaceful falling
+            state.weatherSpeedX = 0.002; // minimal drift
             state.weatherSway = 0.025;   // flutter sway
-            state.particleSize = 0.25;   // fluffy snow
-            state.particleOpacity = 0.8;
+            state.particleSize = 0.26;   // fluffy snow
+            state.particleOpacity = 0.85;
             state.particleColor.setHex(0xffffff); // white snow
             
-            material.map = circleTexture;
+            material.map = snowTexture;
             material.needsUpdate = true;
         } else if (weather === 'rainy') {
-            state.weatherSpeedY = 0.16;  // fast falling down
-            state.weatherSpeedX = 0.0;   // straight down
-            state.weatherSway = 0.0;     // no sway
-            state.particleSize = 0.35;   // elongated streak (larger billboard helps visibility)
-            state.particleOpacity = 0.55;
-            state.particleColor.setHex(state.theme === 'dark' ? 0x3a86ff : 0x0077b6); // cool rain blue
+            state.weatherSpeedY = 0.22;  // fast falling down
+            state.weatherSpeedX = -0.03;  // slanted rain falling leftwards
+            state.weatherSway = 0.0;     // no sway, straight slanted down
+            state.particleSize = 0.32;   // elongated rain streaks
+            state.particleOpacity = 0.5;
+            state.particleColor.setHex(state.theme === 'dark' ? 0x8ab4f8 : 0x4a90e2); // cool rain ice-blue
             
             material.map = rainTexture;
             material.needsUpdate = true;
@@ -272,7 +194,7 @@
     updateThemeTargets(initialTheme);
     updateWeatherTargets(initialWeather);
 
-    // 8. Interactive Mouse Movement (Parallax)
+    // 7. Interactive Mouse Movement (Parallax)
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -293,7 +215,7 @@
         }
     }, { passive: true });
 
-    // 9. Window Resize Handler
+    // 8. Window Resize Handler
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -302,7 +224,7 @@
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
-    // 10. Listeners for Dynamic System updates
+    // 9. Listeners for Dynamic System updates
     window.addEventListener('themeChanged', (e) => {
         updateThemeTargets(e.detail);
     });
@@ -311,46 +233,41 @@
         updateWeatherTargets(e.detail);
     });
 
-    // 11. Animation & Render Loop
+    // 10. Animation & Render Loop
     const clock = new THREE.Clock();
+    let frameCount = 0;
 
     function animate() {
         requestAnimationFrame(animate);
 
         const elapsedTime = clock.getElapsedTime();
+        frameCount++;
+
+        // Periodic state verification for maximum robustness
+        if (frameCount % 10 === 0) {
+            const isDark = document.body.classList.contains('dark-theme') || document.documentElement.classList.contains('dark-theme');
+            const targetTheme = isDark ? 'dark' : 'light';
+            if (state.theme !== targetTheme) {
+                updateThemeTargets(targetTheme);
+            }
+
+            const selectEl = document.getElementById('weather-select-desktop') || document.getElementById('weather-select-mobile');
+            if (selectEl) {
+                const weatherVal = selectEl.value;
+                const activeWeather = weatherVal === 'auto' ? getInitialWeather() : weatherVal;
+                if (state.weather !== activeWeather) {
+                    updateWeatherTargets(activeWeather);
+                }
+            }
+        }
 
         // Interpolations (lerp)
-        currentSunOpacity += (state.sunOpacity - currentSunOpacity) * 0.05;
-        currentSunX += (state.sunX - currentSunX) * 0.05;
-        currentSunY += (state.sunY - currentSunY) * 0.05;
-
-        currentMoonOpacity += (state.moonOpacity - currentMoonOpacity) * 0.05;
-        currentMoonX += (state.moonX - currentMoonX) * 0.05;
-        currentMoonY += (state.moonY - currentMoonY) * 0.05;
-
-        currentAmbientIntensity += (state.ambientIntensity - currentAmbientIntensity) * 0.05;
-        currentDirIntensity += (state.dirIntensity - currentDirIntensity) * 0.05;
-        currentDirColor.lerp(state.dirColor, 0.05);
-        currentDirX += (state.dirX - currentDirX) * 0.05;
-
         currentWeatherSpeedY += (state.weatherSpeedY - currentWeatherSpeedY) * 0.05;
         currentWeatherSpeedX += (state.weatherSpeedX - currentWeatherSpeedX) * 0.05;
         currentWeatherSway += (state.weatherSway - currentWeatherSway) * 0.05;
         currentParticleSize += (state.particleSize - currentParticleSize) * 0.05;
         currentParticleOpacity += (state.particleOpacity - currentParticleOpacity) * 0.05;
         currentParticleColor.lerp(state.particleColor, 0.05);
-
-        // Apply theme/lighting values to meshes/lights
-        sunSprite.material.opacity = currentSunOpacity;
-        sunSprite.position.set(currentSunX, currentSunY, -15);
-
-        moonSprite.material.opacity = currentMoonOpacity;
-        moonSprite.position.set(currentMoonX, currentMoonY, -15);
-
-        ambientLight.intensity = currentAmbientIntensity;
-        directionalLight.intensity = currentDirIntensity;
-        directionalLight.color.copy(currentDirColor);
-        directionalLight.position.set(currentDirX, 5, 4);
 
         material.size = currentParticleSize;
         material.opacity = currentParticleOpacity;
@@ -376,12 +293,16 @@
             // Apply downward velocity
             pos[idx + 1] -= currentWeatherSpeedY * speeds[i];
 
-            // Apply horizontal velocity
-            pos[idx] += currentWeatherSpeedX * speeds[i];
+            // Apply horizontal velocity (with wind gusts if windy)
+            if (state.weather === 'windy') {
+                const gust = Math.sin(elapsedTime * 0.8 + phases[i]) * 0.02; // natural wind gusts variation
+                pos[idx] += (currentWeatherSpeedX + gust) * speeds[i];
+            } else {
+                pos[idx] += currentWeatherSpeedX * speeds[i];
+            }
 
             // Apply sine wave sway if applicable
             if (currentWeatherSway > 0) {
-                // Combine a fast time factor and phase to make wind wave
                 pos[idx + 1] += Math.sin(elapsedTime * 1.5 + phases[i]) * 0.005; // tiny vertical waviness
                 pos[idx] += Math.sin(elapsedTime * 2.0 + phases[i]) * currentWeatherSway * speeds[i];
             }

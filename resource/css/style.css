@@ -743,6 +743,7 @@ body.dark-theme .contact-form .form-control:focus {
 }
 
 .weather-select {
+    min-width: 130px; /* Prevent collapse inside flex containers */
     background-color: var(--card-bg-light);
     border: 1px solid var(--card-border-light);
     color: var(--text-color-light);
