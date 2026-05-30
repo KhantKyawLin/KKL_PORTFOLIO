@@ -43,33 +43,6 @@
     }
     const circleTexture = createCircleTexture();
 
-    // Wind Breeze Streaks Texture (Windy)
-    function createWindTexture() {
-        const c = document.createElement('canvas');
-        c.width = 64;
-        c.height = 64;
-        const ctx = c.getContext('2d');
-        ctx.clearRect(0, 0, 64, 64);
-
-        const drawStreak = (y, height, alphaCoeff) => {
-            const grad = ctx.createLinearGradient(0, y, 64, y);
-            grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-            grad.addColorStop(0.25, `rgba(255, 255, 255, ${0.4 * alphaCoeff})`);
-            grad.addColorStop(0.5, `rgba(255, 255, 255, ${0.95 * alphaCoeff})`);
-            grad.addColorStop(0.75, `rgba(255, 255, 255, ${0.4 * alphaCoeff})`);
-            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, y - height / 2, 64, height);
-        };
-
-        drawStreak(24, 2.0, 0.5);
-        drawStreak(32, 3.5, 1.0);
-        drawStreak(40, 1.5, 0.7);
-
-        return new THREE.CanvasTexture(c);
-    }
-    const windTexture = createWindTexture();
-
     // Fluffy Snowflake Texture (Snowy)
     function createSnowTexture() {
         const c = document.createElement('canvas');
@@ -179,8 +152,7 @@
 
     // Particle Material
     let initialTexture = circleTexture;
-    if (initialWeather === 'windy') initialTexture = windTexture;
-    else if (initialWeather === 'snowy') initialTexture = snowTexture;
+    if (initialWeather === 'snowy') initialTexture = snowTexture;
     else if (initialWeather === 'rainy') initialTexture = rainTexture;
 
     const material = new THREE.PointsMaterial({
@@ -233,14 +205,14 @@
     function updateWeatherTargets(weather) {
         state.weather = weather;
         if (weather === 'windy') {
-            state.weatherSpeedY = 0.002; // slow drift down
-            state.weatherSpeedX = 0.06;  // comfortable wind breeze to the right
-            state.weatherSway = 0.01;    // slight breeze ripple
-            state.particleSize = 0.45;   // enlarge for wind streak texture
+            state.weatherSpeedY = 0.003; // slow drift down
+            state.weatherSpeedX = 0.045; // gentle wind breeze to the right
+            state.weatherSway = 0.03;    // wavy breeze motion
+            state.particleSize = 0.22;   // soft medium glowing circles
             state.particleOpacity = state.theme === 'dark' ? 0.45 : 0.65;
-            state.particleColor.setHex(state.theme === 'dark' ? 0xaadeff : 0x5b8db5); // light icy blue / soft slate blue lines
+            state.particleColor.setHex(state.theme === 'dark' ? 0x73d2de : 0x3a86c8); // soft glowing cyan / slate blue pollen
 
-            material.map = windTexture;
+            material.map = circleTexture;
             material.needsUpdate = true;
         } else if (weather === 'snowy') {
             state.weatherSpeedY = 0.008; // slow peaceful falling
