@@ -1095,6 +1095,13 @@
                 e.preventDefault();
 
                 const form = e.target;
+                const submitBtn = form.querySelector('button[type="submit"]');
+
+                // Disable button and show spinner to prevent repeated clicks
+                submitBtn.disabled = true;
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+
                 const formData = {
                     name: form.name.value,
                     email: form.email.value,
@@ -1118,6 +1125,10 @@
                         return response.json();
                     })
                     .then(data => {
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+
                         if (data.success === "true") {
                             Swal.fire(getSwalOptions({
                                 icon: 'success',
@@ -1137,6 +1148,11 @@
                     })
                     .catch(error => {
                         console.error('Fetch error:', error);
+
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+
                         Swal.fire(getSwalOptions({
                             icon: 'error',
                             title: 'Error',
