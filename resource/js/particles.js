@@ -27,7 +27,7 @@
     scene.add(directionalLight);
 
     // 5. Generate Textures Programmatically
-    // Soft Circle Texture (Windy)
+    // Soft Circle Texture
     function createCircleTexture() {
         const c = document.createElement('canvas');
         c.width = 32;
@@ -43,37 +43,102 @@
     }
     const circleTexture = createCircleTexture();
 
+    // Wind Breeze Streaks Texture (Windy)
+    function createWindTexture() {
+        const c = document.createElement('canvas');
+        c.width = 64;
+        c.height = 64;
+        const ctx = c.getContext('2d');
+        ctx.clearRect(0, 0, 64, 64);
+
+        const drawStreak = (y, height, alphaCoeff) => {
+            const grad = ctx.createLinearGradient(0, y, 64, y);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+            grad.addColorStop(0.25, `rgba(255, 255, 255, ${0.4 * alphaCoeff})`);
+            grad.addColorStop(0.5, `rgba(255, 255, 255, ${0.95 * alphaCoeff})`);
+            grad.addColorStop(0.75, `rgba(255, 255, 255, ${0.4 * alphaCoeff})`);
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, y - height / 2, 64, height);
+        };
+
+        drawStreak(24, 2.0, 0.5);
+        drawStreak(32, 3.5, 1.0);
+        drawStreak(40, 1.5, 0.7);
+
+        return new THREE.CanvasTexture(c);
+    }
+    const windTexture = createWindTexture();
+
     // Fluffy Snowflake Texture (Snowy)
     function createSnowTexture() {
         const c = document.createElement('canvas');
-        c.width = 32;
-        c.height = 32;
+        c.width = 64;
+        c.height = 64;
         const ctx = c.getContext('2d');
-        const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+        ctx.clearRect(0, 0, 64, 64);
+
+        // Soft fluffy center
+        const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 16);
         grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-        grad.addColorStop(0.3, 'rgba(255, 255, 255, 0.85)');
-        grad.addColorStop(0.7, 'rgba(255, 255, 255, 0.2)');
+        grad.addColorStop(0.2, 'rgba(255, 255, 255, 0.85)');
+        grad.addColorStop(0.6, 'rgba(255, 255, 255, 0.3)');
         grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
         ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, 32, 32);
+        ctx.beginPath();
+        ctx.arc(32, 32, 16, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 6 satellite fluffs for organic shape
+        const angles = [0, Math.PI / 3, Math.PI * 2 / 3, Math.PI, Math.PI * 4 / 3, Math.PI * 5 / 3];
+        angles.forEach(angle => {
+            const x = 32 + Math.cos(angle) * 7;
+            const y = 32 + Math.sin(angle) * 7;
+            const satGrad = ctx.createRadialGradient(x, y, 0, x, y, 10);
+            satGrad.addColorStop(0, 'rgba(255, 255, 255, 0.25)');
+            satGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = satGrad;
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
         return new THREE.CanvasTexture(c);
     }
     const snowTexture = createSnowTexture();
 
-    // Rain Streak Texture (Rainy)
+    // Slanted Rain Streak Texture (Rainy)
     function createRainTexture() {
         const c = document.createElement('canvas');
         c.width = 64;
         c.height = 64;
         const ctx = c.getContext('2d');
-        const grad = ctx.createLinearGradient(32, 0, 32, 64);
+        ctx.clearRect(0, 0, 64, 64);
+
+        // Slant ratio: speedX = -0.04, speedY = 0.26 => ratio = -0.1538
+        // For a vertical height of 48 pixels, horizontal displacement is 48 * -0.1538 = -7.38 pixels
+        // Let's use dx = -8. So top x is 32 + 4 = 36, bottom x is 32 - 4 = 28
+        const dx = -8;
+        const x1 = 32 - dx / 2; // 36
+        const y1 = 8;
+        const x2 = 32 + dx / 2; // 28
+        const y2 = 56;
+
+        const grad = ctx.createLinearGradient(x1, y1, x2, y2);
         grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-        grad.addColorStop(0.1, 'rgba(255, 255, 255, 0.1)');
-        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0.9)');
-        grad.addColorStop(0.9, 'rgba(255, 255, 255, 0.1)');
+        grad.addColorStop(0.15, 'rgba(255, 255, 255, 0.2)');
+        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0.95)');
+        grad.addColorStop(0.85, 'rgba(255, 255, 255, 0.2)');
         grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(31, 0, 2, 64);
+
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.8;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
         return new THREE.CanvasTexture(c);
     }
     const rainTexture = createRainTexture();
@@ -93,7 +158,7 @@
     const initialWeather = getInitialWeather();
 
     // 6. Create Particles
-    const particleCount = 750; // Balanced for performance and appearance
+    const particleCount = 1200; // Balanced for performance and appearance
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const speeds = new Float32Array(particleCount);
@@ -113,9 +178,14 @@
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
     // Particle Material
+    let initialTexture = circleTexture;
+    if (initialWeather === 'windy') initialTexture = windTexture;
+    else if (initialWeather === 'snowy') initialTexture = snowTexture;
+    else if (initialWeather === 'rainy') initialTexture = rainTexture;
+
     const material = new THREE.PointsMaterial({
         size: 0.18,
-        map: circleTexture,
+        map: initialTexture,
         transparent: true,
         opacity: 0.65,
         blending: THREE.AdditiveBlending,
@@ -163,32 +233,32 @@
     function updateWeatherTargets(weather) {
         state.weather = weather;
         if (weather === 'windy') {
-            state.weatherSpeedY = 0.002; // very slow drift down
-            state.weatherSpeedX = 0.07;  // comfortable wind drift to the right
-            state.weatherSway = 0.02;    // wavy motion
-            state.particleSize = 0.15;
-            state.particleOpacity = state.theme === 'dark' ? 0.55 : 0.75;
-            state.particleColor.setHex(state.theme === 'dark' ? 0x00d8f6 : 0x005b96); // darker cyan/blue in light mode
+            state.weatherSpeedY = 0.002; // slow drift down
+            state.weatherSpeedX = 0.06;  // comfortable wind breeze to the right
+            state.weatherSway = 0.01;    // slight breeze ripple
+            state.particleSize = 0.45;   // enlarge for wind streak texture
+            state.particleOpacity = state.theme === 'dark' ? 0.45 : 0.65;
+            state.particleColor.setHex(state.theme === 'dark' ? 0xaadeff : 0x5b8db5); // light icy blue / soft slate blue lines
 
-            material.map = circleTexture;
+            material.map = windTexture;
             material.needsUpdate = true;
         } else if (weather === 'snowy') {
             state.weatherSpeedY = 0.008; // slow peaceful falling
             state.weatherSpeedX = 0.002; // minimal drift
             state.weatherSway = 0.025;   // flutter sway
-            state.particleSize = 0.26;   // fluffy snow
+            state.particleSize = 0.35;   // fluffy snow flakes
             state.particleOpacity = state.theme === 'dark' ? 0.85 : 0.95; // highly visible white snow
             state.particleColor.setHex(0xffffff); // white snow in both light and dark modes
 
             material.map = snowTexture;
             material.needsUpdate = true;
         } else if (weather === 'rainy') {
-            state.weatherSpeedY = 0.22;  // fast falling down
-            state.weatherSpeedX = -0.03;  // slanted rain falling leftwards
+            state.weatherSpeedY = 0.26;  // high speed falling down
+            state.weatherSpeedX = -0.04; // slanted rain falling leftwards
             state.weatherSway = 0.0;     // no sway, straight slanted down
-            state.particleSize = 0.32;   // elongated rain streaks
-            state.particleOpacity = state.theme === 'dark' ? 0.5 : 0.75;
-            state.particleColor.setHex(state.theme === 'dark' ? 0x8ab4f8 : 0x0f4c81); // rich navy-blue rain in light mode
+            state.particleSize = 0.38;   // elongated rain streaks
+            state.particleOpacity = state.theme === 'dark' ? 0.55 : 0.75;
+            state.particleColor.setHex(state.theme === 'dark' ? 0x8ab4f8 : 0x486581); // rich slate-blue rain in light mode
 
             material.map = rainTexture;
             material.needsUpdate = true;
