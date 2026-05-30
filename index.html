@@ -1080,6 +1080,17 @@
                 downloadCV();
             });
 
+            // Helper to get theme-aware SweetAlert2 options
+            const getSwalOptions = (options) => {
+                const isDark = document.body.classList.contains('dark-theme') || document.documentElement.classList.contains('dark-theme');
+                return {
+                    background: isDark ? '#161b22' : '#ffffff',
+                    color: isDark ? '#e9eef8' : '#1a1f2b',
+                    confirmButtonColor: '#0077b6',
+                    ...options
+                };
+            };
+
             document.getElementById("contactForm").addEventListener("submit", function (e) {
                 e.preventDefault();
 
@@ -1108,30 +1119,29 @@
                     })
                     .then(data => {
                         if (data.success === "true") {
-                            Swal.fire({
+                            Swal.fire(getSwalOptions({
                                 icon: 'success',
                                 title: 'Message Sent!',
-                                text: 'Your message is successfully sent to Khant Kyaw Lin.',
-                                confirmButtonColor: '#0d6efd'
-                            }).then(() => {
+                                text: 'Your message is successfully sent to Khant Kyaw Lin.'
+                            })).then(() => {
                                 form.reset();
                                 window.location.hash = "#contact";
                             });
                         } else {
-                            Swal.fire({
+                            Swal.fire(getSwalOptions({
                                 icon: 'error',
                                 title: 'Oops...',
                                 text: 'Something went wrong. Please try again later.'
-                            });
+                            }));
                         }
                     })
                     .catch(error => {
                         console.error('Fetch error:', error);
-                        Swal.fire({
+                        Swal.fire(getSwalOptions({
                             icon: 'error',
                             title: 'Error',
                             text: 'Could not send message.'
-                        });
+                        }));
                     });
             });
         });
