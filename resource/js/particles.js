@@ -99,7 +99,7 @@
     const speeds = new Float32Array(particleCount);
     const phases = new Float32Array(particleCount);
 
-    // Spread particles in a 3D box
+    // Spread particles in a 3D box for view
     for (let i = 0; i < particleCount; i++) {
         const idx = i * 3;
         positions[idx] = (Math.random() - 0.5) * 20;     // X (-10 to 10)
@@ -129,7 +129,7 @@
     const state = {
         theme: initialTheme,
         weather: initialWeather,
-        
+
         // Weather Targets
         weatherSpeedY: 0.01,
         weatherSpeedX: 0.03,
@@ -150,11 +150,11 @@
     // Function to calculate target values based on Theme
     function updateThemeTargets(theme) {
         state.theme = theme;
-        
+
         // Dynamically toggle blending mode to make particles pop in light mode
         material.blending = theme === 'dark' ? THREE.AdditiveBlending : THREE.NormalBlending;
         material.needsUpdate = true;
-        
+
         // Update weather targets because it might depend on the theme
         updateWeatherTargets(state.weather);
     }
@@ -169,7 +169,7 @@
             state.particleSize = 0.15;
             state.particleOpacity = state.theme === 'dark' ? 0.55 : 0.75;
             state.particleColor.setHex(state.theme === 'dark' ? 0x00d8f6 : 0x005b96); // darker cyan/blue in light mode
-            
+
             material.map = circleTexture;
             material.needsUpdate = true;
         } else if (weather === 'snowy') {
@@ -179,7 +179,7 @@
             state.particleSize = 0.26;   // fluffy snow
             state.particleOpacity = state.theme === 'dark' ? 0.85 : 0.95; // highly visible white snow
             state.particleColor.setHex(0xffffff); // white snow in both light and dark modes
-            
+
             material.map = snowTexture;
             material.needsUpdate = true;
         } else if (weather === 'rainy') {
@@ -189,7 +189,7 @@
             state.particleSize = 0.32;   // elongated rain streaks
             state.particleOpacity = state.theme === 'dark' ? 0.5 : 0.75;
             state.particleColor.setHex(state.theme === 'dark' ? 0x8ab4f8 : 0x0f4c81); // rich navy-blue rain in light mode
-            
+
             material.map = rainTexture;
             material.needsUpdate = true;
         }
