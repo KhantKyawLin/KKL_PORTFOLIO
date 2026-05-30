@@ -786,3 +786,71 @@ html.weather-rainy:not(.dark-theme) {
 html.weather-windy:not(.dark-theme) {
     background-color: #ecf3f9 !important; /* Breezy fresh light cyan-blue */
 }
+
+/* --- Project Modal Swiper Styles --- */
+.project-modal-swiper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.project-modal-swiper .swiper-slide img {
+    border-radius: 12px;
+    max-height: 450px;
+    width: 100%;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+body.dark-theme .project-modal-swiper .swiper-slide img {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.project-modal-swiper .swiper-button-next,
+.project-modal-swiper .swiper-button-prev {
+    color: var(--primary-color) !important;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--card-border-light);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-modal-swiper .swiper-button-next:hover,
+.project-modal-swiper .swiper-button-prev:hover {
+    background-color: #ffffff;
+    transform: scale(1.08);
+}
+
+/* Adjust default Swiper icon size */
+.project-modal-swiper .swiper-button-next::after,
+.project-modal-swiper .swiper-button-prev::after {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+/* Dark theme overrides for Swiper buttons */
+body.dark-theme .project-modal-swiper .swiper-button-next,
+body.dark-theme .project-modal-swiper .swiper-button-prev {
+    background-color: rgba(22, 27, 34, 0.85);
+    border-color: var(--card-border-dark);
+    color: var(--secondary-color) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-theme .project-modal-swiper .swiper-button-next:hover,
+body.dark-theme .project-modal-swiper .swiper-button-prev:hover {
+    background-color: rgba(33, 38, 45, 0.95);
+}
+
+/* Swiper Pagination color override */
+.project-modal-swiper .swiper-pagination-bullet-active {
+    background: var(--primary-color) !important;
+}
+
+body.dark-theme .project-modal-swiper .swiper-pagination-bullet-active {
+    background: var(--secondary-color) !important;
+}
