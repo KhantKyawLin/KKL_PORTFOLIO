@@ -20,7 +20,7 @@
 <body data-bs-spy="scroll" data-bs-target="#main-navigation" data-bs-offset="100">
 
     <!-- Three.js Canvas -->
-    <canvas id="particle-canvas"></canvas>
+    <!-- <canvas id="particle-canvas"></canvas> -->
 
     <!-- ===== Navigation Bar ===== -->
     <nav id="navbar-main" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -55,7 +55,7 @@
                     <i class="fas fa-download me-2"></i>Download CV
                 </a>
                 <!-- Weather Selector Windy,Snowy,Rainy-->
-                <div class="weather-selector-container me-3">
+                <!-- <div class="weather-selector-container me-3">
                     <select id="weather-select-desktop" class="form-select form-select-sm weather-select"
                         aria-label="Select weather">
                         <option value="auto">🌤️ Auto (Time)</option>
@@ -63,7 +63,7 @@
                         <option value="snowy">❄️ Snowy</option>
                         <option value="rainy">🌧️ Rainy</option>
                     </select>
-                </div>
+                </div> -->
                 <label class="theme-toggle" title="Toggle light / dark theme">
                     <input id="theme-switch-input-desktop" type="checkbox" aria-label="Toggle theme">
                 </label>
@@ -99,7 +99,7 @@
                     <span class="toggle-label ms-2"></span>
                 </label>
             </div>
-            <div class="d-lg-none mt-3">
+            <!-- <div class="d-lg-none mt-3">
                 <label class="form-label small text-muted">Weather Pattern:</label>
                 <select id="weather-select-mobile" class="form-select form-select-sm weather-select"
                     aria-label="Select weather">
@@ -108,7 +108,7 @@
                     <option value="snowy">❄️ Snowy</option>
                     <option value="rainy">🌧️ Rainy</option>
                 </select>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -551,8 +551,8 @@
     <script src="resource/vendor/typed.js/typed.min.js"></script>
     <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- Three.js Library & Particle Animation -->
-    <script src="resource/vendor/three/three.min.js"></script>
-    <script src="resource/js/particles.js"></script>
+    <!-- <script src="resource/vendor/three/three.min.js"></script>
+    <script src="resource/js/particles.js"></script> -->
     <!-- Data Source -->
     <script src="resource/js/portfolio-data.js"></script>
     <!-- Custom JavaScript -->
@@ -786,7 +786,7 @@
             const savedWeather = localStorage.getItem("weather") || "auto";
 
             applyTheme(savedTheme);
-            applyWeather(savedWeather);
+            // applyWeather(savedWeather);
 
             // --- Active Nav Link on Scroll & Offcanvas Handling ---
             const offcanvasElement = document.getElementById('offcanvasNavbar');
