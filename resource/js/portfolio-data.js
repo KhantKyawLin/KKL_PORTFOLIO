@@ -55,7 +55,7 @@ const projectsData = [
             "resource/projects/food_fusion_delete_admin.jpg"
 
         ],
-        codeLink: "https://github.com/khantkyawlin/food-fusion",
+        codeLink: "https://github.com/KhantKyawLin/Food-Fusion-Website",
         demoLink: "https://food-fusion.example.com"
     },
     {
@@ -79,7 +79,7 @@ const projectsData = [
             "resource/projects/portfolio_experience_n.png",
             "resource/projects/portfolio_contact_n.png"
         ],
-        codeLink: "https://github.com/khantkyawlin/portfolio",
+        codeLink: "https://github.com/KhantKyawLin/KKL_PORTFOLIO",
         demoLink: "https://khantkyawlin.com"
     },
     {
