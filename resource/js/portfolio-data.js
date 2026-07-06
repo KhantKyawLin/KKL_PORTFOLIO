@@ -35,8 +35,8 @@ const projectsData = [
             "resource/projects/27_vc_admin_profile_edit.png",
             "resource/projects/vc_login.png"
         ],
-        codeLink: "https://github.com/KhantKyawLin/VitalCare",
-        demoLink: "https://pharmacy-demo.example.com"
+        frontendLink: "https://github.com/KhantKyawLin/VitalCare_Pharmacy_Web",
+        backendLink: "https://github.com/KhantKyawLin/VitalCare_Pharmacy_Backend"
     },
     {
         id: "project2",

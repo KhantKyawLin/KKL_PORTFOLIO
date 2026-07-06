@@ -535,7 +535,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#" id="projectCodeLink" class="btn btn-outline-secondary" target="_blank">View Code</a>
+                    <a href="#" id="projectCodeLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">View Code</a>
+                    <a href="#" id="projectFrontendLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">Frontend Code</a>
+                    <a href="#" id="projectBackendLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">Backend Code</a>
                     <!-- <a href="#" id="projectDemoLink" class="btn btn-primary" target="_blank">Live Demo</a> -->
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
@@ -634,7 +636,19 @@
                 // Set modal content
                 document.getElementById('projectModalTitle').textContent = project.title;
                 document.getElementById('projectModalDescription').textContent = project.description;
-                document.getElementById('projectCodeLink').href = project.codeLink;
+                
+                const codeLink = document.getElementById('projectCodeLink');
+                const frontendLink = document.getElementById('projectFrontendLink');
+                const backendLink = document.getElementById('projectBackendLink');
+                
+                codeLink.style.display = project.codeLink ? 'inline-block' : 'none';
+                if(project.codeLink) codeLink.href = project.codeLink;
+                
+                frontendLink.style.display = project.frontendLink ? 'inline-block' : 'none';
+                if(project.frontendLink) frontendLink.href = project.frontendLink;
+                
+                backendLink.style.display = project.backendLink ? 'inline-block' : 'none';
+                if(project.backendLink) backendLink.href = project.backendLink;
                 // document.getElementById('projectDemoLink').href = project.demoLink;
 
                 // Clear and populate technologies
