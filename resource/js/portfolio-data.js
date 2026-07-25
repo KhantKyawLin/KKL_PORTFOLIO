@@ -155,8 +155,16 @@ const projectsData = [
 const allCertificatesData = [
     {
         "category": "web",
+        "title": "Complete React v9",
+        "issuer": "Frontend Masters | Instructor: Brian Holt | Issued: July 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Complete React v9 course from Frontend Masters. This comprehensive course covers modern React development including hooks, state management, component architecture, effects, and best practices for building production-grade React applications.",
+        "imgSrc": "resource/image/complete_react_v9_frontend_master_light_version.jpg",
+        "pdfLink": "resource/certificates/complete_react_v9_frontend_master_light_version.pdf"
+    },
+    {
+        "category": "web",
         "title": "Vue & Firebase Combo",
-        "issuer": "Udemy | Instructor: Pro DOT | Issued: Mar 15, 2026",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Vue & Firebase Combo course. This certificate validates proficiency in building real-time web applications with Vue.js and Firebase, covering database management, authentication, and hosting.",
         "imgSrc": "resource/image/vue_firebase_combo.jpg",
         "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/729"
@@ -164,7 +172,7 @@ const allCertificatesData = [
     {
         "category": "web",
         "title": "JavaScript DOM Basic",
-        "issuer": "Cisco Networking Academy | OpenEDG JavaScript Institute | Issued: Mar 10, 2026",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: November 11, 2025",
         "description": "Khant Kyaw Lin has successfully completed the JavaScript DOM Basic course. The graduate understands how to manipulate the Document Object Model (DOM) using JavaScript to create interactive and dynamic web content, including event handling and form validation.",
         "imgSrc": "resource/image/javascript_dom_basic.jpg",
         "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/683"
@@ -172,7 +180,7 @@ const allCertificatesData = [
     {
         "category": "web",
         "title": "Programming Basic with JavaScript",
-        "issuer": "Cisco Networking Academy | OpenEDG JavaScript Institute | Issued: Mar 05, 2026",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: November 11, 2025",
         "description": "Khant Kyaw Lin has successfully completed the Programming Basic with JavaScript course. The certificate confirms a foundational understanding of programming logic, data structures, and JavaScript syntax essential for web development.",
         "imgSrc": "resource/image/programming_basic_with_java_script.jpg",
         "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/682"
@@ -180,7 +188,7 @@ const allCertificatesData = [
     {
         "category": "professional",
         "title": "Git & GitHub Intermediate",
-        "issuer": "Cisco Networking Academy | Issued: Mar 18, 2026",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Git & GitHub Intermediate course. The graduate is proficient in advanced version control concepts, branching strategies, merging, and collaboration workflows using GitHub for professional teams.",
         "imgSrc": "resource/image/git_git_hub_intermediate.jpg",
         "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/709"
@@ -188,7 +196,7 @@ const allCertificatesData = [
     {
         "category": "professional",
         "title": "Git & GitHub Basic",
-        "issuer": "Cisco Networking Academy | Issued: Mar 12, 2026",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Git & GitHub Basic course. The graduate understands the fundamentals of version control, committing changes, and working with local and remote repositories on GitHub.",
         "imgSrc": "resource/image/git_git_hub_basic.jpg",
         "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/711"
@@ -199,7 +207,7 @@ const allCertificatesData = [
         "issuer": "Cisco Networking Academy | Issued: Mar 20, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Networking Essentials course. The graduate is able to describe the components, operations, and security of networking infrastructures, and possesses the skills to configure and troubleshoot basic network issues.",
         "imgSrc": "resource/image/networking_essentials.jpg",
-        "pdfLink": "#"
+        "pdfLink": "https://www.credly.com/badges/6eaaa07f-5308-41c1-b732-1c98e546292b"
     },
     {
         "category": "n&c",
@@ -207,15 +215,15 @@ const allCertificatesData = [
         "issuer": "Cisco Networking Academy | Issued: Mar 22, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Network Technician Career Path. This comprehensive path validates the skills needed for a network technician role, including network configuration, cybersecurity basics, and hardware troubleshooting.",
         "imgSrc": "resource/image/network_technician_carrer_path.jpg",
-        "pdfLink": "#"
+        "pdfLink": "https://www.credly.com/badges/6eaaa07f-5308-41c1-b732-1c98e546292b"
     },
     {
         "category": "computer",
         "title": "Introduction to Linux (LFS101)",
-        "issuer": "Linux Foundation | Cisco Networking Academy | Issued: Feb 28, 2026",
+        "issuer": "Linux Foundation | Issued: Nov 10, 2025",
         "description": "Khant Kyaw Lin has successfully completed the Introduction to Linux (LFS101) course. The graduate is proficient in basic Linux administration, command-line operations, and system management across various distributions.",
         "imgSrc": "resource/image/introduction_to_linux_(LFS101).jpg",
-        "pdfLink": "#"
+        "pdfLink": "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/d6828a15-9fc4-4973-b7e5-bbe277456fe0-khant-kyaw-lin-73adb343-2d73-4ffc-bcb0-0fad1210dcd2-certificate.pdf"
     },
     {
         "category": "web",
