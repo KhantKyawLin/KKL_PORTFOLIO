@@ -363,6 +363,14 @@ const allCertificatesData = [
     },
     {
         "category": "computer",
+        "title": "NCC Education Level 5 Diploma in Computing",
+        "issuer": "NCC Education | Issued: Jan 19, 2026",
+        "description": "Khant Kyaw Lin has successfully achieved a Distinction mark of 72% in the NCC Education Level 5 Diploma in Computing. The qualification was awarded by NCC Education and delivered by KMD College, Myanmar.",
+        "imgSrc": "resource/image/ncc_L5_diploma.jpg",
+        "pdfLink": "resource/certificates/ncc_L5_diploma.pdf"
+    },
+    {
+        "category": "computer",
         "title": "NCC Education Level 4 Diploma in Computing",
         "issuer": "NCC Education | Issued: Jan 17, 2025",
         "description": "Khant Kyaw Lin has successfully achieved average Distinction mark of 79% in the NCC Education Level 4 Diploma in Computing. The qualification was awarded by NCC Education and delivered by KMD College, Myanmar.",
