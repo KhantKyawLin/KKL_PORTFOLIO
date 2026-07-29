@@ -163,6 +163,14 @@ const allCertificatesData = [
     },
     {
         "category": "web",
+        "title": "Complete Intro to Web Development, v3",
+        "issuer": "Frontend Masters | Instructor: Brian Holt | Issued: July 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Complete Intro to Web Development, v3 course from Frontend Masters. This comprehensive 12-hour course covers the full spectrum of web development fundamentals including HTML, CSS, and JavaScript, providing a solid foundation for building modern web applications.",
+        "imgSrc": "resource/image/web_development_v3_frontend_master.jpg",
+        "pdfLink": "resource/certificates/web_development_v3_frontend_master.pdf"
+    },
+    {
+        "category": "web",
         "title": "Vue & Firebase Combo",
         "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Vue & Firebase Combo course. This certificate validates proficiency in building real-time web applications with Vue.js and Firebase, covering database management, authentication, and hosting.",
