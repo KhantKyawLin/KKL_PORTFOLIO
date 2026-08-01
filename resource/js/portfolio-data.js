@@ -163,6 +163,14 @@ const allCertificatesData = [
     },
     {
         "category": "web",
+        "title": "Intermediate React, v6: RSCs, Hooks, & Performance",
+        "issuer": "Frontend Masters | Instructor: Brian Holt | Issued: Aug 01, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Intermediate React, v6 course from Frontend Masters. This 6-hour course covers advanced React concepts including React Server Components (RSCs), advanced hooks patterns, and performance optimization techniques for building high-performance React applications.",
+        "imgSrc": "resource/image/intermediate_react_v6_frontend_master.jpg",
+        "pdfLink": "resource/certificates/intermediate_react_v6_frontend_master.pdf"
+    },
+    {
+        "category": "web",
         "title": "Complete Intro to Web Development, v3",
         "issuer": "Frontend Masters | Instructor: Brian Holt | Issued: July 2026",
         "description": "Khant Kyaw Lin has successfully completed the Complete Intro to Web Development, v3 course from Frontend Masters. This comprehensive 12-hour course covers the full spectrum of web development fundamentals including HTML, CSS, and JavaScript, providing a solid foundation for building modern web applications.",
