@@ -179,6 +179,14 @@ const allCertificatesData = [
     },
     {
         "category": "web",
+        "title": "Next.js Fundamentals, v4",
+        "issuer": "Frontend Masters | Instructor: Scott Moss | Issued: Aug 08, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Next.js Fundamentals, v4 course from Frontend Masters. This comprehensive 6-hour course covers the fundamentals of building modern web applications with Next.js, including routing, server-side rendering, data fetching, and deployment best practices.",
+        "imgSrc": "resource/image/next_js_fundamentals_v4_frontend_master.jpg",
+        "pdfLink": "resource/certificates/next_js_fundamentals_v4_frontend_master.pdf"
+    },
+    {
+        "category": "web",
         "title": "Vue & Firebase Combo",
         "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Vue & Firebase Combo course. This certificate validates proficiency in building real-time web applications with Vue.js and Firebase, covering database management, authentication, and hosting.",
