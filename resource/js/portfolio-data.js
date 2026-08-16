@@ -187,6 +187,14 @@ const allCertificatesData = [
     },
     {
         "category": "web",
+        "title": "React and TypeScript, v3",
+        "issuer": "Frontend Masters | Instructor: Steve Kinney | Issued: Aug 16, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the React and TypeScript, v3 course from Frontend Masters. This 4-hour course covers integrating TypeScript with React, including type-safe component patterns, props and state typing, hooks with generics, and best practices for building robust, type-safe React applications.",
+        "imgSrc": "resource/image/react_typescript_v3_frontend_master.jpg",
+        "pdfLink": "resource/certificates/react_typescript_v3_frontend_master.pdf"
+    },
+    {
+        "category": "web",
         "title": "Vue & Firebase Combo",
         "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
         "description": "Khant Kyaw Lin has successfully completed the Vue & Firebase Combo course. This certificate validates proficiency in building real-time web applications with Vue.js and Firebase, covering database management, authentication, and hosting.",
