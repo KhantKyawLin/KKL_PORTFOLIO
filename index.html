@@ -568,7 +568,7 @@
                     <a href="#" id="projectCodeLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">View Code</a>
                     <a href="#" id="projectFrontendLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">Frontend Code</a>
                     <a href="#" id="projectBackendLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">Backend Code</a>
-                    <!-- <a href="#" id="projectDemoLink" class="btn btn-primary" target="_blank">Live Demo</a> -->
+                    <a href="#" id="projectDemoLink" class="btn btn-primary" target="_blank" style="display: none;">Live Demo</a>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -670,6 +670,7 @@
                 const codeLink = document.getElementById('projectCodeLink');
                 const frontendLink = document.getElementById('projectFrontendLink');
                 const backendLink = document.getElementById('projectBackendLink');
+                const demoLink = document.getElementById('projectDemoLink');
                 
                 codeLink.style.display = project.codeLink ? 'inline-block' : 'none';
                 if(project.codeLink) codeLink.href = project.codeLink;
@@ -679,7 +680,9 @@
                 
                 backendLink.style.display = project.backendLink ? 'inline-block' : 'none';
                 if(project.backendLink) backendLink.href = project.backendLink;
-                // document.getElementById('projectDemoLink').href = project.demoLink;
+                
+                demoLink.style.display = (project.demoLink && !project.demoLink.includes('example.com')) ? 'inline-block' : 'none';
+                if(project.demoLink) demoLink.href = project.demoLink;
 
                 // Clear and populate technologies
                 const techContainer = document.getElementById('projectTechnologies');
