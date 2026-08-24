@@ -1,6 +1,27 @@
 // Projects data array
 const projectsData = [
     {
+        id: "project_synapse_study",
+        title: "Synapse Study - Medical Education Platform",
+        description: "A high-performance medical learning platform designed for medical students to master complex subjects (Immunology, Microbiology, Pathophysiology, Physiology) through interactive 3D flashcards, clinical summary dashboards, and timed practice exams. Built with React 19, Vite, and Tailwind CSS v4, it features a LocalStorage-backed flashcard mastery & bookmark system, a 3-column clinical dashboard with multi-level filtering, and a 5-choice practice exam engine with student name verification, auto-submit countdown timers, and 1-click PNG/Clipboard score certificate exports. Includes a custom Node.js data ingestion pipeline parsing Excel and CSV datasets into optimized JSON.",
+        technologies: ["React 19", "Vite", "Tailwind CSS v4", "KaTeX", "Lucide Icons", "Node.js", "html-to-image", "Vercel"],
+        images: [
+            "resource/projects/synapse_study_1.png",
+            "resource/projects/synapse_study_2.png",
+            "resource/projects/synapse_study_3.png",
+            "resource/projects/synapse_study_4.png",
+            "resource/projects/synapse_study_5.png",
+            "resource/projects/synapse_study_6.png",
+            "resource/projects/synapse_study_7.png",
+            "resource/projects/synapse_study_8.png",
+            "resource/projects/synapse_study_9.png",
+            "resource/projects/synapse_study_10.png",
+            "resource/projects/synapse_study_11.png"
+        ],
+        codeLink: "https://github.com/KhantKyawLin/synapse_study_kkl",
+        demoLink: "https://synapsestudykkl.vercel.app/"
+    },
+    {
         id: "project1",
         title: "Pharmacy Management System",
         description: "A secure full-stack application developed to manage pharmacy inventory, sales, and reporting. The system features a Laravel backend with secure RESTful APIs, JWT authentication, and role-based access control (RBAC) middleware, integrated with a modern React frontend styled with Tailwind CSS. Admins can securely manage medicines, categories, orders, and users, while customers can browse products, place orders, and manage accounts. Includes real-time inventory alerts, sales analytics, and bulk product management features.",
