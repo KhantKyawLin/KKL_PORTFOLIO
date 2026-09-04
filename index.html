@@ -639,32 +639,10 @@
                         </div>
                     `;
 
-                    // Add event listener for opening the modal
+                    // Add event listener for opening the modal on any card or link click
                     projectCard.addEventListener('click', (e) => {
-                        // Check if the click was on the "See More" link
-                        if (e.target.classList.contains('see-more-link')) {
-                            return; // Do nothing, the link will handle it
-                        }
                         openProjectModal(project);
                     });
-
-                    // If the project description is long, add the toggle functionality to the "See More" link
-                    if (project.description.length > maxLength) {
-                        const seeMoreLink = projectCard.querySelector('.see-more-link');
-                        const descriptionText = projectCard.querySelector('.description-text');
-
-                        seeMoreLink.addEventListener('click', function (e) {
-                            e.stopPropagation(); // Prevent the card click event from firing
-
-                            if (descriptionText.textContent === truncatedDescription) {
-                                descriptionText.textContent = project.description;
-                                this.textContent = 'See Less';
-                            } else {
-                                descriptionText.textContent = truncatedDescription;
-                                this.textContent = 'See More';
-                            }
-                        });
-                    }
 
                     container.appendChild(projectCard);
                 });
