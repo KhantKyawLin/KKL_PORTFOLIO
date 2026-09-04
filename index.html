@@ -595,9 +595,21 @@
                 container.innerHTML = '';
 
                 projectsData.forEach(project => {
+                    // Confidential project fallback SVG
+                    const confidentialSvg = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+                      <rect width="800" height="500" fill="#0f172a"/>
+                      <circle cx="400" cy="200" r="45" fill="#1e293b"/>
+                      <path d="M388 185 v-15 a12 12 0 0 1 24 0 v15 h8 v32 h-40 v-32 z" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+                      <rect x="378" y="185" width="44" height="32" rx="4" fill="#38bdf8"/>
+                      <circle cx="400" cy="201" r="4" fill="#0f172a"/>
+                      <text x="400" y="280" font-family="sans-serif" font-size="22" font-weight="600" fill="#f8fafc" text-anchor="middle">Confidential Commercial Project</text>
+                      <text x="400" y="310" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Screenshots restricted under NDA &amp; Privacy Guidelines</text>
+                    </svg>
+                    `)}`;
+
                     // Find first valid image or use placeholder
-                    const firstValidImage = project.images.find(img => img && img.trim() !== '') ||
-                        'https://via.placeholder.com/800x500?text=No+Preview';
+                    const firstValidImage = project.images.find(img => img && img.trim() !== '') || confidentialSvg;
 
                     const projectCard = document.createElement('div');
                     projectCard.className = 'project-card';
@@ -644,7 +656,7 @@
                         seeMoreLink.addEventListener('click', function (e) {
                             e.stopPropagation(); // Prevent the card click event from firing
 
-                            if (this.textContent === 'See More') {
+                            if (descriptionText.textContent === truncatedDescription) {
                                 descriptionText.textContent = project.description;
                                 this.textContent = 'See Less';
                             } else {
@@ -706,11 +718,13 @@
                         swiperWrapper.appendChild(slide);
                     });
                 } else {
-                    // Fallback when no images available
+                    // Fallback when no images available (Confidential/NDA project)
                     swiperWrapper.innerHTML = `
                         <div class="swiper-slide">
-                            <div class="d-flex align-items-center justify-content-center bg-light" style="height: 300px;">
-                                <p class="text-muted">No preview available</p>
+                            <div class="d-flex flex-column align-items-center justify-content-center bg-dark text-white rounded p-5 text-center" style="height: 320px;">
+                                <i class="fas fa-user-shield fa-3x text-info mb-3"></i>
+                                <h5 class="fw-bold">Confidential Commercial Project</h5>
+                                <p class="text-secondary small mb-0" style="max-width: 480px;">Project UI & visual assets are protected under non-disclosure & commercial banking security agreements.</p>
                             </div>
                         </div>
                     `;
