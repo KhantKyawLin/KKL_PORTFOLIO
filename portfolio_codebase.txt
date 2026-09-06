@@ -1,0 +1,3479 @@
+=================================================================
+PORTFOLIO CODEBASE EXPORT - KHANT KYAW LIN (KKL_PORTFOLIO)
+Generated for NotebookLM Analysis & Knowledge Retrieval
+Repository: https://github.com/KhantKyawLin/KKL_PORTFOLIO
+Live Site: https://kkl-portfolio.vercel.app/
+Export Date: 2026-09-05T09:08:08.534Z
+=================================================================
+
+
+=================================================================
+FILE: README.md
+=================================================================
+
+# KKL_PORTFOLIO
+
+
+
+=================================================================
+FILE: index.html
+=================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khant Kyaw Lin - Full-Stack Developer</title>
+
+    <!-- External CSS Libraries (Local) -->
+    <link href="resource/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="resource/vendor/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="resource/vendor/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="resource/vendor/aos/aos.css" />
+    <link rel="stylesheet" href="resource/vendor/devicon/devicon.min.css" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="resource/css/style.css" />
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#main-navigation" data-bs-offset="100">
+
+    <!-- Three.js Canvas -->
+    <!-- <canvas id="particle-canvas"></canvas> -->
+
+    <!-- ===== Navigation Bar ===== -->
+    <nav id="navbar-main" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#hero">
+                <img src="resource/image/profile.jpg" alt="Khant Kyaw Lin" width="40" height="40"
+                    class="me-2 rounded-circle border border-primary" />
+                <span class="fw-bold">Khant Kyaw Lin</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Main Navigation Links -->
+                <ul id="main-navigation" class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+
+            <div class="d-none d-lg-flex align-items-center">
+                <a href="#" class="btn btn-outline-primary me-3" id="download-cv-desktop">
+                    <i class="fas fa-download me-2"></i>Download CV
+                </a>
+                <!-- Weather Selector Windy,Snowy,Rainy-->
+                <!-- <div class="weather-selector-container me-3">
+                    <select id="weather-select-desktop" class="form-select form-select-sm weather-select"
+                        aria-label="Select weather">
+                        <option value="auto">🌤️ Auto (Time)</option>
+                        <option value="windy">💨 Windy</option>
+                        <option value="snowy">❄️ Snowy</option>
+                        <option value="rainy">🌧️ Rainy</option>
+                    </select>
+                </div> -->
+                <label class="theme-toggle" title="Toggle light / dark theme">
+                    <input id="theme-switch-input-desktop" type="checkbox" aria-label="Toggle theme">
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Offcanvas Navigation ===== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Navigation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Mobile Navigation Links -->
+            <ul id="mobile-navigation" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="#" class="btn btn-outline-primary me-3" id="download-cv-mobile">
+                        <i class="fas fa-download me-2"></i>Download CV
+                    </a>
+                </li>
+            </ul>
+            <div class="d-lg-none mt-3">
+                <label class="theme-toggle" title="Toggle light / dark theme">
+                    <input id="theme-switch-input-mobile" type="checkbox" aria-label="Toggle theme">
+                    <span class="toggle-label ms-2"></span>
+                </label>
+            </div>
+            <!-- <div class="d-lg-none mt-3">
+                <label class="form-label small text-muted">Weather Pattern:</label>
+                <select id="weather-select-mobile" class="form-select form-select-sm weather-select"
+                    aria-label="Select weather">
+                    <option value="auto">🌤️ Auto (Time)</option>
+                    <option value="windy">💨 Windy</option>
+                    <option value="snowy">❄️ Snowy</option>
+                    <option value="rainy">🌧️ Rainy</option>
+                </select>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="d-flex align-items-center justify-content-center text-center"
+            aria-labelledby="hero-title">
+            <div class="container" data-aos="fade-up">
+                <h1 id="hero-title" class="display-4 fw-bolder">Khant Kyaw Lin</h1>
+                <p class="lead fs-4">I'm a <span id="typed-text" class="text-primary fw-bold"></span></p>
+                <div class="social-icons mt-4">
+                    <a href="https://www.linkedin.com/in/khant-kyaw-lin-646457247/" target="_blank"
+                        rel="noopener noreferrer" class="me-3 text-primary text-decoration-none"
+                        aria-label="LinkedIn Profile">
+                        <i class=" social_link fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/khantkyawlin" target="_blank" rel="noopener noreferrer"
+                        class="text-dark" aria-label="GitHub Profile">
+                        <i class=" social_link fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+                <div class="mt-5">
+                    <a href="#contact" class="btn btn-outline-primary btn-lg" role="button">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-5 section-bg" aria-labelledby="about-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="about-title" class="section-title text-center">About Me</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <img loading="lazy" src="resource/image/profile.jpg" class="img-profile"
+                            alt="Khant Kyaw Lin's profile picture" />
+                    </div>
+                    <div class="col-lg-8">
+                        <p class="lead text-primary fw-bold">"Software should be simple, useful, and above all- make
+                            someone's life easier."</p>
+
+                        <p>Hi, I am <strong>Khant Kyaw Lin</strong>. My background isn’t just in code-it is in
+                            <strong>medicine and people</strong>. As a final-year medical student who has managed 
+                            pharmacy operations and guided students for over a decade, I realized that the most satisfying part 
+                            of any job is building the tools that solve real, daily frustrations.
+                        </p>
+
+                        <p>I don't just "build apps;" I help you <strong>serve your users better</strong>. Whether it's
+                            a small-scale tool or a live, complex ecosystem, here is what I can do for your next
+                            project:</p>
+
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Scalable
+                                    Full-Stack Solutions:</strong> I build secure backend RESTful APIs and modern web
+                                interfaces using
+                                <strong>Laravel, Vue.js, React.js, and Bootstrap</strong>, as well as cross-platform
+                                mobile apps with <strong>Flutter</strong>.
+                            </li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Actionable
+                                    Data Insights:</strong> I help you understand your audience. Recently, I integrated
+                                <strong>Google Analytics for Firebase</strong> into a live Flutter LMS app to track user
+                                engagement and drive data-backed improvements.
+                            </li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Secure &
+                                    Resilient Systems:</strong> With a strong foundation in
+                                <strong>Cybersecurity</strong> (Cisco & IBM certified), I implement robust security
+                                controls like <strong>JWT authentication</strong> and <strong>Role-Based Access Control
+                                    (RBAC)</strong> to protect user data from day one.
+                            </li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Simplifying
+                                    Complex Workflows:</strong> I specialize in taking complicated business logic—such
+                                as multi-role approval structures, inventory management systems, and e-learning
+                                portals—and turning them into clean, automated digital platforms.</li>
+                        </ul>
+
+                        <p>I am a developer who can build <strong>simple but useful software</strong>. If you have a
+                            project that needs
+                            a steady hand, a secure foundation, and a focus on real-world impact, let's build it
+                            together.</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-5" aria-labelledby="skills-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="skills-title" class="section-title text-center">Core Technologies</h2>
+
+                <!-- Skills Slider Container -->
+                <div class="skills-slider-container">
+                    <div class="skills-track">
+                        <!-- Existing Skills (Duplicated for seamless animation) -->
+                        <div class="skill-item" title="HTML5"><i class="devicon-html5-plain colored skill-icon"></i>
+                            <p>HTML5</p>
+                        </div>
+                        <div class="skill-item" title="CSS3"><i class="devicon-css3-plain colored skill-icon"></i>
+                            <p>CSS3</p>
+                        </div>
+                        <div class="skill-item" title="JavaScript (ES6+)"><i
+                                class="devicon-javascript-plain colored skill-icon"></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="skill-item" title="jQuery"><i class="devicon-jquery-plain colored skill-icon"></i>
+                            <p>jQuery</p>
+                        </div>
+                        <div class="skill-item" title="Bootstrap"><i
+                                class="devicon-bootstrap-plain colored skill-icon"></i>
+                            <p>Bootstrap</p>
+                        </div>
+                        <div class="skill-item" title="Tailwind CSS"><i
+                                class="devicon-tailwindcss-plain colored skill-icon"></i>
+                            <p>Tailwind CSS</p>
+                        </div>
+                        <div class="skill-item" title="PHP"><i class="devicon-php-plain colored skill-icon"></i>
+                            <p>PHP</p>
+                        </div>
+                        <div class="skill-item" title="Laravel"><i class="devicon-laravel-plain colored skill-icon"></i>
+                            <p>Laravel</p>
+                        </div>
+                        <div class="skill-item" title="Git"><i class="devicon-git-plain colored skill-icon"></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="skill-item" title="SQL"><i class="devicon-mysql-plain colored skill-icon"></i>
+                            <p>SQL</p>
+                        </div>
+                        <div class="skill-item" title="Postman"><i class="devicon-postman-plain colored skill-icon"></i>
+                            <p>Postman</p>
+                        </div>
+                        <div class="skill-item" title="C#"><i class="devicon-csharp-plain skill-icon"></i>
+                            <p>C#</p>
+                        </div>
+                        <div class="skill-item" title="Kotlin"><i class="devicon-kotlin-plain skill-icon"></i>
+                            <p>Kotlin</p>
+                        </div>
+                        <div class="skill-item" title="RESTful APIs"><i class="fas fa-code-branch skill-icon"></i>
+                            <p>REST APIs</p>
+                        </div>
+                        <div class="skill-item" title="Flutter"><i class="devicon-flutter-plain colored skill-icon"></i>
+                            <p>Flutter</p>
+                        </div>
+                        <div class="skill-item" title="Vue.js"><i class="devicon-vuejs-plain colored skill-icon"></i>
+                            <p>Vue.js</p>
+                        </div>
+                        <div class="skill-item" title="React"><i class="devicon-react-original colored skill-icon"></i>
+                            <p>React</p>
+                        </div>
+                        <div class="skill-item" title="Firebase"><i
+                                class="devicon-firebase-plain colored skill-icon"></i>
+                            <p>Firebase</p>
+                        </div>
+                        <div class="skill-item" title="Linux"><i class="devicon-linux-plain skill-icon"></i>
+                            <p>Linux</p>
+                        </div>
+
+                        <!-- Duplicated Skills for seamless animation -->
+                        <div class="skill-item" title="HTML5"><i class="devicon-html5-plain colored skill-icon"></i>
+                            <p>HTML5</p>
+                        </div>
+                        <div class="skill-item" title="CSS3"><i class="devicon-css3-plain colored skill-icon"></i>
+                            <p>CSS3</p>
+                        </div>
+                        <div class="skill-item" title="JavaScript (ES6+)"><i
+                                class="devicon-javascript-plain colored skill-icon"></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="skill-item" title="jQuery"><i class="devicon-jquery-plain colored skill-icon"></i>
+                            <p>jQuery</p>
+                        </div>
+                        <div class="skill-item" title="Bootstrap"><i
+                                class="devicon-bootstrap-plain colored skill-icon"></i>
+                            <p>Bootstrap</p>
+                        </div>
+                        <div class="skill-item" title="Tailwind CSS"><i
+                                class="devicon-tailwindcss-plain colored skill-icon"></i>
+                            <p>Tailwind CSS</p>
+                        </div>
+                        <div class="skill-item" title="PHP"><i class="devicon-php-plain colored skill-icon"></i>
+                            <p>PHP</p>
+                        </div>
+                        <div class="skill-item" title="Laravel"><i class="devicon-laravel-plain colored skill-icon"></i>
+                            <p>Laravel</p>
+                        </div>
+                        <div class="skill-item" title="Git"><i class="devicon-git-plain colored skill-icon"></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="skill-item" title="SQL"><i class="devicon-mysql-plain colored skill-icon"></i>
+                            <p>SQL</p>
+                        </div>
+                        <div class="skill-item" title="Postman"><i class="devicon-postman-plain colored skill-icon"></i>
+                            <p>Postman</p>
+                        </div>
+                        <div class="skill-item" title="C#"><i class="devicon-csharp-plain skill-icon"></i>
+                            <p>C#</p>
+                        </div>
+                        <div class="skill-item" title="Kotlin"><i class="devicon-kotlin-plain skill-icon"></i>
+                            <p>Kotlin</p>
+                        </div>
+                        <div class="skill-item" title="RESTful APIs"><i class="fas fa-code-branch skill-icon"></i>
+                            <p>REST APIs</p>
+                        </div>
+                        <div class="skill-item" title="Flutter"><i class="devicon-flutter-plain colored skill-icon"></i>
+                            <p>Flutter</p>
+                        </div>
+                        <div class="skill-item" title="Vue.js"><i class="devicon-vuejs-plain colored skill-icon"></i>
+                            <p>Vue.js</p>
+                        </div>
+                        <div class="skill-item" title="React"><i class="devicon-react-original colored skill-icon"></i>
+                            <p>React</p>
+                        </div>
+                        <div class="skill-item" title="Firebase"><i
+                                class="devicon-firebase-plain colored skill-icon"></i>
+                            <p>Firebase</p>
+                        </div>
+                        <div class="skill-item" title="Linux"><i class="devicon-linux-plain skill-icon"></i>
+                            <p>Linux</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-5 section-bg" aria-labelledby="projects-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="projects-title" class="section-title text-center">My Projects</h2>
+                <div class="projects-container" id="projects-container">
+                    <!-- Projects will be dynamically inserted here with array -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-5" aria-labelledby="certificates-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="certificates-title" class="section-title text-center">Certificates & Awards</h2>
+                <div class="category-tabs">
+                    <div class="category-tab active" data-category="all">All</div>
+                    <div class="category-tab" data-category="web">Web Development</div>
+                    <div class="category-tab" data-category="ai">AI & ML</div>
+                    <div class="category-tab" data-category="n&c">Networking & CyberSecurity</div>
+                    <div class="category-tab" data-category="data">Data Science</div>
+                    <div class="category-tab" data-category="professional">Professional Development</div>
+                    <div class="category-tab" data-category="computer">Computer Science</div>
+                </div>
+                <div class="certificate-swiper-container">
+                    <!-- Swiper wrapper is populated by JavaScript -->
+                </div>
+                <div class="certificate-progress-container">
+                    <div class="certificate-progress-bar" id="certificate-progress-bar"></div>
+                </div>
+                <div class="certificate-controls">
+                    <button id="certificate-prev-btn" class="certificate-nav-btn" aria-label="Previous Certificate"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <div id="certificate-status" class="certificate-status"></div>
+                    <button id="certificate-next-btn" class="certificate-nav-btn" aria-label="Next Certificate"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-5 section-bg" aria-labelledby="experience-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="experience-title" class="section-title text-center">Professional Experience</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <ul class="timeline">
+                            <li class="timeline-item">
+                                <h5>Full-Stack Developer <span class="text-muted fw-normal">| Central_Nex Software House</span></h5>
+                                <small class="text-muted">Dec 2025 – Present</small>
+                                <p class="mt-2">Core backend developer in a 2-person engineering team for a commercial <strong>Enterprise Supply Chain Financing (SCF) platform</strong> (Laravel 11, PHP 8+, MySQL, Flutter, WebSockets, Docker, Git CI/CD). Architected primary backend business logic, multi-stage Maker-Checker approval workflows, concurrency-safe facility limit calculations, and spearheaded end-to-end API testing across DEV, SIT, and UAT environments.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Full-Stack Developer <span class="text-muted fw-normal">| Freelance</span></h5>
+                                <small class="text-muted">Jan 2025 – Present</small>
+                                <p class="mt-2">Designing, developing, and maintaining web applications for various
+                                    clients
+                                    using <strong>PHP, Laravel, MySQL, HTML/CSS, JavaScript</strong>, and modern
+                                    full-stack
+                                    practices. Currently expanding expertise into <strong>Python</strong> and
+                                    <strong>AI-powered
+                                        solutions</strong> to deliver intelligent, scalable systems.
+                                </p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Intern – Software Development <span class="text-muted fw-normal">| Soft Guide
+                                        Software
+                                        House</span></h5>
+                                <small class="text-muted">May 2025 – Jul 2025</small>
+                                <p class="mt-2">Worked on real-world software projects in a collaborative development
+                                    environment. Gained practical experience in full-stack workflows, code versioning,
+                                    and
+                                    building dynamic, responsive web solutions.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Pharmacy Operations Lead <span class="text-muted fw-normal">| Vital Care
+                                        Pharmacy</span>
+                                </h5>
+                                <small class="text-muted">2022 – 2025</small>
+                                <p class="mt-2">Managed day-to-day pharmacy operations, customer care, inventory
+                                    systems, and
+                                    business workflows, ensuring high-quality healthcare delivery and operational
+                                    efficiency.
+                                </p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Freelance Study Guide <span class="text-muted fw-normal">| Self-employed</span></h5>
+                                <small class="text-muted">2014 – Present</small>
+                                <p class="mt-2">Provided personalized academic coaching to high school students &
+                                    medical students for
+                                    over a
+                                    decade, focusing on improving subject comprehension, exam performance, and study
+                                    habits.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-5" aria-labelledby="education-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="education-title" class="section-title text-center">Education Journey</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <ul class="timeline">
+                            <li class="timeline-item">
+                                <h5>Advanced Diploma in Computing <span class="text-muted fw-normal">| NCC Education</span></h5>
+                                <small class="text-muted">2025 – 2026</small>
+                                <p class="mt-2">Advanced studies in computing, covering software engineering, database design, network security, and advanced programming concepts.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Diploma in Computing <span class="text-muted fw-normal">| NCC Education</span></h5>
+                                <small class="text-muted">2024 – 2025</small>
+                                <p class="mt-2">Core foundational computing diploma covering web development, computer systems, networks, and fundamental programming principles.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <h5>Bachelor of Medicine, Bachelor of Surgery (M.B., B.S.) <span class="text-muted fw-normal">| University of Medicine 2, Yangon</span></h5>
+                                <small class="text-muted">2014 – Present (Expected Completion: Nov 2026)</small>
+                                <p class="mt-2">I am currently in my final year of medical school. Studying medicine taught me how to think analytically, pay close attention to details, and solve complex problems under pressure. During the global pandemic, I took a break to open and manage a pharmacy. This real-world business experience sparked my true passion for software development. Today, my goal is to combine my medical knowledge with my IT skills to build useful and secure tech solutions.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-5 section-bg" aria-labelledby="contact-title">
+            <div class="container" data-aos="fade-up">
+                <h2 id="contact-title" class="section-title text-center">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-form p-4 p-md-5">
+                            <form id="contactForm" method="POST">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_next" value="https://kkl-portfolio.vercel.app/#contact">
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Your Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5"
+                                        required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-outline-primary w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2025 Khant Kyaw Lin. All Rights Reserved.</p>
+            <div class="social-icons mt-2">
+                <a href="https://www.linkedin.com/in/khant-kyaw-lin-646457247/" target="_blank"
+                    rel="noopener noreferrer" class="me-3 text-primary" aria-label="LinkedIn"><i
+                        class=" social_link fab fa-linkedin fa-lg"></i></a>
+                <a href="https://github.com/khantkyawlin" target="_blank" rel="noopener noreferrer" class="text-dark"
+                    aria-label="GitHub"><i class=" social_link fab fa-github fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Modals ===== -->
+    <!-- Single, Dynamic Certificate Modal -->
+    <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel">Certificate Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img loading="lazy" src="" class="img-fluid rounded" id="certificateModalImage"
+                        alt="Certificate Image">
+                    <div class="mt-3">
+                        <p id="certificateModalIssuer" class="text-muted small mb-1"></p>
+                        <p id="certificateModalDescription"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="certificateModalPdfLink" target="_blank" class="btn btn-primary">View Credential</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalTitle">Project Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="swiper project-modal-swiper">
+                        <div class="swiper-wrapper" id="projectSwiperWrapper">
+                            <!-- Images will be inserted here -->
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="mt-4">
+                        <p id="projectModalDescription"></p>
+                        <div class="mt-3">
+                            <h6>Technologies Used:</h6>
+                            <div class="d-flex flex-wrap gap-2" id="projectTechnologies"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="projectCodeLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">View Code</a>
+                    <a href="#" id="projectFrontendLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">Frontend Code</a>
+                    <a href="#" id="projectBackendLink" class="btn btn-outline-secondary" target="_blank" style="display: none;">Backend Code</a>
+                    <a href="#" id="projectDemoLink" class="btn btn-primary" target="_blank" style="display: none;">Live Demo</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== Scripts ===== -->
+    <script src="resource/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="resource/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="resource/vendor/aos/aos.js"></script>
+    <script src="resource/vendor/typed.js/typed.min.js"></script>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- Three.js Library & Particle Animation -->
+    <!-- <script src="resource/vendor/three/three.min.js"></script>
+    <script src="resource/js/particles.js"></script> -->
+    <!-- Data Source -->
+    <script src="resource/js/portfolio-data.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // projectsData is loaded from portfolio-data.js
+
+            // Function to render projects with "See More" functionality
+            function renderProjects() {
+                const container = document.getElementById('projects-container');
+                container.innerHTML = '';
+
+                projectsData.forEach(project => {
+                    // Confidential project fallback SVG
+                    const confidentialSvg = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+                      <rect width="800" height="500" fill="#0f172a"/>
+                      <circle cx="400" cy="200" r="45" fill="#1e293b"/>
+                      <path d="M388 185 v-15 a12 12 0 0 1 24 0 v15 h8 v32 h-40 v-32 z" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+                      <rect x="378" y="185" width="44" height="32" rx="4" fill="#38bdf8"/>
+                      <circle cx="400" cy="201" r="4" fill="#0f172a"/>
+                      <text x="400" y="280" font-family="sans-serif" font-size="22" font-weight="600" fill="#f8fafc" text-anchor="middle">Confidential Commercial Project</text>
+                      <text x="400" y="310" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Screenshots restricted under NDA &amp; Privacy Guidelines</text>
+                    </svg>
+                    `)}`;
+
+                    // Find first valid image or use placeholder
+                    const firstValidImage = project.images.find(img => img && img.trim() !== '') || confidentialSvg;
+
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.setAttribute('data-project-id', project.id);
+
+                    // Create truncated description
+                    const maxLength = 150;
+                    const truncatedDescription = project.description.length > maxLength ?
+                        project.description.substring(0, maxLength) + '...' :
+                        project.description;
+
+                    projectCard.innerHTML = `
+                        <img loading="lazy" src="${firstValidImage}" class="project-card-img" alt="${project.title}">
+                        <div class="project-card-body">
+                            <h5 class="project-card-title">${project.title}</h5>
+                            <p class="project-card-text">
+                                <span class="description-text">${truncatedDescription}</span>
+                                ${project.description.length > maxLength ?
+                            '<span class="see-more-link">See More</span>' :
+                            ''}
+                            </p>
+                            <div class="project-card-footer">
+                                ${project.technologies.map(tech =>
+                                `<span class="project-badge bg-primary">${tech}</span>`
+                            ).join('')}
+                            </div>
+                        </div>
+                    `;
+
+                    // Add event listener for opening the modal on any card or link click
+                    projectCard.addEventListener('click', (e) => {
+                        openProjectModal(project);
+                    });
+
+                    container.appendChild(projectCard);
+                });
+            }
+
+            // Function to open project modal
+            function openProjectModal(project) {
+                // Set modal content
+                document.getElementById('projectModalTitle').textContent = project.title;
+                document.getElementById('projectModalDescription').textContent = project.description;
+                
+                const codeLink = document.getElementById('projectCodeLink');
+                const frontendLink = document.getElementById('projectFrontendLink');
+                const backendLink = document.getElementById('projectBackendLink');
+                const demoLink = document.getElementById('projectDemoLink');
+                
+                codeLink.style.display = project.codeLink ? 'inline-block' : 'none';
+                if(project.codeLink) codeLink.href = project.codeLink;
+                
+                frontendLink.style.display = project.frontendLink ? 'inline-block' : 'none';
+                if(project.frontendLink) frontendLink.href = project.frontendLink;
+                
+                backendLink.style.display = project.backendLink ? 'inline-block' : 'none';
+                if(project.backendLink) backendLink.href = project.backendLink;
+                
+                demoLink.style.display = (project.demoLink && !project.demoLink.includes('example.com')) ? 'inline-block' : 'none';
+                if(project.demoLink) demoLink.href = project.demoLink;
+
+                // Clear and populate technologies
+                const techContainer = document.getElementById('projectTechnologies');
+                techContainer.innerHTML = '';
+                project.technologies.forEach(tech => {
+                    const badge = document.createElement('span');
+                    badge.className = 'project-badge bg-primary';
+                    badge.textContent = tech;
+                    techContainer.appendChild(badge);
+                });
+
+                // Clear and populate images - filter out empty images
+                const swiperWrapper = document.getElementById('projectSwiperWrapper');
+                swiperWrapper.innerHTML = '';
+
+                // Filter out empty images and create slides
+                const validImages = project.images.filter(img => img && img.trim() !== '');
+
+                if (validImages.length > 0) {
+                    validImages.forEach(img => {
+                        const slide = document.createElement('div');
+                        slide.className = 'swiper-slide';
+                        slide.innerHTML = `<img src="${img}" class="img-fluid" alt="${project.title}">`;
+                        swiperWrapper.appendChild(slide);
+                    });
+                } else {
+                    // Fallback when no images available (Confidential/NDA project)
+                    swiperWrapper.innerHTML = `
+                        <div class="swiper-slide">
+                            <div class="d-flex flex-column align-items-center justify-content-center bg-dark text-white rounded p-5 text-center" style="height: 320px;">
+                                <i class="fas fa-user-shield fa-3x text-info mb-3"></i>
+                                <h5 class="fw-bold">Confidential Commercial Project</h5>
+                                <p class="text-secondary small mb-0" style="max-width: 480px;">Project UI & visual assets are protected under non-disclosure & commercial banking security agreements.</p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Initialize or reinitialize Swiper
+                if (window.projectSwiper) {
+                    window.projectSwiper.destroy();
+                }
+
+                window.projectSwiper = new Swiper('.project-modal-swiper', {
+                    loop: validImages.length > 1, // Only loop if there are multiple images
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+
+                // Show the modal
+                const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+                projectModal.show();
+            }
+
+            // Call function to render projects
+            renderProjects();
+
+            // --- Initialize AOS (Animate on Scroll) ---
+            AOS.init({
+                duration: 800,
+                once: true,
+                easing: 'ease-in-out'
+            });
+            // --- Typed.js Effect for Hero Section ---
+            const typedTextElement = document.getElementById('typed-text');
+            if (typedTextElement) {
+                new Typed(typedTextElement, {
+                    strings: [
+                        'Full-Stack Developer.',
+                        'Problem Solver.',
+                        // 'Impact-Driven Synthesizer.',
+                        'PHP &amp; Laravel Enthusiast.',
+                        'AI &amp; Python Learner.'
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+            }
+
+            // --- Theme & Weather Functionality (Timezone-Aware) ---
+            const desktopToggle = document.getElementById("theme-switch-input-desktop");
+            const mobileToggle = document.getElementById("theme-switch-input-mobile");
+            const desktopWeatherSelect = document.getElementById("weather-select-desktop");
+            const mobileWeatherSelect = document.getElementById("weather-select-mobile");
+
+            // 1. Timezone detection functions
+            const getAutoTheme = () => {
+                const hour = new Date().getHours();
+                return (hour >= 6 && hour < 18) ? "light" : "dark";
+            };
+
+            const getAutoWeather = () => {
+                const hour = new Date().getHours();
+                if (hour >= 0 && hour < 8) {
+                    return "windy";
+                } else if (hour >= 8 && hour < 16) {
+                    return "snowy";
+                } else {
+                    return "rainy";
+                }
+            };
+
+            // 2. Theme logic
+            const applyTheme = (theme) => {
+                if (theme === "dark") {
+                    document.body.classList.add("dark-theme");
+                    document.documentElement.classList.add("dark-theme");
+                    desktopToggle.checked = true;
+                    mobileToggle.checked = true;
+                } else {
+                    document.body.classList.remove("dark-theme");
+                    document.documentElement.classList.remove("dark-theme");
+                    desktopToggle.checked = false;
+                    mobileToggle.checked = false;
+                }
+                // Dispatch theme update event for particles canvas
+                window.dispatchEvent(new CustomEvent('themeChanged', { detail: theme }));
+            };
+
+            // 3. Weather logic
+            const applyWeather = (weatherMode) => {
+                let activeWeather = weatherMode;
+                if (weatherMode === "auto") {
+                    activeWeather = getAutoWeather();
+                }
+
+                // Sync select inputs
+                if (desktopWeatherSelect) desktopWeatherSelect.value = weatherMode;
+                if (mobileWeatherSelect) mobileWeatherSelect.value = weatherMode;
+
+                // Toggle weather classes on root element for adaptive light-theme backgrounds
+                document.documentElement.classList.remove("weather-windy", "weather-snowy", "weather-rainy");
+                document.documentElement.classList.add(`weather-${activeWeather}`);
+
+                // Dispatch weather update event for particles canvas
+                window.dispatchEvent(new CustomEvent('weatherChanged', { detail: activeWeather }));
+            };
+
+            // 4. Initial Theme and Weather resolution
+            const savedTheme = localStorage.getItem("theme") || getAutoTheme();
+            const savedWeather = localStorage.getItem("weather") || "auto";
+
+            applyTheme(savedTheme);
+            // applyWeather(savedWeather);
+
+            // --- Active Nav Link on Scroll & Offcanvas Handling ---
+            const offcanvasElement = document.getElementById('offcanvasNavbar');
+            let offcanvas = null;
+            if (offcanvasElement) {
+                offcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+            }
+
+            const toggleTheme = (isMobile = false) => {
+                const newTheme = document.body.classList.contains("dark-theme") ? "light" : "dark";
+                localStorage.setItem("theme", newTheme);
+                applyTheme(newTheme);
+
+                // If toggled from mobile menu, close it
+                if (isMobile && offcanvas) {
+                    offcanvas.hide();
+                }
+            };
+
+            desktopToggle.addEventListener("change", () => toggleTheme(false));
+            mobileToggle.addEventListener("change", () => toggleTheme(true));
+
+            // Sync weather selects and update
+            const onWeatherSelectChange = (e) => {
+                const selectedWeather = e.target.value;
+                localStorage.setItem("weather", selectedWeather);
+                applyWeather(selectedWeather);
+            };
+
+            if (desktopWeatherSelect) {
+                desktopWeatherSelect.addEventListener("change", onWeatherSelectChange);
+            }
+            if (mobileWeatherSelect) {
+                mobileWeatherSelect.addEventListener("change", onWeatherSelectChange);
+            }
+
+            if (offcanvasElement && offcanvas) {
+                const navLinks = offcanvasElement.querySelectorAll('.nav-link');
+
+                // Close offcanvas and scroll to section when a nav link is clicked
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+
+                        // Close the offcanvas
+                        offcanvas.hide();
+
+                        // After the offcanvas is hidden, scroll to the target
+                        const handleHidden = () => {
+                            offcanvasElement.removeEventListener('hidden.bs.offcanvas', handleHidden);
+                            if (targetElement) {
+                                const navbar = document.querySelector('#navbar-main');
+                                const navbarHeight = navbar.offsetHeight;
+                                const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                                window.scrollTo({
+                                    top: targetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        };
+
+                        offcanvasElement.addEventListener('hidden.bs.offcanvas', handleHidden);
+                    });
+                });
+            }
+
+            // --- FIXED: Navigation Active State Management ---
+            // Get all section elements and nav links
+            const sections = document.querySelectorAll('section');
+            const mainNavLinks = document.querySelectorAll('#main-navigation .nav-link');
+            const mobileNavLinks = document.querySelectorAll('#mobile-navigation .nav-link');
+            const allNavLinks = [...mainNavLinks, ...mobileNavLinks];
+
+            // Function to update active nav link
+            function updateActiveNav() {
+                const scrollPosition = window.scrollY + 100;
+
+                // Find the section that's currently in view
+                let currentSectionId = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSectionId = section.id;
+                    }
+                });
+
+                // Update active class for all nav links
+                allNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Initialize active state on page load
+            updateActiveNav();
+
+            // Update active state on scroll
+            window.addEventListener('scroll', updateActiveNav);
+
+            // Update active state when clicking links (for immediate feedback)
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    // Remove active class from all links
+                    allNavLinks.forEach(l => l.classList.remove('active'));
+
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                });
+            });
+
+            // --- CERTIFICATES SECTION SCRIPT ---
+
+            // allCertificatesData is loaded from portfolio-data.js
+
+            // DOM Elements for Certificate Section
+            const swiperContainer = document.querySelector('.certificate-swiper-container');
+            const prevBtn = document.getElementById('certificate-prev-btn');
+            const nextBtn = document.getElementById('certificate-next-btn');
+            const statusEl = document.getElementById('certificate-status');
+            const progressBar = document.getElementById('certificate-progress-bar');
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const certificateModalInstance = new bootstrap.Modal(document.getElementById('certificateModal'));
+
+            let certificateSwiper = null;
+
+            // Function to Initialize or Re-initialize Swiper
+            const initSwiper = (slidesData) => {
+                if (certificateSwiper) {
+                    certificateSwiper.destroy(true, true);
+                }
+                swiperContainer.innerHTML = '<div class="swiper-wrapper"></div>';
+                const swiperWrapper = swiperContainer.querySelector('.swiper-wrapper');
+
+                if (slidesData.length === 0) {
+                    swiperWrapper.innerHTML = '<p class="text-center p-3">No certificates found in this category.</p>';
+                    if (statusEl) statusEl.textContent = '';
+                    if (prevBtn) prevBtn.style.display = 'none';
+                    if (nextBtn) nextBtn.style.display = 'none';
+                    if (progressBar) progressBar.style.width = '0%';
+                    return;
+                }
+
+                if (prevBtn) prevBtn.style.display = 'flex';
+                if (nextBtn) nextBtn.style.display = 'flex';
+
+                slidesData.forEach(cert => {
+                    const slideHTML = `
+                        <div class="swiper-slide">
+                            <div class="card certificate-card" 
+                                 data-title="${cert.title}" 
+                                 data-img-src="${cert.imgSrc}" 
+                                 data-issuer="${cert.issuer}" 
+                                 data-description="${cert.description}"
+                                 data-pdf-link="${cert.pdfLink}">
+                                <img loading="lazy" src="${cert.imgSrc}" class="card-img-top" alt="${cert.title}">
+                                <div class="card-body">
+                                    <h6 class="card-title">${cert.title}</h6>
+                                    <p class="text-muted small">${cert.issuer}</p>
+                                </div>
+                            </div>
+                        </div>`;
+                    swiperWrapper.insertAdjacentHTML('beforeend', slideHTML);
+                });
+
+                certificateSwiper = new Swiper(swiperContainer, {
+                    effect: 'slide',
+                    loop: false,
+                    allowTouchMove: false, // Disables mouse/touch dragging
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    keyboard: { enabled: true },
+                    navigation: {
+                        nextEl: nextBtn,
+                        prevEl: prevBtn,
+                    },
+                    on: {
+                        init: updateSwiperUI,
+                        slideChange: updateSwiperUI,
+                    },
+                });
+
+                addModalListeners();
+            };
+
+            // Function to Update Swiper UI (Status, Progress Bar)
+            const updateSwiperUI = (swiper) => {
+                if (!swiper || swiper.slides.length === 0) return;
+                const totalSlides = swiper.slides.length;
+                const activeIndex = swiper.realIndex;
+                if (statusEl) statusEl.textContent = `Certificate ${activeIndex + 1} of ${totalSlides}`;
+                if (progressBar) progressBar.style.width = `${((activeIndex + 1) / totalSlides) * 100}%`;
+            };
+
+            // Function to Handle Category Filtering
+            const filterCertificates = (e) => {
+                const category = e.target.dataset.category;
+                categoryTabs.forEach(tab => tab.classList.remove('active'));
+                e.target.classList.add('active');
+                const filteredData = category === 'all' ? allCertificatesData : allCertificatesData.filter(cert => cert.category === category);
+                initSwiper(filteredData);
+            };
+
+            // Function to Open and Populate the Dynamic Modal
+            const openCertificateModal = (e) => {
+                const card = e.currentTarget;
+                document.getElementById('certificateModalLabel').textContent = card.dataset.title;
+                document.getElementById('certificateModalImage').src = card.dataset.imgSrc;
+                document.getElementById('certificateModalImage').alt = card.dataset.title;
+                document.getElementById('certificateModalIssuer').textContent = card.dataset.issuer;
+                document.getElementById('certificateModalDescription').textContent = card.dataset.description;
+                document.getElementById('certificateModalPdfLink').href = card.dataset.pdfLink;
+                certificateModalInstance.show();
+            };
+
+            // Function to add click listeners to the current set of certificate cards
+            const addModalListeners = () => {
+                document.querySelectorAll('.certificate-card').forEach(card => {
+                    card.addEventListener('click', openCertificateModal);
+                });
+            };
+
+            // Initial Setup for Certificate Section
+            categoryTabs.forEach(tab => tab.addEventListener('click', filterCertificates));
+            initSwiper(allCertificatesData); // Initial load with all certificates
+
+            // Smooth scrolling for desktop navigation
+            document.querySelectorAll('#navbarNav .nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const navbar = document.querySelector('#navbar-main');
+                        const navbarHeight = navbar.offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            function downloadCV() {
+                // ✅ Use a clean filename without spaces
+                const fileUrl = 'resource/certificates/Khant_Kyaw_Lin_CV.pdf';
+                const fileName = 'Khant_Kyaw_Lin-CV.pdf';
+
+                const link = document.createElement('a');
+                link.href = fileUrl;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // ✅ Show toast
+                const toast = document.createElement('div');
+                toast.className = 'toast position-fixed bottom-0 end-0 m-3 bg-success text-white';
+                toast.style.zIndex = '1060';
+                toast.innerHTML = `
+        <div class="toast-body d-flex align-items-center">
+            <i class="fas fa-check-circle me-2"></i>
+            CV downloaded successfully!
+        </div>
+    `;
+                document.body.appendChild(toast);
+
+                setTimeout(() => toast.classList.add('show'), 100);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => document.body.removeChild(toast), 300);
+                }, 3000);
+            }
+
+            // ✅ Attach to BOTH desktop & mobile
+            document.getElementById('download-cv-desktop').addEventListener('click', function (e) {
+                e.preventDefault();
+                downloadCV();
+            });
+
+            document.getElementById('download-cv-mobile').addEventListener('click', function (e) {
+                e.preventDefault();
+                downloadCV();
+            });
+
+            // Helper to get theme-aware SweetAlert2 options
+            const getSwalOptions = (options) => {
+                const isDark = document.body.classList.contains('dark-theme') || document.documentElement.classList.contains('dark-theme');
+                return {
+                    background: isDark ? '#161b22' : '#ffffff',
+                    color: isDark ? '#e9eef8' : '#1a1f2b',
+                    confirmButtonColor: '#0077b6',
+                    ...options
+                };
+            };
+
+            document.getElementById("contactForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const form = e.target;
+                const submitBtn = form.querySelector('button[type="submit"]');
+
+                // Disable button and show spinner to prevent repeated clicks
+                submitBtn.disabled = true;
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+
+                const formData = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    message: form.message.value,
+                    _captcha: "false",
+                    _next: "https://kkl-portfolio.vercel.app/#contact"
+                };
+
+                fetch("https://formsubmit.co/ajax/khantkyawlinn.kkl@gmail.com", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+
+                        if (data.success === "true") {
+                            Swal.fire(getSwalOptions({
+                                icon: 'success',
+                                title: 'Message Sent!',
+                                text: 'Your message is successfully sent to Khant Kyaw Lin.'
+                            })).then(() => {
+                                form.reset();
+                                window.location.hash = "#contact";
+                            });
+                        } else {
+                            Swal.fire(getSwalOptions({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong. Please try again later.'
+                            }));
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Fetch error:', error);
+
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+
+                        Swal.fire(getSwalOptions({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Could not send message.'
+                        }));
+                    });
+            });
+
+            // --- Service Worker Registration ---
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('./sw.js')
+                        .then((reg) => console.log('[Service Worker] Registered successfully:', reg.scope))
+                        .catch((err) => console.error('[Service Worker] Registration failed:', err));
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+=================================================================
+FILE: cv.html
+=================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khant Kyaw Lin - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .cv-wrapper {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+        }
+
+        .cv-header {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .cv-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #0077b6;
+            margin-bottom: 5px;
+        }
+
+        .cv-header h1 {
+            font-weight: 700;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .cv-header h3 {
+            font-weight: 400;
+            font-size: 1.25rem;
+            color: #6c757d;
+            margin-top: 0;
+        }
+
+        .cv-body {
+            display: grid;
+            grid-template-columns: 35% 65%;
+            gap: 20px;
+        }
+
+        .section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0077b6;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .info-item .info-icon {
+            margin-right: 8px;
+            color: #0077b6;
+            width: 16px;
+            text-align: center;
+        }
+
+        .info-item a,
+        .info-item div {
+            color: #212529;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .info-list,
+        .skills-list,
+        .lang-list,
+        .timeline {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .timeline li {
+            margin-bottom: 8px;
+        }
+
+        .timeline h6 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .timeline small {
+            color: #6c757d;
+            font-size: 0.75rem;
+        }
+
+        .timeline p {
+            margin: 1px 0 0;
+        }
+
+        .cert-list {
+            column-count: 2;
+            column-gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .cert-list li p {
+            margin-bottom: 2px;
+            font-size: 0.8rem;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 1.5cm 0.5cm;
+            }
+
+            body {
+                background: #fff;
+                padding: 0;
+                margin: 0;
+                display: block;
+            }
+
+            .cv-wrapper {
+                box-shadow: none;
+                margin: 0 auto;
+                padding: 10px 15px;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .section-title {
+                margin-bottom: 6px;
+                font-size: 0.95rem;
+            }
+
+            .section {
+                margin-bottom: 8px;
+            }
+
+            .timeline li {
+                margin-bottom: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-wrapper">
+        <!-- Header -->
+        <div class="cv-header">
+            <img src="resource/image/profile.jpg" alt="Profile Photo">
+            <div>
+                <h1>Khant Kyaw Lin</h1>
+                <h3>Full-Stack Web Developer</h3>
+            </div>
+
+        </div>
+
+        <div class="cv-body">
+            <!-- Left Column -->
+            <div>
+                <div class="section">
+                    <h4 class="section-title">Personal Profile</h4>
+                    <p>
+                        A pragmatic <strong>Full-Stack Developer</strong> dedicated to building simple, useful, and
+                        secure digital tools that solve real-world problems. With experience in <strong>React,
+                            Laravel, and modern web architectures</strong>, I focus on turning complex workflows into
+                        clean,
+                        user-friendly platforms that make someone's life easier.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h4 class="section-title">Contact</h4>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div><a
+                            href="mailto:khantkyawlinn.kkl@gmail.com">khantkyawlinn.kkl@gmail.com</a>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div><a href="tel:+959966454595">+95 996 645
+                            4595</a>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>Insein, Yangon, Myanmar</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fab fa-linkedin"></i></div><a
+                            href="https://www.linkedin.com/in/khant-kyaw-lin-646457247/"
+                            target="_blank">linkedin.com/in/khant-kyaw-lin</a>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fab fa-github"></i></div><a
+                            href="https://github.com/KhantKyawLin" target="_blank">github.com/KhantKyawLin</a>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-globe"></i></div><a
+                            href="https://kkl-portfolio.vercel.app/" target="_blank">kkl-portfolio.vercel.app</a>
+                    </div>
+                </div>
+
+                <div class="section" style="margin-top: 10px;">
+                    <h4 class="section-title">Skills & Expertise</h4>
+                    <ul class="skills-list">
+                        <li><b>Frontend:</b> <br>HTML, CSS, JavaScript, React, Vue, Bootstrap, Tailwind</li>
+                        <li><b>Backend:</b> <br>PHP, Laravel</li>
+                        <li><b>Database:</b> <br>MySQL, Firebase</li>
+                        <li><b>Mobile/Desktop & OS:</b> <br>Kotlin, C#, Flutter, Linux</li>
+                        <li><b>Tools:</b> <br>Git, Postman, Docker</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4 class="section-title">Languages</h4>
+                    <ul class="lang-list">
+                        <li>English (Fluent), Burmese (Native)</li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <div class="section">
+                    <h4 class="section-title">Work Experience</h4>
+                    <ul class="timeline">
+                        <li>
+                            <h6>Full-Stack Developer | Central_Nex Software House</h6>
+                            <small>Dec 2025 – Present</small>
+                            <p>Core backend developer in a 2-person engineering team for a commercial Enterprise Supply Chain Financing (SCF) platform (Laravel, PHP 8+, MySQL, Flutter, WebSockets, Docker, Git CI/CD). Built primary backend business logic, multi-stage Maker-Checker workflows, concurrency-safe limit validations, and handled end-to-end API testing across DEV, SIT, and UAT environments.</p>
+                        </li>
+                        <li>
+                            <h6>Full-Stack Developer | Freelance</h6>
+                            <small>Jan 2025 – Present</small>
+                            <p>Developed and launched full-stack web apps, custom PHP backends, and responsive
+                                frontends.</p>
+                        </li>
+                        <li>
+                            <h6>Software Development Intern | Soft Guide Software House</h6>
+                            <small>May 2025 – Jul 2025</small>
+                            <p>Worked on projects like an E-learning platform and a Pharmacy Management System.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4 class="section-title">Key Projects</h4>
+                    <ul class="timeline">
+                        <li>
+                            <h6>Enterprise Supply Chain Financing (SCF) Platform (Laravel 11, MySQL, Flutter, WebSockets)</h6>
+                            <p>Engineered core backend domain logic for a B2B invoice financing platform. Built multi-tier Maker-Checker governance state machines (Entry, Amend, Resend, Approve, Reject, Reversal, Close) with pre/post-mutation audit trails and atomic rollbacks. Implemented concurrency-safe limit validations and real-time WebSocket broadcasting (Laravel Reverb).</p>
+                        </li>
+                        <li>
+                            <h6>Pharmacy Management System (React & Laravel)</h6>
+                            <p>Developed a full-stack system with a React frontend and Laravel API. Built secure RESTful
+                                endpoints, JWT authentication, and RBAC middleware to automate inventory, sales, and
+                                reporting.</p>
+                        </li>
+                        <li>
+                            <h6>Synapse Study - Medical Education Platform (React 19 & Tailwind v4)</h6>
+                            <p>Built a high-performance medical learning platform with interactive 3D flashcards, clinical summary dashboards, 5-choice practice exams with auto-submit countdown timers, and 1-click certificate exports. Powered by a custom Node.js dataset ingestion pipeline.</p>
+                        </li>
+                        <li>
+                            <h6>Learning Management System (Flutter & Firebase)</h6>
+                            <p>Implemented Firebase Analytics for user engagement tracking in a live mobile application.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4 class="section-title">Education</h4>
+                    <ul class="timeline">
+                        <li>
+                            <h6>Advanced Diploma in Computing | NCC Education</h6>
+                            <small>2025 – 2026</small>
+                        </li>
+                        <li>
+                            <h6>Diploma in Computing | NCC Education</h6>
+                            <small>2024 – 2025</small>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4 class="section-title">Certifications</h4>
+                    <ul class="cert-list">
+                        <li>
+                            <p>Complete React v9 – Frontend Masters</p>
+                        </li>
+                        <li>
+                            <p>Complete Intro to Web Dev v3 – Frontend Masters</p>
+                        </li>
+                        <li>
+                            <p>Next.js Fundamentals v4 – Frontend Masters</p>
+                        </li>
+                        <li>
+                            <p>React and TypeScript v3 – Frontend Masters</p>
+                        </li>
+                        <li>
+                            <p>HTML, CSS & JavaScript Essentials – Cisco</p>
+                        </li>
+                        <li>
+                            <p>Vue & Firebase Combo - Creative Coders Myanmar</p>
+                        </li>
+                        <li>
+                            <p>Git & GitHub Intermediate - Creative Coders Myanmar</p>
+                        </li>
+                        <li>
+                            <p>Introduction to Linux (LFS101) - The Linux Foundation</p>
+                        </li>
+                        <li>
+                            <p>Network Technician Career Path - Cisco</p>
+                        </li>
+                        <li>
+                            <p>Web Design Course – Code Lab</p>
+                        </li>
+                        <li>
+                            <p>PHP Internship Course – Soft Guide Software House</p>
+                        </li>
+                        <li>
+                            <p>AI Fundamentals – IBM SkillsBuild</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+=================================================================
+FILE: resource/css/style.css
+=================================================================
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #00b4d8;
+    --bg-color-light: #f8faff;
+    --bg-color-dark: #0d1117;
+    --text-color-light: #1a1f2b;
+    --text-color-dark: #e9eef8;
+    --muted-dark: #9aa4b2;
+    --card-bg-light: #ffffff;
+    --card-bg-dark: #161b22;
+    --card-border-light: #dce3ea;
+    --card-border-dark: #2b313a;
+    --shadow-light: 0 6px 18px rgba(15, 23, 42, 0.06);
+    --shadow-dark: 0 6px 18px rgba(0, 0, 0, 0.5);
+    --scroll-thumb-color: var(--primary-color);
+    --scroll-track-color: #e9ecef;
+    --transition-fast: 200ms;
+    --transition-medium: 320ms;
+    --navbar-height: 72px;
+}
+
+/* --- Dark Theme --- */
+body.dark-theme {
+    background-color: transparent;
+    color: var(--text-color-dark);
+}
+
+body.dark-theme .navbar,
+body.dark-theme .offcanvas,
+body.dark-theme .footer {
+    background-color: #12161a !important;
+    border-color: var(--card-border-dark) !important;
+    color: var(--text-color-dark);
+}
+
+body.dark-theme .navbar-brand span {
+    color: var(--text-color-dark);
+}
+
+body.dark-theme .card,
+body.dark-theme .modal-content,
+body.dark-theme .contact-form {
+    background-color: var(--card-bg-dark);
+    color: var(--text-color-dark);
+    border-color: var(--card-border-dark);
+}
+
+body.dark-theme .section-bg {
+    background-color: rgba(22, 27, 34, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: var(--text-color-dark);
+    border-color: var(--card-border-dark);
+}
+
+body.dark-theme .modal-header,
+body.dark-theme .modal-footer,
+body.dark-theme .offcanvas-header {
+    border-color: var(--card-border-dark);
+}
+
+body.dark-theme .text-muted {
+    color: var(--muted-dark) !important;
+}
+
+body.dark-theme .fa-github {
+    color: var(--text-color-dark) !important;
+}
+
+body.dark-theme .nav-link {
+    color: var(--text-color-dark) !important;
+}
+
+body.dark-theme .nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+body.dark-theme .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+body.dark-theme .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+body.dark-theme .btn-close {
+    filter: invert(1);
+}
+
+/* --- General & Typography --- */
+html {
+    scroll-padding-top: var(--navbar-height);
+    background-color: var(--bg-color-light);
+    transition: background-color var(--transition-medium) ease;
+}
+
+html.dark-theme {
+    background-color: var(--bg-color-dark);
+}
+
+body {
+    font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: transparent;
+    color: var(--text-color-light);
+    transition: color var(--transition-medium) ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #7ab1ff);
+    border-radius: 2px;
+}
+
+.section-bg {
+    background-color: rgba(248, 250, 255, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* --- Navbar & Theme Toggle --- */
+.navbar {
+    box-shadow: var(--shadow-light);
+    transition: background-color var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+    backdrop-filter: blur(6px);
+    height: var(--navbar-height);
+}
+
+.nav-link.active {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    transform: translateY(-3px);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.theme-toggle input[type="checkbox"] {
+    appearance: none;
+    width: 46px;
+    height: 26px;
+    background: #e9edf2;
+    border-radius: 999px;
+    position: relative;
+    outline: none;
+    border: 1px solid rgba(12, 13, 14, .06);
+    transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.theme-toggle input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(16, 24, 40, .12);
+    transition: transform var(--transition-fast) ease;
+}
+
+.theme-toggle input[type="checkbox"]:checked {
+    background: #1f2a33;
+}
+
+.theme-toggle input[type="checkbox"]:checked::after {
+    transform: translateX(20px);
+    background: linear-gradient(90deg, #ffd166, #ff6b6b);
+}
+
+/* --- Hero Section --- */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.social_link {
+    transition: transform 0.3s ease;
+}
+
+.social_link:hover {
+    transform: translateY(-3px);
+}
+
+.img-profile {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: var(--shadow-light);
+    transition: filter var(--transition-medium), transform var(--transition-medium);
+}
+
+body.dark-theme .img-profile {
+    filter: brightness(.95) saturate(.95);
+    box-shadow: var(--shadow-dark);
+}
+
+.social-icons a {
+    transition: transform .18s ease, color .18s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-4px);
+}
+
+/* --- Skills Section --- */
+.skills-slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 180px;
+    margin: 0 auto;
+}
+
+.skills-track {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    animation: slideSkills 40s linear infinite;
+    will-change: transform;
+}
+
+/* Pause animation on hover */
+.skills-slider-container:hover .skills-track {
+    animation-play-state: paused;
+}
+
+@keyframes slideSkills {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Original skill item styles with adjustments */
+.skill-item {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--card-bg-light);
+    box-shadow: var(--shadow-light);
+    transition: all 0.18s ease;
+    cursor: default;
+    min-width: 120px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body.dark-theme .skill-item {
+    background-color: var(--card-bg-dark);
+    box-shadow: var(--shadow-dark);
+}
+
+.skill-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(12, 13, 14, 0.08);
+}
+
+body.dark-theme .skill-item:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Color coding for icons */
+.fa-html5 {
+    color: #e34c26;
+}
+
+.fa-css3-alt {
+    color: #264de4;
+}
+
+.fa-js-square {
+    color: #f0db4f;
+}
+
+.fa-code {
+    color: #0769ad;
+}
+
+.fa-bootstrap {
+    color: #563d7c;
+}
+
+.fa-php {
+    color: #777bb3;
+}
+
+.fa-laravel {
+    color: #ff2d20;
+}
+
+.fa-git-alt {
+    color: #f34f29;
+}
+
+.fa-database {
+    color: #00758f;
+}
+
+.fa-microsoft {
+    color: #5e5e5e;
+}
+
+.fa-android {
+    color: #3ddc84;
+}
+
+.fa-code-branch {
+    color: #2496ed;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .skills-track {
+        animation: none !important;
+    }
+}
+
+/* --- Projects Section --- */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    border: 1px solid var(--card-border-light);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(12, 23, 52, 0.08);
+}
+
+body.dark-theme .project-card:hover {
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-img {
+    height: 220px;
+    object-fit: fill;
+    transition: transform 0.4s ease;
+    width: 100%;
+}
+
+.project-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-light);
+}
+
+body.dark-theme .project-card-title {
+    color: var(--text-color-dark);
+}
+
+.project-card-text {
+    color: var(--text-color-light);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+body.dark-theme .project-card-text {
+    color: var(--text-color-dark);
+}
+
+.project-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.project-badge {
+    padding: 0.3rem 0.7rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Fix for project card text in dark mode */
+body.dark-theme .project-card-body {
+    color: var(--text-color-dark);
+}
+
+/* --- Certificates Section --- */
+.category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-tab {
+    padding: 0.5rem 1rem;
+    border-radius: 50rem;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.14s, background 0.18s, color 0.18s;
+}
+
+.category-tab:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.category-tab.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+}
+
+.certificate-swiper-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    overflow: hidden;
+}
+
+.certificate-card {
+    max-width: 360px;
+    margin: 0 auto;
+    border: 1px solid var(--card-border-light);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme .certificate-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.certificate-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.certificate-progress-container {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 1.5rem auto 0;
+    max-width: 400px;
+}
+
+body.dark-theme .certificate-progress-container {
+    background: #30363d;
+}
+
+.certificate-progress-bar {
+    background: var(--primary-color);
+    height: 100%;
+    width: 0;
+    transition: width 0.4s ease;
+    border-radius: 4px;
+}
+
+.certificate-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.certificate-nav-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+}
+
+.certificate-nav-btn:hover {
+    background-color: #0a58ca;
+    transform: scale(1.1);
+}
+
+.certificate-nav-btn.swiper-button-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    background-color: #6c757d;
+}
+
+.certificate-status {
+    font-weight: 500;
+    color: var(--secondary-color);
+    min-width: 100px;
+    text-align: center;
+}
+
+body.dark-theme .certificate-status {
+    color: var(--muted-dark);
+}
+
+/* --- Experience Timeline --- */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    list-style: none;
+    border-left: 3px solid var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: -31px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid var(--bg-color-light);
+}
+
+body.dark-theme .timeline-item::before {
+    border-color: var(--bg-color-dark);
+}
+
+/* --- Contact & Footer --- */
+body.dark-theme .contact-form .form-control {
+    background-color: #0d1117;
+    border-color: var(--card-border-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark-theme .contact-form .form-control:focus {
+    background-color: #0d1117;
+    border-color: var(--primary-color);
+    color: var(--text-color-dark);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.footer {
+    border-top: 1px solid var(--card-border-light);
+}
+
+/* See More Link Styles */
+.see-more-link {
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+.see-more-link:hover {
+    text-decoration: underline;
+}
+
+/* Modal height adjustments */
+.modal-dialog {
+    max-height: 100vh;
+    margin: 0.5rem auto;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.modal-content {
+    max-height: 95vh;
+    overflow-y: auto;
+}
+
+/* Adjust modal header and footer to prevent content cutoff */
+.modal-header,
+.modal-footer {
+    flex-shrink: 0;
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 575px) {
+    .img-profile {
+        width: 180px;
+        height: 180px;
+    }
+
+    .certificate-card img {
+        height: 180px;
+    }
+
+    /* Adjust scroll padding for mobile */
+    html {
+        scroll-padding-top: 60px;
+    }
+
+    /* Adjust navbar height for mobile */
+    .navbar {
+        height: 60px;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .projects-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- Three.js Particle Canvas --- */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- Weather Selector --- */
+.weather-selector-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.weather-select {
+    min-width: 130px; /* Prevent collapse inside flex containers */
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    color: var(--text-color-light);
+    border-radius: 8px;
+    padding: 0.25rem 2rem 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-fast) ease;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.weather-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 119, 182, 0.15);
+    outline: none;
+}
+
+body.dark-theme .weather-select {
+    background-color: #1a202c;
+    border-color: var(--card-border-dark);
+    color: var(--text-color-dark);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .weather-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 180, 216, 0.15);
+}
+
+/* --- Weather Adaptive Backgrounds (Light Theme only) --- */
+html.weather-snowy:not(.dark-theme) {
+    background-color: #cbdcf0 !important; /* Soft winter sky gray-blue */
+}
+
+html.weather-rainy:not(.dark-theme) {
+    background-color: #dbe2e9 !important; /* Overcast rainy slate-gray */
+}
+
+html.weather-windy:not(.dark-theme) {
+    background-color: #ecf3f9 !important; /* Breezy fresh light cyan-blue */
+}
+
+/* --- Project Modal Swiper Styles --- */
+.project-modal-swiper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.project-modal-swiper .swiper-slide img {
+    border-radius: 12px;
+    max-height: 450px;
+    width: 100%;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+body.dark-theme .project-modal-swiper .swiper-slide img {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.project-modal-swiper .swiper-button-next,
+.project-modal-swiper .swiper-button-prev {
+    color: var(--primary-color) !important;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--card-border-light);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-modal-swiper .swiper-button-next:hover,
+.project-modal-swiper .swiper-button-prev:hover {
+    background-color: #ffffff;
+    transform: scale(1.08);
+}
+
+/* Adjust default Swiper icon size */
+.project-modal-swiper .swiper-button-next::after,
+.project-modal-swiper .swiper-button-prev::after {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+/* Dark theme overrides for Swiper buttons */
+body.dark-theme .project-modal-swiper .swiper-button-next,
+body.dark-theme .project-modal-swiper .swiper-button-prev {
+    background-color: rgba(22, 27, 34, 0.85);
+    border-color: var(--card-border-dark);
+    color: var(--secondary-color) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-theme .project-modal-swiper .swiper-button-next:hover,
+body.dark-theme .project-modal-swiper .swiper-button-prev:hover {
+    background-color: rgba(33, 38, 45, 0.95);
+}
+
+/* Swiper Pagination color override */
+.project-modal-swiper .swiper-pagination-bullet-active {
+    background: var(--primary-color) !important;
+}
+
+body.dark-theme .project-modal-swiper .swiper-pagination-bullet-active {
+    background: var(--secondary-color) !important;
+}
+
+/* --- End of Main Stylesheet (v3) --- */
+
+
+
+
+=================================================================
+FILE: resource/js/portfolio-data.js
+=================================================================
+
+// Projects data array
+const projectsData = [
+    {
+        id: "project_scf_banking",
+        title: "Enterprise Supply Chain Financing (SCF) Platform",
+        description: "A high-security, commercial B2B Supply Chain Financing & Digital Banking platform enabling enterprise anchors and corporate suppliers to manage invoice discounting, credit facilities, and multi-party customer linkages. As one of two backend developers, I architected the primary domain business logic, multi-stage Maker-Checker approval state machines (Entry, Amend, Resend, Approve, Reject, Reversal, Close) with atomic audit trails, and concurrency-safe facility limit calculations. Integrated real-time WebSocket event broadcasting (Laravel Reverb) for instant cross-platform synchronization and spearheaded end-to-end API testing across DEV, SIT, and UAT environments.",
+        technologies: ["Laravel 11", "PHP 8+", "MySQL", "Flutter", "WebSockets (Reverb)", "Docker", "RESTful APIs", "Git CI/CD"],
+        images: []
+    },
+    {
+        id: "project1",
+        title: "Pharmacy Management System",
+        description: "A secure full-stack application developed to manage pharmacy inventory, sales, and reporting. The system features a Laravel backend with secure RESTful APIs, JWT authentication, and role-based access control (RBAC) middleware, integrated with a modern React frontend styled with Tailwind CSS. Admins can securely manage medicines, categories, orders, and users, while customers can browse products, place orders, and manage accounts. Includes real-time inventory alerts, sales analytics, and bulk product management features.",
+        technologies: ["React", "Tailwind CSS", "Laravel", "MySQL", "JWT Auth", "REST APIs"],
+        images: [
+            "resource/projects/1_vc_home_1.png",
+            "resource/projects/2_vc_home_2.png",
+            "resource/projects/3_vc_products.png",
+            "resource/projects/4_vc_add_wishlist.png",
+            "resource/projects/5_vc_wishlist_remove.png",
+            "resource/projects/6_vc_product_cart.png",
+            "resource/projects/7_vc_shopping_cart.png",
+            "resource/projects/8_vc_check_out.png",
+            "resource/projects/9_vc_check_out_online_payment.png",
+            "resource/projects/10_vc_order_confirm_1.png",
+            "resource/projects/11_vc_order_confirm_2.png",
+            "resource/projects/12_vc_user_dashboard.png",
+            "resource/projects/13_vc_user_home_2.png",
+            "resource/projects/14_vc_user_order.png",
+            "resource/projects/15_vc_user_order_history.png",
+            "resource/projects/16_vc_user_profile_1.png",
+            "resource/projects/17_vc_user_profile_2.png",
+            "resource/projects/18_vc_user_profile_3.png",
+            "resource/projects/19_vc_admin_dashboard.png",
+            "resource/projects/20_vc_admin_products.png",
+            "resource/projects/21_vc_admin_expire.png",
+            "resource/projects/22_vc_admin_order_history.png",
+            "resource/projects/23_vc_admin_reorder.png",
+            "resource/projects/24_vc_admin_promotion.png",
+            "resource/projects/25_vc_admin_health.png",
+            "resource/projects/26_vc_admin_profile_detail.png",
+            "resource/projects/27_vc_admin_profile_edit.png",
+            "resource/projects/vc_login.png"
+        ],
+        frontendLink: "https://github.com/KhantKyawLin/VitalCare_Pharmacy_Web",
+        backendLink: "https://github.com/KhantKyawLin/VitalCare_Pharmacy_Backend"
+    },
+    {
+        id: "project_synapse_study",
+        title: "Synapse Study - Medical Education Platform",
+        description: "A high-performance medical learning platform designed for medical students to master complex subjects (Immunology, Microbiology, Pathophysiology, Physiology) through interactive 3D flashcards, clinical summary dashboards, and timed practice exams. Built with React 19, Vite, and Tailwind CSS v4, it features a LocalStorage-backed flashcard mastery & bookmark system, a 3-column clinical dashboard with multi-level filtering, and a 5-choice practice exam engine with student name verification, auto-submit countdown timers, and 1-click PNG/Clipboard score certificate exports. Includes a custom Node.js data ingestion pipeline parsing Excel and CSV datasets into optimized JSON.",
+        technologies: ["React 19", "Vite", "Tailwind CSS v4", "KaTeX", "Lucide Icons", "Node.js", "html-to-image", "Vercel"],
+        images: [
+            "resource/projects/synapse_study_1.png",
+            "resource/projects/synapse_study_2.png",
+            "resource/projects/synapse_study_3.png",
+            "resource/projects/synapse_study_4.png",
+            "resource/projects/synapse_study_5.png",
+            "resource/projects/synapse_study_6.png",
+            "resource/projects/synapse_study_7.png",
+            "resource/projects/synapse_study_8.png",
+            "resource/projects/synapse_study_9.png",
+            "resource/projects/synapse_study_10.png",
+            "resource/projects/synapse_study_11.png"
+        ],
+        codeLink: "https://github.com/KhantKyawLin/synapse_study_kkl",
+        demoLink: "https://synapsestudykkl.vercel.app/"
+    },
+    {
+        id: "project4",
+        title: "Fully Responsive Developer Portfolio",
+        description: "This responsive portfolio website is built on a strong foundation of Bootstrap and modern JavaScript, ensuring a seamless and intuitive experience for every visitor. It serves as a comprehensive digital showcase, effectively highlighting my diverse range of projects, a detailed overview of my technical skills, a collection of my professional certificates, and a chronological timeline of my work experience. A convenient dark/light theme toggle is included to provide a personalized and comfortable viewing experience. Ultimately, the design is meticulously optimized for both performance and accessibility, guaranteeing fast loading times and an inclusive browsing experience for all users.",
+        technologies: ["HTML", "CSS", "Java-Script", "BootStrap"],
+        images: [
+            "resource/projects/portfolio_about.png",
+            "resource/projects/portfolio_home.png",
+            "resource/projects/portfolio_skills.png",
+            "resource/projects/portfolio_projects.png",
+            "resource/projects/portfolio_certificate.png",
+            "resource/projects/portfolio_experience.png",
+            "resource/projects/portfolio_contact.png",
+            "resource/projects/portfolio_home_n.png",
+            "resource/projects/portfolio_about_n.png",
+            "resource/projects/portfolio_skills_n.png",
+            "resource/projects/portfolio_projects_n.png",
+            "resource/projects/portfolio_certificate_n.png",
+            "resource/projects/portfolio_experience_n.png",
+            "resource/projects/portfolio_contact_n.png"
+        ],
+        codeLink: "https://github.com/KhantKyawLin/KKL_PORTFOLIO",
+        demoLink: "https://khantkyawlin.com"
+    },
+    {
+        id: "project2",
+        title: "Food Fusion Website",
+        description: "'Food Lover' FoodFusion Website is an online platform developed to promote home cooking and connect food enthusiasts through an accessible and user-friendly website. It includes a variety of features such as recipe collections, a community cookbook, and helpful cooking resources. The website is built using PHP, MySQL, and JavaScript, ensuring strong security, mobile compatibility, and ease of use. Registered users can log in and share their culinary experiences, contributing to an engaging and supportive cooking community.",
+        technologies: ["HTML", "CSS", "JavaScript", "PHP"],
+        images: [
+            "resource/projects/food_fusion_home.jpg",
+            "resource/projects/food_fusion_recipe.jpg",
+            "resource/projects/food_fusion_community.jpg",
+            "resource/projects/food_fusion_culinary.jpg",
+            "resource/projects/food_fusion_about.jpg",
+            "resource/projects/food_fusion_user.jpg",
+            "resource/projects/food_fusion_admin.jpg",
+            "resource/projects/food_fusion_delete_user.jpg",
+            "resource/projects/food_fusion_delete_admin.jpg"
+
+        ],
+        codeLink: "https://github.com/KhantKyawLin/Food-Fusion-Website",
+        demoLink: "https://food-fusion.example.com"
+    },
+    {
+        id: "project3",
+        title: "Desk_stand E-commerce Static Website",
+        description: "A fully responsive and visually engaging static e-commerce website built entirely with pure HTML and CSS—no JavaScript, no frameworks. This project showcases a clean and structured layout for a fictional laptop standing desk brand, designed to demonstrate front-end development fundamentals. It contains multiple pages, Home, Products, Product Detail, Health, Cart, Contact, Login, and Register pages.",
+        technologies: ["HTML", "CSS"],
+        images: [
+
+            "resource/projects/desk_stand_home_1.png",
+            "resource/projects/desk_stand_home_2.png",
+            "resource/projects/desk_stand_home_3.png",
+            "resource/projects/desk_stand_home_4.png",
+            "resource/projects/desk_stand_home_5.png",
+            "resource/projects/desk_stand_products.png",
+            "resource/projects/desk_stand_product_detail.png",
+            "resource/projects/desk_stand_health.png",
+            "resource/projects/desk_stand_cart.png",
+            "resource/projects/desk_stand_contact.png",
+            "resource/projects/desk_stand_login.png",
+            "resource/projects/desk_stand_register.png",
+
+        ],
+        codeLink: "https://github.com/KhantKyawLin/Standing_Desk_Shopping_Website",
+        demoLink: "https://food-fusion.example.com"
+    },
+
+    {
+        id: "project5",
+        title: "V-Fit Fitness Tracker App",
+        description: "V-Fit Fitness tracker application is a C# program which can support 6 activities for clubmembers to lose weight by burning calories. In this program, users (Admins and Clubmembers) can register, set goals, choose activities, record their fitness activities, calculate their total calories burned for each activity they do, and check everyday progress information.",
+        technologies: ["C#"],
+        images: [
+            "resource/projects/V_Fit_1.png",
+            "resource/projects/V_Fit_2.png",
+            "resource/projects/V_Fit_3.png",
+            "resource/projects/V_Fit_4.png",
+            "resource/projects/V_Fit_5.png",
+            "resource/projects/V_Fit_6.png",
+            "resource/projects/V_Fit_7.png",
+            "resource/projects/V_Fit_8.png",
+            "resource/projects/V_Fit_9.png",
+            "resource/projects/V_Fit_10.png",
+            "resource/projects/V_Fit_11.png",
+            "resource/projects/V_Fit_12.png",
+            "resource/projects/V_Fit_13.png",
+            "resource/projects/V_Fit_14.png"
+        ],
+        codeLink: "https://github.com/KhantKyawLin/V-Fit_Fitness",
+        demoLink: "https://fitness-demo.example.com"
+    }, {
+        id: "project6",
+        title: "Fitness Tracker App (Kotlin)",
+        description: "This project involves the development of a comprehensive Android fitness application utilizing a modern technology stack for a robust and scalable solution. The frontend is built with Kotlin, while a PHP backend and MySQL database form the core of the system. This architecture ensures efficient and secure management of all user data. The app is designed to help users effectively track and log a wide range of activities, including running, cycling, and weightlifting, by recording key metrics like distance, speed, and reps.",
+        technologies: ["PHP", "MySQL", "Kotlin"],
+        images: [
+            "resource/projects/kotlin_fitness_1.png",
+            "resource/projects/kotlin_fitness_2.png",
+            "resource/projects/kotlin_fitness_3.png",
+            "resource/projects/kotlin_fitness_4.png",
+            "resource/projects/kotlin_fitness_5.png",
+            "resource/projects/kotlin_fitness_6.png",
+            "resource/projects/kotlin_fitness_7.png",
+            "resource/projects/kotlin_fitness_8.png",
+            "resource/projects/kotlin_fitness_9.png"
+        ],
+        codeLink: "https://github.com/KhantKyawLin/Kotlin_Fitness_App",
+        demoLink: "https://fitness-demo.example.com"
+    }
+];
+
+// Data for all certificates
+const allCertificatesData = [
+    {
+        "category": "web",
+        "title": "Complete React v9",
+        "issuer": "Frontend Masters | Instructor: Brian Holt | Issued: July 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Complete React v9 course from Frontend Masters. This comprehensive course covers modern React development including hooks, state management, component architecture, effects, and best practices for building production-grade React applications.",
+        "imgSrc": "resource/image/complete_react_v9_frontend_master_light_version.jpg",
+        "pdfLink": "resource/certificates/complete_react_v9_frontend_master_light_version.pdf"
+    },
+    {
+        "category": "web",
+        "title": "Intermediate React, v6: RSCs, Hooks, & Performance",
+        "issuer": "Frontend Masters | Instructor: Brian Holt | Issued: Aug 01, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Intermediate React, v6 course from Frontend Masters. This 6-hour course covers advanced React concepts including React Server Components (RSCs), advanced hooks patterns, and performance optimization techniques for building high-performance React applications.",
+        "imgSrc": "resource/image/intermediate_react_v6_frontend_master.jpg",
+        "pdfLink": "resource/certificates/intermediate_react_v6_frontend_master.pdf"
+    },
+    {
+        "category": "web",
+        "title": "Complete Intro to Web Development, v3",
+        "issuer": "Frontend Masters | Instructor: Brian Holt | Issued: July 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Complete Intro to Web Development, v3 course from Frontend Masters. This comprehensive 12-hour course covers the full spectrum of web development fundamentals including HTML, CSS, and JavaScript, providing a solid foundation for building modern web applications.",
+        "imgSrc": "resource/image/web_development_v3_frontend_master.jpg",
+        "pdfLink": "resource/certificates/web_development_v3_frontend_master.pdf"
+    },
+    {
+        "category": "web",
+        "title": "Next.js Fundamentals, v4",
+        "issuer": "Frontend Masters | Instructor: Scott Moss | Issued: Aug 08, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Next.js Fundamentals, v4 course from Frontend Masters. This comprehensive 6-hour course covers the fundamentals of building modern web applications with Next.js, including routing, server-side rendering, data fetching, and deployment best practices.",
+        "imgSrc": "resource/image/next_js_fundamentals_v4_frontend_master.jpg",
+        "pdfLink": "resource/certificates/next_js_fundamentals_v4_frontend_master.pdf"
+    },
+    {
+        "category": "web",
+        "title": "React and TypeScript, v3",
+        "issuer": "Frontend Masters | Instructor: Steve Kinney | Issued: Aug 16, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the React and TypeScript, v3 course from Frontend Masters. This 4-hour course covers integrating TypeScript with React, including type-safe component patterns, props and state typing, hooks with generics, and best practices for building robust, type-safe React applications.",
+        "imgSrc": "resource/image/react_typescript_v3_frontend_master.jpg",
+        "pdfLink": "resource/certificates/react_typescript_v3_frontend_master.pdf"
+    },
+    {
+        "category": "web",
+        "title": "Vue & Firebase Combo",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Vue & Firebase Combo course. This certificate validates proficiency in building real-time web applications with Vue.js and Firebase, covering database management, authentication, and hosting.",
+        "imgSrc": "resource/image/vue_firebase_combo.jpg",
+        "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/729"
+    },
+    {
+        "category": "web",
+        "title": "JavaScript DOM Basic",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: November 11, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the JavaScript DOM Basic course. The graduate understands how to manipulate the Document Object Model (DOM) using JavaScript to create interactive and dynamic web content, including event handling and form validation.",
+        "imgSrc": "resource/image/javascript_dom_basic.jpg",
+        "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/683"
+    },
+    {
+        "category": "web",
+        "title": "Programming Basic with JavaScript",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: November 11, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Programming Basic with JavaScript course. The certificate confirms a foundational understanding of programming logic, data structures, and JavaScript syntax essential for web development.",
+        "imgSrc": "resource/image/programming_basic_with_java_script.jpg",
+        "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/682"
+    },
+    {
+        "category": "professional",
+        "title": "Git & GitHub Intermediate",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Git & GitHub Intermediate course. The graduate is proficient in advanced version control concepts, branching strategies, merging, and collaboration workflows using GitHub for professional teams.",
+        "imgSrc": "resource/image/git_git_hub_intermediate.jpg",
+        "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/709"
+    },
+    {
+        "category": "professional",
+        "title": "Git & GitHub Basic",
+        "issuer": "Creative Coder Myanmar | Instructor: Hlaing Min Than | Issued: January 24, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Git & GitHub Basic course. The graduate understands the fundamentals of version control, committing changes, and working with local and remote repositories on GitHub.",
+        "imgSrc": "resource/image/git_git_hub_basic.jpg",
+        "pdfLink": "https://creativecodermm.com/certificates/iguxb198Khant/711"
+    },
+    {
+        "category": "n&c",
+        "title": "Networking Essentials",
+        "issuer": "Cisco Networking Academy | Issued: Mar 20, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Networking Essentials course. The graduate is able to describe the components, operations, and security of networking infrastructures, and possesses the skills to configure and troubleshoot basic network issues.",
+        "imgSrc": "resource/image/networking_essentials.jpg",
+        "pdfLink": "https://www.credly.com/badges/6eaaa07f-5308-41c1-b732-1c98e546292b"
+    },
+    {
+        "category": "n&c",
+        "title": "Network Technician Career Path",
+        "issuer": "Cisco Networking Academy | Issued: Mar 22, 2026",
+        "description": "Khant Kyaw Lin has successfully completed the Network Technician Career Path. This comprehensive path validates the skills needed for a network technician role, including network configuration, cybersecurity basics, and hardware troubleshooting.",
+        "imgSrc": "resource/image/network_technician_carrer_path.jpg",
+        "pdfLink": "https://www.credly.com/badges/6eaaa07f-5308-41c1-b732-1c98e546292b"
+    },
+    {
+        "category": "computer",
+        "title": "Introduction to Linux (LFS101)",
+        "issuer": "Linux Foundation | Issued: Nov 10, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Introduction to Linux (LFS101) course. The graduate is proficient in basic Linux administration, command-line operations, and system management across various distributions.",
+        "imgSrc": "resource/image/introduction_to_linux_(LFS101).jpg",
+        "pdfLink": "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/d6828a15-9fc4-4973-b7e5-bbe277456fe0-khant-kyaw-lin-73adb343-2d73-4ffc-bcb0-0fad1210dcd2-certificate.pdf"
+    },
+    {
+        "category": "web",
+        "title": "HTML Essentials",
+        "issuer": "Cisco Networking Academy | Issued: Aug 04, 2025",
+        "description": "Khant Kyaw Lin can create structured HTML documents, format text and multimedia, and build accessible web pages using semantic HTML and web accessibility principles. The graduate can use hyperlinks for navigation, develop web forms with basic input fields, and understand HTML's relationship with CSS and JavaScript. The course was provided in collaboration with JS Institute.",
+        "imgSrc": "resource/image/html_essentials.jpg",
+        "pdfLink": "https://www.credly.com/badges/c71feb54-0dde-4c5b-8236-67868c9d4f16/public_url"
+    },
+    {
+        "category": "web",
+        "title": "CSS Essentials",
+        "issuer": "Cisco Networking Academy | Issued: Aug 11, 2025",
+        "description": "Khant Kyaw Lin is proficient in applying CSS syntax to style web pages and using the CSS box model for layout and design. The graduate can also implement responsive web design, enhance user experience with CSS transitions and animations, and optimize CSS performance. This course, provided in collaboration with JS Institute, also covered ensuring web content accessibility and applying CSS frameworks like Bootstrap.",
+        "imgSrc": "resource/image/css_essentials.jpg",
+        "pdfLink": "https://www.credly.com/badges/8436bac8-31e0-4047-8378-67255ca3f793/public_url"
+    },
+    {
+        "category": "web",
+        "title": "JavaScript Essentials 1",
+        "issuer": "Cisco Networking Academy | OpenEDG JavaScript Institute | Issued: Sep 03, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the JavaScript Essentials 1 course. The graduate is able to understand core JavaScript syntax, including variables, operators, and flow control. The certificate confirms a foundational understanding of data types, algorithmic thinking, and basic program development. The graduate is also able to interpret and handle fundamental program execution errors, demonstrating a key skill in software development.",
+        "imgSrc": "resource/image/javascript_essentials_1.jpg",
+        "pdfLink": "https://www.credly.com/badges/49d068d6-967e-41a0-8b25-b55e941bb8b9/public_url"
+    },
+    {
+        "category": "web",
+        "title": "JavaScript Essentials 2",
+        "issuer": "Cisco Networking Academy | OpenEDG JavaScript Institute | Issued: Sep 08, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the JavaScript Essentials 2 course. The graduate has studied advanced JavaScript concepts, including object construction, prototypes, and class properties. The certificate validates a strong understanding of complex data management, such as array manipulation and JSON conversion. The graduate is also proficient in asynchronous programming techniques, advanced functions, and using regular expressions, demonstrating a solid foundation in object-oriented principles and algorithmic problem-solving in JavaScript.",
+        "imgSrc": "resource/image/javascript_essentials_2.jpg",
+        "pdfLink": "https://www.credly.com/badges/2e635f31-0b95-4894-96a6-c68aca436160/public_url"
+    },
+    {
+        "category": "web",
+        "title": "JavaScript and PHP Programming Complete Course",
+        "issuer": "Udemy | Instructor: PROPER DOT INSTITUTE | Issued: Sep 10, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the JavaScript and PHP Programming Complete Course. This certificate validates a comprehensive understanding of both JavaScript and PHP, including the fundamental concepts and their practical application in web development. The course provides a strong foundation for building dynamic, full-stack web applications.",
+        "imgSrc": "resource/image/javascript&php.jpg",
+        "pdfLink": "https://www.udemy.com/certificate/UC-94bcb88b-0739-4b8b-b091-35cb5cdd1c92/"
+    },
+    {
+        "category": "web",
+        "title": "Professional Web Design Course",
+        "issuer": "Code Lab | Issued: Jul 27, 2025",
+        "description": "Khant Kyaw Lin successfully completed the 'Professional Web Design Course' which covered topics such as Web Standard, HTML, Mobile Web, CSS, Color Theory, Design Pattern, and Responsive Web Page.",
+        "imgSrc": "resource/image/web_desigh(code-lab).jpg",
+        "pdfLink": "resource/certificates/code_lab_web_design.pdf"
+    },
+    {
+        "category": "web",
+        "title": "PHP Internship Course",
+        "issuer": "SOFT GUIDE COMPUTER TRAINING CENTRE | Issued: Jul 26, 2025",
+        "description": "Khant Kyaw Lin satisfactorily completed a PHP Internship Course. The course covered HTML5, CSS3, JavaScript, JQuery, Bootstrap5, MySQL, Pure PHP, Laravel, RESTful API, Git and GitHub, and an E-learning Project with Pure PHP Pharmacy Management System.",
+        "imgSrc": "resource/image/internship_certificate(Soft-Guide).jpg",
+        "pdfLink": "resource/certificates/soft_guide_intern.pdf"
+    },
+    {
+        "category": "ai",
+        "title": "Gemini Certified Educator",
+        "issuer": "Google for Education | Issued: Sep 17, 2025",
+        "description": "This qualification certifies that Khant Kyaw Lin has demonstrated the knowledge, skills, and competencies required to effectively use Google AI tools, such as Gemini, in an educational or professional context.",
+        "imgSrc": "resource/image/gemini_certified_educator.jpg",
+        "pdfLink": "https://edu.google.accredible.com/9bfae485-1fb1-4a77-8a3b-13663ab56159?key=69da77363eb4a3172ab73f263d81834e29673287647bdbaf827e476091ee203d#acc.Iv6SbpCQ"
+    },
+    {
+        "category": "ai",
+        "title": "AI Fundamentals",
+        "issuer": "IBM SkillsBuild | Issued: Aug 07, 2025",
+        "description": "Khant Kyaw Lin has satisfied the requirements for the 'Artificial Intelligence Fundamentals' course from IBM SkillsBuild. The student is able to understand fundamental AI concepts, recognize ethical implications, and set up a machine learning project in IBM Watson Studio. The course was provided by Cisco Networking Academy in collaboration with IBM.",
+        "imgSrc": "resource/image/ai_fundamentals_with_ibm.jpg",
+        "pdfLink": "https://www.credly.com/badges/be64d6cb-3e2a-40fe-8095-80eb346febc5/public_url"
+    },
+    {
+        "category": "ai",
+        "title": "AI Fundamentals",
+        "issuer": "IBM SkillsBuild | Issued: Aug 07, 2025",
+        "description": "Khant Kyaw Lin has satisfied the requirements for the 'Artificial Intelligence Fundamentals' course from IBM SkillsBuild. The student is able to understand fundamental AI concepts, recognize ethical implications, and set up a machine learning project in IBM Watson Studio. The course was provided by Cisco Networking Academy in collaboration with IBM.",
+        "imgSrc": "resource/image/ai_fundamentalS(IBM).jpg",
+        "pdfLink": "https://www.credly.com/badges/89e8f3f9-6adb-492d-9873-55ad8eb981c7/public_url"
+    },
+    {
+        "category": "ai",
+        "title": "Introduction to Modern AI",
+        "issuer": "Cisco Networking Academy | Issued: Jul 31, 2025",
+        "description": "Khant Kyaw Lin has completed the 'Introduction to Modern AI' course. The student can explain basic concepts in AI and Machine Learning, use machine translation, and explain the fundamentals of large language models (LLMs). The student can also demonstrate use cases for LLM-enabled chatbots, facilitate collaboration between chatbots, and use LLMs with tools like web search.",
+        "imgSrc": "resource/image/introduction_to_modern_ai.png",
+        "pdfLink": "https://www.credly.com/badges/a7d9c179-cb73-46d4-800c-16801b89100e/public_url"
+    },
+    {
+        "category": "ai",
+        "title": "Introduction to AI : Learn Basics of Artificial Intelligence",
+        "issuer": "Udemy | Instructor: Prince Patni | Issued: Sep 12, 2025",
+        "description": "Khant Kyaw Lin has successfully completed this introductory course on Artificial Intelligence. The certificate confirms a foundational understanding of core AI concepts, providing the basic knowledge necessary for further study in the field.",
+        "imgSrc": "resource/image/introduction_to_ai.jpg",
+        "pdfLink": "https://www.udemy.com/certificate/UC-a98f4f3b-37b8-4786-b5fb-1f8d24854375/"
+    },
+    {
+        "category": "n&c",
+        "title": "Introduction to Cybersecurity",
+        "issuer": "Cisco Networking Academy | Issued: Sep 13, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Introduction to Cybersecurity course. The graduate is able to explain basic online safety, identify common cyber threats and vulnerabilities, and understand how to protect both individuals and organizations from cyber attacks.",
+        "imgSrc": "resource/image/introduction_to_cybersecurity.jpg",
+        "pdfLink": "https://www.credly.com/badges/09273bf3-3274-42d1-a93d-588045cfc57e/public_url"
+    },
+    {
+        "category": "cybersecurity",
+        "title": "Cyber Threat Management",
+        "issuer": "Cisco Networking Academy | Issued: Sep 18, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Cyber Threat Management course. The graduate is proficient in assessing network and systems vulnerabilities, creating vulnerability assessment plans, and developing risk management strategies to protect IT systems from threats.",
+        "imgSrc": "resource/image/cyber_threat_management.jpg",
+        "pdfLink": "https://www.credly.com/badges/15b9123a-84c4-420c-9f3b-e455d87888fc/public_url"
+    },
+    {
+        "category": "n&c",
+        "title": "Endpoint Security",
+        "issuer": "Cisco Networking Academy | Issued: Sep 18, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Endpoint Security course. The graduate is able to document and recommend threat mitigation measures for common network threats, analyze malware files, and evaluate the security of endpoints within an organization.",
+        "imgSrc": "resource/image/endpoint_security.jpg",
+        "pdfLink": "https://www.credly.com/badges/e727d409-ee07-4809-b716-f74608a4fa76/public_url"
+    },
+    {
+        "category": "n&c",
+        "title": "Network Defense",
+        "issuer": "Cisco Networking Academy | Issued: Sep 18, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Network Defense course. The graduate is skilled in documenting network security posture, configuring security measures on network devices and endpoints, and implementing identity lifecycle management. The course also covered firewall configuration and cloud security measures.",
+        "imgSrc": "resource/image/network_defense.jpg",
+        "pdfLink": "https://www.credly.com/badges/51ad0e91-aa79-42b3-9937-a8419bee3e94/public_url"
+    },
+    {
+        "category": "n&c",
+        "title": "Junior Cybersecurity Analyst Career Path",
+        "issuer": "Cisco Networking Academy | Issued: Sep 18, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Junior Cybersecurity Analyst Career Path. The graduate is proficient in recommending cybersecurity controls, mitigating network and systems threats, and evaluating organizational security. This comprehensive certificate validates the skills needed to effectively serve as a network security employee.",
+        "imgSrc": "resource/image/junior_cybersecurity_analyst.jpg",
+        "pdfLink": "https://www.credly.com/badges/15b9123a-84c4-420c-9f3b-e455d87888fc/public_url"
+    },
+    {
+        "category": "computer",
+        "title": "NCC Education Level 5 Diploma in Computing",
+        "issuer": "NCC Education | Issued: Jan 19, 2026",
+        "description": "Khant Kyaw Lin has successfully achieved a Distinction mark of 72% in the NCC Education Level 5 Diploma in Computing. The qualification was awarded by NCC Education and delivered by KMD College, Myanmar.",
+        "imgSrc": "resource/image/ncc_L5_diploma.jpg",
+        "pdfLink": "resource/certificates/ncc_L5_diploma.pdf"
+    },
+    {
+        "category": "computer",
+        "title": "NCC Education Level 4 Diploma in Computing",
+        "issuer": "NCC Education | Issued: Jan 17, 2025",
+        "description": "Khant Kyaw Lin has successfully achieved average Distinction mark of 79% in the NCC Education Level 4 Diploma in Computing. The qualification was awarded by NCC Education and delivered by KMD College, Myanmar.",
+        "imgSrc": "resource/image/NCC_L4_Diploma.jpg",
+        "pdfLink": "resource/certificates/ncc_L4_diploma.pdf"
+    },
+    {
+        "category": "computer",
+        "title": "Computer Hardware Basics",
+        "issuer": "Cisco Networking Academy | Issued: Aug 03, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Computer Hardware Basics course. The student is proficient in installing components to build, repair, or upgrade personal computers. They can also describe common device hardware, preventive maintenance, and explain the features of laptops and mobile devices. The course also covered general and fire safety standards.",
+        "imgSrc": "resource/image/computer_hardware_basic.jpg",
+        "pdfLink": "https://www.credly.com/badges/93093b5a-9d36-4a71-be1a-e87e2ebc5b01/public_url"
+    },
+    {
+        "category": "computer",
+        "title": "Operating Systems Basics",
+        "issuer": "Cisco Networking Academy | Issued: Aug 13, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Operating Systems Basics course. The student is proficient in explaining the architecture of Windows, using Windows administrative tools, and using the Linux shell to manipulate text files. The student can also implement basic Linux security and explain how to configure network connectivity on mobile devices.",
+        "imgSrc": "resource/image/operating_system_basic.jpg",
+        "pdfLink": "https://www.credly.com/badges/80e4b8f5-9f43-4381-9d51-7f97c06a57c9/public_url"
+    },
+    {
+        "category": "computer",
+        "title": "Introduction to Internet of Things",
+        "issuer": "Cisco Networking Academy | Issued: Sep 15, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Introduction to Internet of Things (IoT) course. The graduate is able to explain how IoT and digital transformation impact businesses, the importance of software and data, and the role of automation, AI, and enhanced security in a digitized world.",
+        "imgSrc": "resource/image/introduction_to_iot.jpg",
+        "pdfLink": "https://www.credly.com/badges/8abf5922-86ea-4206-b80b-26c0eb5af3d5/public_url"
+    },
+    {
+        "category": "professional",
+        "title": "English for IT 1",
+        "issuer": "Cisco Networking Academy | OpenEDG | Issued: Aug 22, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the English for IT 1 course. The graduate is proficient in using various tenses and grammatical structures, including the passive voice and future perfect tenses, and understands relative pronouns, modal verbs, and dependent prepositions. The graduate can also apply idiomatic phrases and vocabulary in IT scenarios and comprehend concepts related to information security policies and supplier evaluation. This course strengthens language skills for professional communication in the IT sector.",
+        "imgSrc": "resource/image/english_for_IT.jpg",
+        "pdfLink": "https://www.credly.com/badges/ec1f8874-3b52-4779-a42b-84001c4e8f0b/public_url"
+    },
+    {
+        "category": "professional",
+        "title": "English for IT 2",
+        "issuer": "Cisco Networking Academy | OpenEDG | Issued: Aug 30, 2025",
+        "description": "Khant Kyaw Lin successfully completed the English for IT 2 course. The graduate is proficient in advanced English grammar (e.g., subjunctive mood, modal verbs), professional communication (e.g., formal emails, team feedback), and specialized IT vocabulary (e.g., cloud computing, software issues). The certificate validates a CEFR B2 level of English proficiency, specifically for professional use in the IT sector.",
+        "imgSrc": "resource/image/english_for_IT_2.jpg",
+        "pdfLink": "https://www.credly.com/badges/3ec285d9-002c-4ef7-82aa-0177678d205c/public_url"
+    },
+    {
+        "category": "professional",
+        "title": "Docker Deep Dive: Build, Ship, and Run Containers",
+        "issuer": "Udemy | Instructors: Anton Voroniuk, Oleksii Osy | Issued: Sep 9, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Docker Deep Dive course. This certificate confirms a solid understanding of fundamental Docker concepts, including building, shipping, and running containers. The course provides the skills necessary for leveraging Docker to create portable and efficient application environments.",
+        "imgSrc": "resource/image/docker_deep_dive.jpg",
+        "pdfLink": "https://www.udemy.com/certificate/UC-253dcc92-cfb6-4f76-a763-8907d4253b06/"
+    },
+    {
+        "category": "professional",
+        "title": "IT Customer Support Basics",
+        "issuer": "Cisco Networking Academy | Issued: Jul 25, 2025",
+        "description": "Khant Kyaw Lin has completed the IT Customer Support Basics course. The student can learn the basic functions of a help desk and practice creating records that summarize customer issues. They also understand how to troubleshoot issues, support user devices remotely, and assist with common issues in apps like email and collaboration tools.",
+        "imgSrc": "resource/image/it_customer_support_basic.jpg",
+        "pdfLink": "https://www.credly.com/badges/fb256c76-88c9-46e7-a439-cc1df4671b3e/public_url"
+    },
+    {
+        "category": "professional",
+        "title": "Creating Compelling Reports",
+        "issuer": "Cisco Networking Academy | Issued: Jul 26, 2025",
+        "description": "Khant Kyaw Lin has successfully completed the Creating Compelling Reports course. The student is proficient in explaining the business value of compelling reports and implementing appropriate design choices for purpose and audience. They can also apply contextual understanding to report design, select authoring decisions, and determine appropriate responses for individual reporting scenarios.",
+        "imgSrc": "resource/image/creating_compelling_report.jpg",
+        "pdfLink": "https://www.credly.com/badges/382e24dd-a1d8-46ff-a11c-86ec05e221a2/public_url"
+    },
+    {
+        "category": "professional",
+        "title": "Digital Awareness",
+        "issuer": "Cisco Networking Academy | OpenEDG | Issued: Aug 19, 2025",
+        "description": "Khant Kyaw Lin has completed the Digital Awareness course. The graduate is able to explain digital technologies as tools for daily life, identify the basic functions of common digital devices, and navigate digital content responsibly. The graduate also understands the evolution of digital technologies and the importance of ethical usage, and can manage their online presence. This course provides a strong foundation in essential digital literacy.",
+        "imgSrc": "resource/image/digital_awareness.jpg",
+        "pdfLink": "https://www.credly.com/badges/34fb22bd-9b9e-4f30-a73e-0c05d95f4963/public_url"
+    },
+    {
+        "category": "professional",
+        "title": "How to Create Your Perfect LinkedIn Outreach Campaign",
+        "issuer": "Udemy | Instructors: Anton Voroniuk, Cole Scott | Issued: Sep 11, 2025",
+        "description": "Khant Kyaw Lin has successfully completed a course on creating and executing professional LinkedIn outreach campaigns. This certificate validates the skills needed to build a compelling online presence and effectively engage with professional networks.",
+        "imgSrc": "resource/image/linkedin_outreach.jpg",
+        "pdfLink": "https://www.udemy.com/certificate/UC-a61ec3e5-2f51-4323-8b54-eda5918702e6/"
+    }
+];
+
+
+
+=================================================================
+FILE: resource/js/particles.js
+=================================================================
+
+(function () {
+    // 1. Scene Setup
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+
+    const scene = new THREE.Scene();
+
+    // 2. Camera Setup
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 8;
+
+    // 3. Renderer Setup (with transparency)
+    const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // 4. Lights Setup (Keep simple ambient/directional light for 3D compatibility)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(5, 5, 4);
+    scene.add(directionalLight);
+
+    // 5. Generate Textures Programmatically
+    // Soft Circle Texture
+    function createCircleTexture() {
+        const c = document.createElement('canvas');
+        c.width = 32;
+        c.height = 32;
+        const ctx = c.getContext('2d');
+        const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        grad.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 32, 32);
+        return new THREE.CanvasTexture(c);
+    }
+    const circleTexture = createCircleTexture();
+
+    // Fluffy Snowflake Texture (Snowy)
+    function createSnowTexture() {
+        const c = document.createElement('canvas');
+        c.width = 64;
+        c.height = 64;
+        const ctx = c.getContext('2d');
+        ctx.clearRect(0, 0, 64, 64);
+
+        // Soft fluffy center
+        const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 16);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        grad.addColorStop(0.2, 'rgba(255, 255, 255, 0.85)');
+        grad.addColorStop(0.6, 'rgba(255, 255, 255, 0.3)');
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(32, 32, 16, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 6 satellite fluffs for organic shape
+        const angles = [0, Math.PI / 3, Math.PI * 2 / 3, Math.PI, Math.PI * 4 / 3, Math.PI * 5 / 3];
+        angles.forEach(angle => {
+            const x = 32 + Math.cos(angle) * 7;
+            const y = 32 + Math.sin(angle) * 7;
+            const satGrad = ctx.createRadialGradient(x, y, 0, x, y, 10);
+            satGrad.addColorStop(0, 'rgba(255, 255, 255, 0.25)');
+            satGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = satGrad;
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        return new THREE.CanvasTexture(c);
+    }
+    const snowTexture = createSnowTexture();
+
+    // Slanted Rain Streak Texture (Rainy)
+    function createRainTexture() {
+        const c = document.createElement('canvas');
+        c.width = 64;
+        c.height = 64;
+        const ctx = c.getContext('2d');
+        ctx.clearRect(0, 0, 64, 64);
+
+        // Slant ratio: speedX = -0.04, speedY = 0.26 => ratio = -0.1538
+        // For a vertical height of 48 pixels, horizontal displacement is 48 * -0.1538 = -7.38 pixels
+        // Let's use dx = -8. So top x is 32 + 4 = 36, bottom x is 32 - 4 = 28
+        const dx = -8;
+        const x1 = 32 - dx / 2; // 36
+        const y1 = 8;
+        const x2 = 32 + dx / 2; // 28
+        const y2 = 56;
+
+        const grad = ctx.createLinearGradient(x1, y1, x2, y2);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+        grad.addColorStop(0.15, 'rgba(255, 255, 255, 0.2)');
+        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0.95)');
+        grad.addColorStop(0.85, 'rgba(255, 255, 255, 0.2)');
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.8;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        return new THREE.CanvasTexture(c);
+    }
+    const rainTexture = createRainTexture();
+
+    // Determine initial state
+    const isDarkInitial = document.body.classList.contains('dark-theme') || document.documentElement.classList.contains('dark-theme');
+    const initialTheme = isDarkInitial ? 'dark' : 'light';
+
+    const getInitialWeather = () => {
+        const saved = localStorage.getItem("weather") || "auto";
+        if (saved !== "auto") return saved;
+        const hour = new Date().getHours();
+        if (hour >= 0 && hour < 8) return "windy";
+        if (hour >= 8 && hour < 16) return "snowy";
+        return "rainy";
+    };
+    const initialWeather = getInitialWeather();
+
+    // 6. Create Particles
+    const particleCount = 1200; // Balanced for performance and appearance
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const speeds = new Float32Array(particleCount);
+    const phases = new Float32Array(particleCount);
+
+    // Spread particles in a 3D box for view
+    for (let i = 0; i < particleCount; i++) {
+        const idx = i * 3;
+        positions[idx] = (Math.random() - 0.5) * 20;     // X (-10 to 10)
+        positions[idx + 1] = (Math.random() - 0.5) * 16; // Y (-8 to 8)
+        positions[idx + 2] = (Math.random() - 0.5) * 10; // Z (-5 to 5)
+
+        speeds[i] = 0.6 + Math.random() * 0.8;           // speed multiplier (0.6 to 1.4)
+        phases[i] = Math.random() * Math.PI * 2;          // phase for sine sway
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    // Particle Material
+    let initialTexture = circleTexture;
+    if (initialWeather === 'snowy') initialTexture = snowTexture;
+    else if (initialWeather === 'rainy') initialTexture = rainTexture;
+
+    const material = new THREE.PointsMaterial({
+        size: 0.18,
+        map: initialTexture,
+        transparent: true,
+        opacity: 0.65,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+    });
+
+    const particleSystem = new THREE.Points(geometry, material);
+    scene.add(particleSystem);
+
+    // State Targets and Current Values
+    const state = {
+        theme: initialTheme,
+        weather: initialWeather,
+
+        // Weather Targets
+        weatherSpeedY: 0.01,
+        weatherSpeedX: 0.03,
+        weatherSway: 0.01,
+        particleSize: 0.18,
+        particleOpacity: 0.65,
+        particleColor: new THREE.Color(0x00b4d8)
+    };
+
+    // Current interpolation values
+    let currentWeatherSpeedY = state.weatherSpeedY;
+    let currentWeatherSpeedX = state.weatherSpeedX;
+    let currentWeatherSway = state.weatherSway;
+    let currentParticleSize = state.particleSize;
+    let currentParticleOpacity = state.particleOpacity;
+    let currentParticleColor = state.particleColor.clone();
+
+    // Function to calculate target values based on Theme
+    function updateThemeTargets(theme) {
+        state.theme = theme;
+
+        // Dynamically toggle blending mode to make particles pop in light mode
+        material.blending = theme === 'dark' ? THREE.AdditiveBlending : THREE.NormalBlending;
+        material.needsUpdate = true;
+
+        // Update weather targets because it might depend on the theme
+        updateWeatherTargets(state.weather);
+    }
+
+    // Function to calculate target values based on Weather
+    function updateWeatherTargets(weather) {
+        state.weather = weather;
+        if (weather === 'windy') {
+            state.weatherSpeedY = 0.003; // slow drift down
+            state.weatherSpeedX = 0.045; // gentle wind breeze to the right
+            state.weatherSway = 0.03;    // wavy breeze motion
+            state.particleSize = 0.22;   // soft medium glowing circles
+            state.particleOpacity = state.theme === 'dark' ? 0.45 : 0.65;
+            state.particleColor.setHex(state.theme === 'dark' ? 0x73d2de : 0x3a86c8); // soft glowing cyan / slate blue pollen
+
+            material.map = circleTexture;
+            material.needsUpdate = true;
+        } else if (weather === 'snowy') {
+            state.weatherSpeedY = 0.008; // slow peaceful falling
+            state.weatherSpeedX = 0.002; // minimal drift
+            state.weatherSway = 0.025;   // flutter sway
+            state.particleSize = 0.35;   // fluffy snow flakes
+            state.particleOpacity = state.theme === 'dark' ? 0.85 : 0.95; // highly visible white snow
+            state.particleColor.setHex(0xffffff); // white snow in both light and dark modes
+
+            material.map = snowTexture;
+            material.needsUpdate = true;
+        } else if (weather === 'rainy') {
+            state.weatherSpeedY = 0.26;  // high speed falling down
+            state.weatherSpeedX = -0.04; // slanted rain falling leftwards
+            state.weatherSway = 0.0;     // no sway, straight slanted down
+            state.particleSize = 0.38;   // elongated rain streaks
+            state.particleOpacity = state.theme === 'dark' ? 0.55 : 0.75;
+            state.particleColor.setHex(state.theme === 'dark' ? 0x8ab4f8 : 0x486581); // rich slate-blue rain in light mode
+
+            material.map = rainTexture;
+            material.needsUpdate = true;
+        }
+    }
+
+    // Run initially
+    updateThemeTargets(initialTheme);
+    updateWeatherTargets(initialWeather);
+
+    // 7. Interactive Mouse Movement (Parallax)
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX - windowHalfX) / windowHalfX;
+        mouseY = (event.clientY - windowHalfY) / windowHalfY;
+    });
+
+    document.addEventListener('touchmove', (event) => {
+        if (event.touches.length === 1) {
+            mouseX = (event.touches[0].clientX - windowHalfX) / windowHalfX;
+            mouseY = (event.touches[0].clientY - windowHalfY) / windowHalfY;
+        }
+    }, { passive: true });
+
+    // 8. Window Resize Handler
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    });
+
+    // 9. Listeners for Dynamic System updates
+    window.addEventListener('themeChanged', (e) => {
+        updateThemeTargets(e.detail);
+    });
+
+    window.addEventListener('weatherChanged', (e) => {
+        updateWeatherTargets(e.detail);
+    });
+
+    // 10. Animation & Render Loop
+    const clock = new THREE.Clock();
+    let frameCount = 0;
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        const elapsedTime = clock.getElapsedTime();
+        frameCount++;
+
+        // Periodic state verification for maximum robustness
+        if (frameCount % 10 === 0) {
+            const isDark = document.body.classList.contains('dark-theme') || document.documentElement.classList.contains('dark-theme');
+            const targetTheme = isDark ? 'dark' : 'light';
+            if (state.theme !== targetTheme) {
+                updateThemeTargets(targetTheme);
+            }
+
+            const selectEl = document.getElementById('weather-select-desktop') || document.getElementById('weather-select-mobile');
+            if (selectEl) {
+                const weatherVal = selectEl.value;
+                const activeWeather = weatherVal === 'auto' ? getInitialWeather() : weatherVal;
+                if (state.weather !== activeWeather) {
+                    updateWeatherTargets(activeWeather);
+                }
+            }
+        }
+
+        // Interpolations (lerp)
+        currentWeatherSpeedY += (state.weatherSpeedY - currentWeatherSpeedY) * 0.05;
+        currentWeatherSpeedX += (state.weatherSpeedX - currentWeatherSpeedX) * 0.05;
+        currentWeatherSway += (state.weatherSway - currentWeatherSway) * 0.05;
+        currentParticleSize += (state.particleSize - currentParticleSize) * 0.05;
+        currentParticleOpacity += (state.particleOpacity - currentParticleOpacity) * 0.05;
+        currentParticleColor.lerp(state.particleColor, 0.05);
+
+        material.size = currentParticleSize;
+        material.opacity = currentParticleOpacity;
+        material.color.copy(currentParticleColor);
+
+        // Slow overall rotation for organic look
+        particleSystem.rotation.y = elapsedTime * 0.015;
+        particleSystem.rotation.x = elapsedTime * 0.008;
+
+        // Easing mouse parallax
+        targetX += (mouseX - targetX) * 0.05;
+        targetY += (mouseY - targetY) * 0.05;
+
+        camera.position.x = targetX * 1.5;
+        camera.position.y = -targetY * 1.5;
+        camera.lookAt(scene.position);
+
+        // Physics update on each particle
+        const pos = geometry.attributes.position.array;
+        for (let i = 0; i < particleCount; i++) {
+            const idx = i * 3;
+
+            // Apply downward velocity
+            pos[idx + 1] -= currentWeatherSpeedY * speeds[i];
+
+            // Apply horizontal velocity (with wind gusts if windy)
+            if (state.weather === 'windy') {
+                const gust = Math.sin(elapsedTime * 0.8 + phases[i]) * 0.02; // natural wind gusts variation
+                pos[idx] += (currentWeatherSpeedX + gust) * speeds[i];
+            } else {
+                pos[idx] += currentWeatherSpeedX * speeds[i];
+            }
+
+            // Apply sine wave sway if applicable
+            if (currentWeatherSway > 0) {
+                pos[idx + 1] += Math.sin(elapsedTime * 1.5 + phases[i]) * 0.005; // tiny vertical waviness
+                pos[idx] += Math.sin(elapsedTime * 2.0 + phases[i]) * currentWeatherSway * speeds[i];
+            }
+
+            // Wrapping boundaries (keeps particles within the frustum)
+            // Y-axis wrapping
+            if (pos[idx + 1] < -8) {
+                pos[idx + 1] = 8;
+                pos[idx] = (Math.random() - 0.5) * 20; // randomize X coordinate
+            }
+
+            // X-axis wrapping
+            if (pos[idx] > 12) {
+                pos[idx] = -12;
+                pos[idx + 1] = (Math.random() - 0.5) * 16;
+            } else if (pos[idx] < -12) {
+                pos[idx] = 12;
+                pos[idx + 1] = (Math.random() - 0.5) * 16;
+            }
+        }
+        geometry.attributes.position.needsUpdate = true;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+})();
+
+
+
+=================================================================
+FILE: sw.js
+=================================================================
+
+const CACHE_NAME = 'kkl-portfolio-cache-v1';
+const ASSETS_TO_CACHE = [
+    './',
+    './index.html',
+    './cv.html',
+    './resource/css/style.css',
+    './resource/js/particles.js',
+    './resource/js/portfolio-data.js',
+    './resource/image/profile.jpg',
+    './sweetalert2/dist/sweetalert2.all.min.js'
+];
+
+// Install Event - Pre-cache core local assets
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+            console.log('[Service Worker] Pre-caching offline assets');
+            return cache.addAll(ASSETS_TO_CACHE);
+        }).then(() => self.skipWaiting())
+    );
+});
+
+// Activate Event - Clean up old caches
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cache) => {
+                    if (cache !== CACHE_NAME) {
+                        console.log('[Service Worker] Clearing old cache:', cache);
+                        return caches.delete(cache);
+                    }
+                })
+            );
+        }).then(() => self.clients.claim())
+    );
+});
+
+// Fetch Event - Stale-While-Revalidate caching strategy
+self.addEventListener('fetch', (event) => {
+    // Only cache GET requests
+    if (event.request.method !== 'GET') return;
+
+    const requestUrl = new URL(event.request.url);
+
+    // Skip form submission requests (e.g. formsubmit.co)
+    if (requestUrl.hostname.includes('formsubmit.co')) return;
+
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                // Return cached asset immediately, fetch updated version in the background
+                fetch(event.request)
+                    .then((networkResponse) => {
+                        if (networkResponse && networkResponse.status === 200) {
+                            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
+                        }
+                    })
+                    .catch((err) => console.log('[Service Worker] Stale fetch failed:', err));
+                return cachedResponse;
+            }
+
+            // If not cached, fetch from network and dynamically cache if it's from a CDN or local resource
+            return fetch(event.request).then((networkResponse) => {
+                if (!networkResponse || networkResponse.status !== 200) {
+                    return networkResponse;
+                }
+
+                // Cache local assets and CDN resources
+                const shouldCache = requestUrl.origin === location.origin || 
+                                     requestUrl.hostname.includes('jsdelivr.net') || 
+                                     requestUrl.hostname.includes('cloudflare.com') ||
+                                     requestUrl.hostname.includes('unpkg.com') ||
+                                     requestUrl.hostname.includes('fonts.googleapis.com') ||
+                                     requestUrl.hostname.includes('fonts.gstatic.com');
+
+                if (shouldCache) {
+                    const responseToCache = networkResponse.clone();
+                    caches.open(CACHE_NAME).then((cache) => {
+                        cache.put(event.request, responseToCache);
+                    });
+                }
+
+                return networkResponse;
+            });
+        })
+    );
+});
+
+

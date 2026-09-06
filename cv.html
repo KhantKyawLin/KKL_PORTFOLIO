@@ -1,83 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khant Kyaw Lin - CV</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Khant Kyaw Lin - Curriculum Vitae</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: #f8f9fa;
             color: #212529;
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.83rem;
+            line-height: 1.45;
+            margin: 0;
+            padding: 20px 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .cv-wrapper {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 880px;
+            margin: 0 auto;
             background: #fff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 40px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 35px 35px;
         }
 
         .cv-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
             justify-content: space-around;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 15px;
         }
 
         .cv-header img {
-            width: 100px;
-            height: 100px;
+            width: 95px;
+            height: 95px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #0077b6;
-            margin-bottom: 5px;
+            border: 3px solid #0077b6;
         }
 
         .cv-header h1 {
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 1.85rem;
             margin: 0;
+            color: #0f172a;
         }
 
         .cv-header h3 {
-            font-weight: 400;
-            font-size: 1.25rem;
-            color: #6c757d;
-            margin-top: 0;
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: #0077b6;
+            margin: 3px 0 0 0;
         }
 
         .cv-body {
             display: grid;
-            grid-template-columns: 35% 65%;
-            gap: 20px;
+            grid-template-columns: 34% 66%;
+            gap: 24px;
         }
 
         .section {
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .section-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #0077b6;
             border-bottom: 2px solid #e9ecef;
-            padding-bottom: 5px;
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .info-item {
             display: flex;
             align-items: center;
             margin-bottom: 5px;
+            font-size: 0.8rem;
         }
 
         .info-item .info-icon {
@@ -104,74 +115,81 @@
         }
 
         .timeline li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .timeline li:last-child {
+            margin-bottom: 0;
         }
 
         .timeline h6 {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
+            color: #1e293b;
         }
 
         .timeline small {
-            color: #6c757d;
-            font-size: 0.75rem;
+            color: #64748b;
+            font-size: 0.74rem;
+            display: inline-block;
+            margin-bottom: 2px;
         }
 
         .timeline p {
-            margin: 1px 0 0;
+            margin: 2px 0 0;
+            font-size: 0.81rem;
+            line-height: 1.38;
+            color: #334155;
         }
 
         .cert-list {
             column-count: 2;
-            column-gap: 10px;
+            column-gap: 16px;
             margin: 0;
             padding: 0;
             list-style: none;
         }
 
-        .cert-list li p {
-            margin-bottom: 2px;
-            font-size: 0.8rem;
+        .cert-list li {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 6px;
         }
 
+        .cert-list li p {
+            margin: 0;
+            font-size: 0.78rem;
+            line-height: 1.3;
+        }
+
+        /* Intentional 2-Page Split for Printing */
         @media print {
             @page {
                 size: A4;
-                margin: 1.5cm 0.5cm;
+                margin: 1cm 0.8cm;
             }
 
             body {
                 background: #fff;
                 padding: 0;
-                margin: 0;
-                display: block;
             }
 
             .cv-wrapper {
                 box-shadow: none;
-                margin: 0 auto;
-                padding: 10px 15px;
+                margin: 0;
+                padding: 0;
                 max-width: 100%;
-                width: 100%;
             }
 
-            .section-title {
-                margin-bottom: 6px;
-                font-size: 0.95rem;
-            }
-
-            .section {
-                margin-bottom: 8px;
-            }
-
-            .timeline li {
-                margin-bottom: 6px;
+            /* Force clean page break before Key Projects on Page 2 */
+            .page-break {
+                page-break-before: always;
+                break-before: page;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="cv-wrapper">
         <!-- Header -->
@@ -181,75 +199,61 @@
                 <h1>Khant Kyaw Lin</h1>
                 <h3>Full-Stack Web Developer</h3>
             </div>
-
         </div>
 
         <div class="cv-body">
-            <!-- Left Column -->
+            <!-- Left Column (Page 1) -->
             <div>
                 <div class="section">
                     <h4 class="section-title">Personal Profile</h4>
                     <p>
-                        A pragmatic <strong>Full-Stack Developer</strong> dedicated to building simple, useful, and
-                        secure digital tools that solve real-world problems. With experience in <strong>React,
-                            Laravel, and modern web architectures</strong>, I focus on turning complex workflows into
-                        clean,
-                        user-friendly platforms that make someone's life easier.
+                        A pragmatic <strong>Full-Stack Developer</strong> and final-year medical student dedicated to building simple, useful, and secure digital tools that solve real-world problems. With commercial experience in <strong>Laravel, React, TypeScript, and modern web architectures</strong>, I focus on turning complex business workflows into clean, scalable platforms.
                     </p>
                 </div>
 
                 <div class="section">
                     <h4 class="section-title">Contact</h4>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-envelope"></i></div><a
-                            href="mailto:khantkyawlinn.kkl@gmail.com">khantkyawlinn.kkl@gmail.com</a>
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <a href="mailto:khantkyawlinn.kkl@gmail.com">khantkyawlinn.kkl@gmail.com</a>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-phone"></i></div><a href="tel:+959966454595">+95 996 645
-                            4595</a>
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>+95 996 645 4595</div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>Insein, Yangon, Myanmar</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fab fa-linkedin"></i></div><a
-                            href="https://www.linkedin.com/in/khant-kyaw-lin-646457247/"
-                            target="_blank">linkedin.com/in/khant-kyaw-lin</a>
+                        <div class="info-icon"><i class="fab fa-linkedin"></i></div>
+                        <a href="https://linkedin.com/in/khant-kyaw-lin" target="_blank">linkedin.com/in/khant-kyaw-lin</a>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fab fa-github"></i></div><a
-                            href="https://github.com/KhantKyawLin" target="_blank">github.com/KhantKyawLin</a>
+                        <div class="info-icon"><i class="fab fa-github"></i></div>
+                        <a href="https://github.com/KhantKyawLin" target="_blank">github.com/KhantKyawLin</a>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-globe"></i></div><a
-                            href="https://kkl-portfolio.vercel.app/" target="_blank">kkl-portfolio.vercel.app</a>
+                        <div class="info-icon"><i class="fas fa-globe"></i></div>
+                        <a href="https://kkl-portfolio.vercel.app" target="_blank">kkl-portfolio.vercel.app</a>
                     </div>
                 </div>
 
-                <div class="section" style="margin-top: 10px;">
-                    <h4 class="section-title">Skills & Expertise</h4>
-                    <ul class="skills-list">
-                        <li><b>Frontend:</b> <br>HTML, CSS, JavaScript, React, Vue, Bootstrap, Tailwind</li>
-                        <li><b>Backend:</b> <br>PHP, Laravel</li>
-                        <li><b>Database:</b> <br>MySQL, Firebase</li>
-                        <li><b>Mobile/Desktop & OS:</b> <br>Kotlin, C#, Flutter, Linux</li>
-                        <li><b>Tools:</b> <br>Git, Postman, Docker</li>
-                    </ul>
+                <div class="section">
+                    <h4 class="section-title">Skills &amp; Expertise</h4>
+                    <p><strong>Frontend:</strong><br>HTML, CSS, JavaScript, TypeScript, React 19, Next.js, Vue, Bootstrap, Tailwind CSS v4</p>
+                    <p style="margin-top: 5px;"><strong>Backend:</strong><br>PHP 8+, Laravel 11, Node.js, RESTful APIs, WebSockets (Reverb), JWT Auth</p>
+                    <p style="margin-top: 5px;"><strong>Database:</strong><br>MySQL, PostgreSQL, Firebase</p>
+                    <p style="margin-top: 5px;"><strong>DevOps &amp; Tools:</strong><br>Docker, Git CI/CD, Linux, Postman, Vite</p>
                 </div>
 
                 <div class="section">
                     <h4 class="section-title">Languages</h4>
-                    <ul class="lang-list">
-                        <li>English (Fluent), Burmese (Native)</li>
-
-                    </ul>
+                    <p>English (Fluent), Burmese (Native)</p>
                 </div>
-
-
             </div>
 
-            <!-- Right Column -->
+            <!-- Right Column (Page 1) -->
             <div>
                 <div class="section">
                     <h4 class="section-title">Work Experience</h4>
@@ -257,105 +261,98 @@
                         <li>
                             <h6>Full-Stack Developer | Central_Nex Software House</h6>
                             <small>Dec 2025 – Present</small>
-                            <p>Core backend developer in a 2-person engineering team for a commercial Enterprise Supply Chain Financing (SCF) platform (Laravel, PHP 8+, MySQL, Flutter, WebSockets, Docker, Git CI/CD). Built primary backend business logic, multi-stage Maker-Checker workflows, concurrency-safe limit validations, and handled end-to-end API testing across DEV, SIT, and UAT environments.</p>
+                            <p>Core backend developer in a 2-person engineering team for a commercial Enterprise Supply Chain Financing (SCF) platform (Laravel 11, PHP 8+, MySQL, Flutter, WebSockets, Docker, Git CI/CD). Built primary backend business logic, multi-stage Maker-Checker workflows, concurrency-safe limit validations, and handled end-to-end API testing across DEV, SIT, and UAT environments.</p>
                         </li>
                         <li>
                             <h6>Full-Stack Developer | Freelance</h6>
                             <small>Jan 2025 – Present</small>
-                            <p>Developed and launched full-stack web apps, custom PHP backends, and responsive
-                                frontends.</p>
+                            <p>Developed and launched custom full-stack web apps, PHP/Laravel backend services, and responsive frontend portals for small business clients.</p>
                         </li>
                         <li>
                             <h6>Software Development Intern | Soft Guide Software House</h6>
                             <small>May 2025 – Jul 2025</small>
-                            <p>Worked on projects like an E-learning platform and a Pharmacy Management System.</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h4 class="section-title">Key Projects</h4>
-                    <ul class="timeline">
-                        <li>
-                            <h6>Enterprise Supply Chain Financing (SCF) Platform (Laravel 11, MySQL, Flutter, WebSockets)</h6>
-                            <p>Engineered core backend domain logic for a B2B invoice financing platform. Built multi-tier Maker-Checker governance state machines (Entry, Amend, Resend, Approve, Reject, Reversal, Close) with pre/post-mutation audit trails and atomic rollbacks. Implemented concurrency-safe limit validations and real-time WebSocket broadcasting (Laravel Reverb).</p>
+                            <p>Collaborated on real-world projects including an E-learning platform and a Pharmacy Management System using Laravel, MySQL, and REST APIs.</p>
                         </li>
                         <li>
-                            <h6>Pharmacy Management System (React & Laravel)</h6>
-                            <p>Developed a full-stack system with a React frontend and Laravel API. Built secure RESTful
-                                endpoints, JWT authentication, and RBAC middleware to automate inventory, sales, and
-                                reporting.</p>
+                            <h6>Pharmacy Operations Lead | Vital Care Pharmacy</h6>
+                            <small>2022 – 2025</small>
+                            <p>Managed daily pharmacy inventory, customer healthcare service, supplier relations, and cash operations. The real-world operational bottlenecks experienced here directly inspired my automated pharmacy and fintech software solutions.</p>
                         </li>
                         <li>
-                            <h6>Synapse Study - Medical Education Platform (React 19 & Tailwind v4)</h6>
-                            <p>Built a high-performance medical learning platform with interactive 3D flashcards, clinical summary dashboards, 5-choice practice exams with auto-submit countdown timers, and 1-click certificate exports. Powered by a custom Node.js dataset ingestion pipeline.</p>
-                        </li>
-                        <li>
-                            <h6>Learning Management System (Flutter & Firebase)</h6>
-                            <p>Implemented Firebase Analytics for user engagement tracking in a live mobile application.
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h4 class="section-title">Education</h4>
-                    <ul class="timeline">
-                        <li>
-                            <h6>Advanced Diploma in Computing | NCC Education</h6>
-                            <small>2025 – 2026</small>
-                        </li>
-                        <li>
-                            <h6>Diploma in Computing | NCC Education</h6>
-                            <small>2024 – 2025</small>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h4 class="section-title">Certifications</h4>
-                    <ul class="cert-list">
-                        <li>
-                            <p>Complete React v9 – Frontend Masters</p>
-                        </li>
-                        <li>
-                            <p>Complete Intro to Web Dev v3 – Frontend Masters</p>
-                        </li>
-                        <li>
-                            <p>Next.js Fundamentals v4 – Frontend Masters</p>
-                        </li>
-                        <li>
-                            <p>React and TypeScript v3 – Frontend Masters</p>
-                        </li>
-                        <li>
-                            <p>HTML, CSS & JavaScript Essentials – Cisco</p>
-                        </li>
-                        <li>
-                            <p>Vue & Firebase Combo - Creative Coders Myanmar</p>
-                        </li>
-                        <li>
-                            <p>Git & GitHub Intermediate - Creative Coders Myanmar</p>
-                        </li>
-                        <li>
-                            <p>Introduction to Linux (LFS101) - The Linux Foundation</p>
-                        </li>
-                        <li>
-                            <p>Network Technician Career Path - Cisco</p>
-                        </li>
-                        <li>
-                            <p>Web Design Course – Code Lab</p>
-                        </li>
-                        <li>
-                            <p>PHP Internship Course – Soft Guide Software House</p>
-                        </li>
-                        <li>
-                            <p>AI Fundamentals – IBM SkillsBuild</p>
+                            <h6>Academic Study Guide | Self-employed</h6>
+                            <small>2014 – Present</small>
+                            <p>Mentored high school and medical students in complex scientific and medical coursework, fostering strong diagnostic and analytical thinking.</p>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <!-- ================= PAGE 2 SPLIT ================= -->
+        <div class="page-break" style="margin-top: 24px; padding-top: 15px; border-top: 2px dashed #cbd5e1;"></div>
+
+        <div style="margin-top: 15px;">
+            <div class="section">
+                <h4 class="section-title">Key Projects</h4>
+                <ul class="timeline">
+                    <li>
+                        <h6>Enterprise Supply Chain Financing (SCF) Platform (Laravel 11, MySQL, Flutter, WebSockets)</h6>
+                        <p>Engineered core backend domain logic for a commercial B2B invoice financing platform. Built multi-tier Maker-Checker governance state machines (Entry, Amend, Resend, Approve, Reject, Reversal, Close) with pre/post-mutation audit trails and atomic rollbacks. Implemented concurrency-safe limit validations and real-time WebSocket broadcasting (Laravel Reverb).</p>
+                    </li>
+                    <li>
+                        <h6>Pharmacy Management System (React &amp; Laravel)</h6>
+                        <p>Developed a full-stack system with a React frontend and Laravel API. Built secure RESTful endpoints, JWT authentication, and RBAC middleware to automate inventory, sales, and reporting.</p>
+                    </li>
+                    <li>
+                        <h6>Synapse Study – Medical Education Platform (React 19 &amp; Tailwind v4)</h6>
+                        <p>Built a high-performance medical learning platform with interactive 3D flashcards, clinical summary dashboards, 5-choice practice exams with auto-submit countdown timers, and 1-click certificate exports. Powered by a custom Node.js dataset ingestion pipeline.</p>
+                    </li>
+                    <li>
+                        <h6>Learning Management System (Flutter &amp; Firebase)</h6>
+                        <p>Implemented Firebase Analytics for user engagement tracking and dynamic content delivery in a live mobile application.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section" style="margin-top: 16px;">
+                <h4 class="section-title">Education Journey</h4>
+                <ul class="timeline">
+                    <li>
+                        <h6>Bachelor of Medicine, Bachelor of Surgery (M.B., B.S.) | University of Medicine 2, Yangon</h6>
+                        <small>2014 – Present (Final Year &bull; Expected Completion: Nov 2026)</small>
+                        <p>Undergoing rigorous clinical medical training developing deep diagnostic, analytical, and high-pressure problem-solving capabilities.</p>
+                    </li>
+                    <li>
+                        <h6>Advanced Diploma in Computing | NCC Education</h6>
+                        <small>2025 – 2026</small>
+                        <p>Advanced studies in software engineering, database design, network architecture, and object-oriented programming.</p>
+                    </li>
+                    <li>
+                        <h6>Diploma in Computing | NCC Education</h6>
+                        <small>2024 – 2025</small>
+                        <p>Core computing fundamentals covering web design, programming foundations, and system architecture.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section" style="margin-top: 16px;">
+                <h4 class="section-title">Professional Certifications</h4>
+                <ul class="cert-list">
+                    <li><p><strong>Complete React v9</strong> – Frontend Masters</p></li>
+                    <li><p><strong>Next.js Fundamentals v4</strong> – Frontend Masters</p></li>
+                    <li><p><strong>React and TypeScript v3</strong> – Frontend Masters</p></li>
+                    <li><p><strong>Intermediate React v6</strong> – Frontend Masters</p></li>
+                    <li><p><strong>Complete Intro to Web Dev v3</strong> – Frontend Masters</p></li>
+                    <li><p><strong>HTML, CSS &amp; JS Essentials</strong> – Cisco</p></li>
+                    <li><p><strong>Introduction to Linux (LFS101)</strong> – Linux Foundation</p></li>
+                    <li><p><strong>Network Technician Career Path</strong> – Cisco</p></li>
+                    <li><p><strong>Vue &amp; Firebase Combo</strong> – Creative Coders</p></li>
+                    <li><p><strong>Git &amp; GitHub Intermediate</strong> – Creative Coders</p></li>
+                    <li><p><strong>PHP Internship Course</strong> – Soft Guide</p></li>
+                    <li><p><strong>AI Fundamentals</strong> – IBM SkillsBuild</p></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
-
 </html>
