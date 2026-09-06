@@ -15,8 +15,8 @@
             font-family: 'Poppins', sans-serif;
             background: #f8f9fa;
             color: #212529;
-            font-size: 0.83rem;
-            line-height: 1.45;
+            font-size: 0.82rem;
+            line-height: 1.42;
             margin: 0;
             padding: 20px 0;
             -webkit-print-color-adjust: exact;
@@ -28,22 +28,22 @@
             margin: 0 auto;
             background: #fff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 35px 35px;
+            padding: 32px 34px;
         }
 
         .cv-header {
             text-align: center;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             justify-content: space-around;
             border-bottom: 2px solid #e9ecef;
-            padding-bottom: 15px;
+            padding-bottom: 14px;
         }
 
         .cv-header img {
-            width: 95px;
-            height: 95px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #0077b6;
@@ -51,35 +51,35 @@
 
         .cv-header h1 {
             font-weight: 700;
-            font-size: 1.85rem;
+            font-size: 1.8rem;
             margin: 0;
             color: #0f172a;
         }
 
         .cv-header h3 {
             font-weight: 500;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #0077b6;
             margin: 3px 0 0 0;
         }
 
         .cv-body {
             display: grid;
-            grid-template-columns: 34% 66%;
+            grid-template-columns: 35% 65%;
             gap: 24px;
         }
 
         .section {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
             color: #0077b6;
             border-bottom: 2px solid #e9ecef;
-            padding-bottom: 4px;
+            padding-bottom: 3px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -87,14 +87,14 @@
         .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 5px;
-            font-size: 0.8rem;
+            margin-bottom: 4px;
+            font-size: 0.79rem;
         }
 
         .info-item .info-icon {
             margin-right: 8px;
             color: #0077b6;
-            width: 16px;
+            width: 15px;
             text-align: center;
         }
 
@@ -105,9 +105,6 @@
             word-break: break-word;
         }
 
-        .info-list,
-        .skills-list,
-        .lang-list,
         .timeline {
             list-style: none;
             padding: 0;
@@ -115,7 +112,7 @@
         }
 
         .timeline li {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
         }
 
         .timeline li:last-child {
@@ -124,28 +121,28 @@
 
         .timeline h6 {
             margin: 0;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             font-weight: 600;
             color: #1e293b;
         }
 
         .timeline small {
             color: #64748b;
-            font-size: 0.74rem;
+            font-size: 0.73rem;
             display: inline-block;
             margin-bottom: 2px;
         }
 
         .timeline p {
             margin: 2px 0 0;
-            font-size: 0.81rem;
-            line-height: 1.38;
+            font-size: 0.80rem;
+            line-height: 1.36;
             color: #334155;
         }
 
         .cert-list {
             column-count: 2;
-            column-gap: 16px;
+            column-gap: 20px;
             margin: 0;
             padding: 0;
             list-style: none;
@@ -160,14 +157,26 @@
         .cert-list li p {
             margin: 0;
             font-size: 0.78rem;
-            line-height: 1.3;
+            line-height: 1.32;
+        }
+
+        /* Screen visual page separator */
+        .page-break-indicator {
+            margin: 28px 0 20px 0;
+            padding-top: 15px;
+            border-top: 2px dashed #cbd5e1;
+            text-align: center;
+            font-size: 0.72rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Intentional 2-Page Split for Printing */
         @media print {
             @page {
                 size: A4;
-                margin: 1cm 0.8cm;
+                margin: 1.1cm 1.0cm;
             }
 
             body {
@@ -182,16 +191,22 @@
                 max-width: 100%;
             }
 
-            /* Force clean page break before Key Projects on Page 2 */
-            .page-break {
+            /* Clean page break between Page 1 and Page 2 */
+            .page-break-indicator {
                 page-break-before: always;
                 break-before: page;
+                border-top: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                height: 0 !important;
+                overflow: hidden;
             }
         }
     </style>
 </head>
 <body>
     <div class="cv-wrapper">
+        <!-- ==================== PAGE 1 ==================== -->
         <!-- Header -->
         <div class="cv-header">
             <img src="resource/image/profile.jpg" alt="Profile Photo">
@@ -202,7 +217,7 @@
         </div>
 
         <div class="cv-body">
-            <!-- Left Column (Page 1) -->
+            <!-- Left Column (Page 1: Profile, Contact, Skills, Education, Languages) -->
             <div>
                 <div class="section">
                     <h4 class="section-title">Personal Profile</h4>
@@ -242,9 +257,30 @@
                 <div class="section">
                     <h4 class="section-title">Skills &amp; Expertise</h4>
                     <p><strong>Frontend:</strong><br>HTML, CSS, JavaScript, TypeScript, React 19, Next.js, Vue, Bootstrap, Tailwind CSS v4</p>
-                    <p style="margin-top: 5px;"><strong>Backend:</strong><br>PHP 8+, Laravel 11, Node.js, RESTful APIs, WebSockets (Reverb), JWT Auth</p>
-                    <p style="margin-top: 5px;"><strong>Database:</strong><br>MySQL, PostgreSQL, Firebase</p>
-                    <p style="margin-top: 5px;"><strong>DevOps &amp; Tools:</strong><br>Docker, Git CI/CD, Linux, Postman, Vite</p>
+                    <p style="margin-top: 4px;"><strong>Backend:</strong><br>PHP 8+, Laravel 11, Node.js, RESTful APIs, WebSockets (Reverb), JWT Auth</p>
+                    <p style="margin-top: 4px;"><strong>Database:</strong><br>MySQL, PostgreSQL, Firebase</p>
+                    <p style="margin-top: 4px;"><strong>DevOps &amp; Tools:</strong><br>Docker, Git CI/CD, Linux, Postman, Vite</p>
+                </div>
+
+                <div class="section">
+                    <h4 class="section-title">Education Journey</h4>
+                    <ul class="timeline">
+                        <li>
+                            <h6>M.B., B.S. (Final Year)</h6>
+                            <small>University of Medicine 2, Yangon &bull; Expected Nov 2026</small>
+                            <p>Clinical medical training developing diagnostic and analytical problem-solving skills.</p>
+                        </li>
+                        <li>
+                            <h6>Advanced Diploma in Computing</h6>
+                            <small>NCC Education &bull; 2025 – 2026</small>
+                            <p>Advanced studies in software engineering, database design, and network architecture.</p>
+                        </li>
+                        <li>
+                            <h6>Diploma in Computing</h6>
+                            <small>NCC Education &bull; 2024 – 2025</small>
+                            <p>Core computing fundamentals and web development.</p>
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="section">
@@ -253,7 +289,7 @@
                 </div>
             </div>
 
-            <!-- Right Column (Page 1) -->
+            <!-- Right Column (Page 1: Full Work Experience) -->
             <div>
                 <div class="section">
                     <h4 class="section-title">Work Experience</h4>
@@ -288,10 +324,10 @@
             </div>
         </div>
 
-        <!-- ================= PAGE 2 SPLIT ================= -->
-        <div class="page-break" style="margin-top: 24px; padding-top: 15px; border-top: 2px dashed #cbd5e1;"></div>
+        <!-- ==================== PAGE 2 ==================== -->
+        <div class="page-break-indicator">Page 2 &mdash; Key Projects &amp; Professional Certifications</div>
 
-        <div style="margin-top: 15px;">
+        <div>
             <div class="section">
                 <h4 class="section-title">Key Projects</h4>
                 <ul class="timeline">
@@ -314,28 +350,7 @@
                 </ul>
             </div>
 
-            <div class="section" style="margin-top: 16px;">
-                <h4 class="section-title">Education Journey</h4>
-                <ul class="timeline">
-                    <li>
-                        <h6>Bachelor of Medicine, Bachelor of Surgery (M.B., B.S.) | University of Medicine 2, Yangon</h6>
-                        <small>2014 – Present (Final Year &bull; Expected Completion: Nov 2026)</small>
-                        <p>Undergoing rigorous clinical medical training developing deep diagnostic, analytical, and high-pressure problem-solving capabilities.</p>
-                    </li>
-                    <li>
-                        <h6>Advanced Diploma in Computing | NCC Education</h6>
-                        <small>2025 – 2026</small>
-                        <p>Advanced studies in software engineering, database design, network architecture, and object-oriented programming.</p>
-                    </li>
-                    <li>
-                        <h6>Diploma in Computing | NCC Education</h6>
-                        <small>2024 – 2025</small>
-                        <p>Core computing fundamentals covering web design, programming foundations, and system architecture.</p>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="section" style="margin-top: 16px;">
+            <div class="section" style="margin-top: 18px;">
                 <h4 class="section-title">Professional Certifications</h4>
                 <ul class="cert-list">
                     <li><p><strong>Complete React v9</strong> – Frontend Masters</p></li>
