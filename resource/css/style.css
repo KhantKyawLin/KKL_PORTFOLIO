@@ -860,6 +860,22 @@ body.dark-theme .project-modal-swiper .swiper-pagination-bullet-active {
     border-radius: 10px;
 }
 
+.cv-resume-icon-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 7px;
+    font-size: 0.88rem;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.cv-resume-icon-btn:hover {
+    transform: translateY(-1px);
+}
+
 body.dark-theme .cv-resume-dropdown-menu {
     background-color: var(--card-bg-dark, #161b22);
     border-color: var(--card-border-dark, #30363d);
