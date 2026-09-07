@@ -855,75 +855,20 @@ body.dark-theme .project-modal-swiper .swiper-pagination-bullet-active {
     background: var(--secondary-color) !important;
 }
 
-/* --- CV & Resume Section Styles --- */
-.cv-resume-preview-card {
-    background: var(--card-bg-light, #ffffff);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 14px;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+/* --- CV & Resume Dropdown Styles --- */
+.cv-resume-dropdown-menu {
+    border-radius: 10px;
 }
 
-body.dark-theme .cv-resume-preview-card {
-    background-color: var(--card-bg-dark, #161b22);
-    border-color: var(--card-border-dark, #30363d);
-}
-
-.cv-resume-tabs .nav-link {
-    border-radius: 50rem;
-    border: 1.5px solid var(--primary-color);
-    color: var(--primary-color);
-    background-color: transparent;
-    padding: 0.5rem 1.4rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-}
-
-.cv-resume-tabs .nav-link:hover {
-    background-color: rgba(0, 119, 182, 0.12);
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-.cv-resume-tabs .nav-link.active {
-    background-color: var(--primary-color) !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(0, 119, 182, 0.35);
-}
-
-body.dark-theme .cv-resume-tabs .nav-link {
-    border-color: var(--secondary-color, #38bdf8);
-    color: var(--secondary-color, #38bdf8);
-}
-
-body.dark-theme .cv-resume-tabs .nav-link:hover {
-    background-color: rgba(56, 189, 248, 0.15);
-    color: #ffffff;
-}
-
-body.dark-theme .cv-resume-tabs .nav-link.active {
-    background-color: var(--secondary-color, #38bdf8) !important;
-    color: #0f172a !important;
-    font-weight: 700;
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);
-}
-
-/* Dropdown Menu Dark Theme Support */
-body.dark-theme .dropdown-menu {
+body.dark-theme .cv-resume-dropdown-menu {
     background-color: var(--card-bg-dark, #161b22);
     border-color: var(--card-border-dark, #30363d);
     color: var(--text-color-dark, #e9eef8);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
 }
 
-body.dark-theme .dropdown-item {
+body.dark-theme .cv-resume-dropdown-menu .dropdown-item-label {
     color: var(--text-color-dark, #e9eef8);
-}
-
-body.dark-theme .dropdown-item:hover,
-body.dark-theme .dropdown-item:focus {
-    background-color: rgba(0, 119, 182, 0.22);
-    color: #38bdf8;
 }
 
 body.dark-theme .dropdown-divider {
