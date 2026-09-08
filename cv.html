@@ -120,30 +120,26 @@
             color: #0077b6;
         }
 
-        .competency-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px 14px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .competency-matrix {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
-        .competency-list li {
-            position: relative;
-            padding-left: 13px;
-            margin-bottom: 2px;
-            font-size: 0.79rem;
+        .competency-row {
+            font-size: 0.78rem;
+            line-height: 1.38;
             color: #334155;
-            line-height: 1.35;
         }
 
-        .competency-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
+        .competency-label {
+            font-weight: 600;
             color: #0077b6;
-            font-weight: bold;
+            margin-right: 4px;
+        }
+
+        .competency-value {
+            color: #334155;
         }
 
         .timeline {
@@ -354,14 +350,20 @@
 
                 <div class="section" style="margin-top: 10px;">
                     <h4 class="section-title">Core Competencies</h4>
-                    <ul class="competency-list">
-                        <li>B2B FinTech &amp; Invoice Financing</li>
-                        <li>Concurrency-Safe Validations</li>
-                        <li>HealthTech &amp; Clinical Systems</li>
-                        <li>Real-time WebSockets (Reverb)</li>
-                        <li>Maker-Checker State Machines</li>
-                        <li>DEV, SIT &amp; UAT Test Coordination</li>
-                    </ul>
+                    <div class="competency-matrix">
+                        <div class="competency-row">
+                            <span class="competency-label">Domain Expertise:</span>
+                            <span class="competency-value">B2B FinTech &amp; Supply Chain Financing &bull; HealthTech &amp; Clinical Systems Architecture</span>
+                        </div>
+                        <div class="competency-row">
+                            <span class="competency-label">System Architecture:</span>
+                            <span class="competency-value">State Machine &amp; Role-Based Workflows &bull; High-Concurrency Database Design &bull; Real-Time Event Broadcasting</span>
+                        </div>
+                        <div class="competency-row">
+                            <span class="competency-label">Engineering Lifecycle:</span>
+                            <span class="competency-value">End-to-End Feature Delivery &bull; Multi-Environment Release Management &bull; Secure Authentication &amp; RBAC Implementation</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
