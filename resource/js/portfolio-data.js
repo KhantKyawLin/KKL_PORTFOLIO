@@ -4,7 +4,7 @@ const projectsData = [
         id: "project_scf_banking",
         title: "Enterprise Supply Chain Financing (SCF) Platform",
         description: "A high-security, commercial B2B Supply Chain Financing & Digital Banking platform enabling enterprise anchors and corporate suppliers to manage invoice discounting, credit facilities, and multi-party customer linkages. As one of two backend developers, I architected the primary domain business logic, multi-stage Maker-Checker approval state machines (Entry, Amend, Resend, Approve, Reject, Reversal, Close) with atomic audit trails, and concurrency-safe facility limit calculations. Integrated real-time WebSocket event broadcasting (Laravel Reverb) for instant cross-platform synchronization and spearheaded end-to-end API testing across DEV, SIT, and UAT environments.",
-        technologies: ["Laravel 11", "PHP 8+", "MySQL", "Flutter", "WebSockets (Reverb)", "Docker", "RESTful APIs", "Git CI/CD"],
+        technologies: ["Laravel 11", "PHP 8+", "MySQL", "Flutter", "WebSockets (Reverb)", "RESTful APIs", "Git CI/CD"],
         images: []
     },
     {
