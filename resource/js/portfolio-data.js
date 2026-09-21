@@ -9,7 +9,7 @@ const projectsData = [
     },
     {
         id: "project1",
-        title: "Pharmacy Management System",
+        title: "VitalCare – Pharmacy Management & ERP System",
         description: "A secure full-stack application developed to manage pharmacy inventory, sales, and reporting. The system features a Laravel backend with secure RESTful APIs, JWT authentication, and role-based access control (RBAC) middleware, integrated with a modern React frontend styled with Tailwind CSS. Admins can securely manage medicines, categories, orders, and users, while customers can browse products, place orders, and manage accounts. Includes real-time inventory alerts, sales analytics, and bulk product management features.",
         technologies: ["React", "Tailwind CSS", "Laravel", "MySQL", "JWT Auth", "REST APIs"],
         images: [
@@ -43,7 +43,8 @@ const projectsData = [
             "resource/projects/vc_login.png"
         ],
         frontendLink: "https://github.com/KhantKyawLin/VitalCare_Pharmacy_Web",
-        backendLink: "https://github.com/KhantKyawLin/VitalCare_Pharmacy_Backend"
+        backendLink: "https://github.com/KhantKyawLin/VitalCare_Pharmacy_Backend",
+        demoLink: "https://vitalcare-pharmacy.vercel.app/"
     },
     {
         id: "project_synapse_study",
