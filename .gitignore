@@ -1,0 +1,6 @@
+node_modules/
+package.json
+package-lock.json
+*.js
+!resource/js/**
+resource/certificates/*_clean.pdf
